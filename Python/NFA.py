@@ -35,6 +35,12 @@ class NFA:
                 #returns true or false: operator() | * = true | + = true...
             
             for char in regex:
+                if (isoperator(char)):
+                    print('operator', char)
+                    #implement logic for each operator here
+                    #start with |
+                else:
+                    print('litteral:', char)
                 if stopklods == 1: # Single character, last char in regexp
                     transitions.setdefault(current_state, {}).setdefault(char, set()).add(current_state) #add the current state to states with "connnections"
                     accept_states.append(current_state) #If the last then this is the end and so accepting
@@ -50,8 +56,20 @@ class NFA:
 
         construct_nfa(regexp)
         
-        
         return NFA(states, alphabet, transitions, start_state, accept_states)
+
+
+def isoperator(char): #should be moved to a helper class
+    if (char == '*') : #make to switch cases
+        return True
+    elif (char == '+'):
+        return True
+    elif (char == '|'):
+        return True
+    elif (char == '?'):
+        return True
+    else: 
+        return False
 
 
 
