@@ -18,7 +18,7 @@ class NFA:
 
     def from_regexp(regexp):
         start_state = 'q0'
-        accept_states = []
+        accept_states = [] #This doesn't work yet
         states = [start_state]
         alphabet = set(regexp) - {'(', ')', '|', '*', '+', '?'} # extend if more operators are used
         transitions = {}
@@ -36,40 +36,37 @@ class NFA:
             
             branch_states = []  # Store the states for each branch
             groupList = []
-            noGroup = []
-            dividedList = []
             
-            for i, char in enumerate(regex):
-                if (char == '('): #grouping
-                    group = grouping(regex[i + 1:]) #pass on from ith index and the rest of the regex. Removing '(' with +1
-                    for char1 in group:
-                        print(f"the group: {char1}") #there are the correct things in the group:)
-                        #do the logic here
-                    #When grouping is done, remember to move the state counter, and stopklods (noget alla stopklods -= (len(grouping)))
+            #Make groupes - ()
+            i = 0
+            while (i < len(regex)):
+                char = regex[i]
+                if char == '(': #Make a list of chars, the list of groups
+                    group = grouping(regex[i + 1:])  # pass on from ith index and the rest of the regex. Removing '(' with +1
                     groupList.append(group)
-                    #Lav liste med lister - liste med grupper
-                    dividedList.append(group)
-                    i += len(group)
+                    i += len(group) + 2  # move i past the group and the closing ')'
                 else:
-                    noGroup.append(char)
-                    groupList.append(noGroup)
-    
-            #For løkke over liste med grupper
-                        #For each group in list
-            
-            for group in groupList: 
+                    groupList.append(char)
+                    i += 1
+            print('groupList:', groupList)
+           
+            #Itterate over list of groups
+            for i, group in enumerate(groupList): #maybe better with while - more control over i(make it j to avoid confusion)
+                print(f"group {i}: {group}")
+                
+                #operator logic
                 if (isoperator(char)):
-                    print('operator', char)
                     #implement logic for each operator here
-                    #start with |
                     if (char == '|' ):
-                        print('OR:)')
-                            #save Lside and Rside
-                            #call recursively on each side but incorporate the logic.
-                                # maybe
+                        pass
+                        #group[i-1] og group[i+1] er her 'a' og 'b' i 'a|b', da i er '|' : måske vigtigt?
+                                                # og så '(ab)' og '(cd)' i '(ab)|(cd)'
+                        #save Lside and Rside
+                        #call recursively on each side but incorporate the logic.
+                            # maybe
 
+                #litteral logic
                 if char in alphabet:
-                    print('litteral:', char)
                     if stopklods == 1: # Single character, last char in regexp
                         transitions.setdefault(current_state, {}).setdefault(char, set()).add(current_state) #add the current state to states with "connnections"
                         accept_states.append(current_state) #If the last then this is the end and so accepting
@@ -85,14 +82,17 @@ class NFA:
             # common_state = 'q' + str(state_counter)
             # state_counter += 1
     
+    
         #recognises groupings
         def grouping(charList):  #itterate through all the chars until ')' and return this collection
             group = []
             for char in charList:
                 if (char == ')'):
+                    print('end')
                     return group
                 else:
                     group.append(char)
+                print(group)
             raise SyntaxError('error, expected grouping to be closed, expected )')
 
         #recognises operators
@@ -151,7 +151,7 @@ print("Start State:", nfa1.start_state)
 print("------------------------")
 
 print("------------------------")
-regexp2 = "(ab)"
+regexp2 = "a|b"
 nfa2 = NFA.from_regexp(regexp2)
 print("regexpr:", regexp2)
 print("States:", nfa2.states)
@@ -162,14 +162,25 @@ print("Accept States:", nfa2.accept_states)
 print("------------------------")
 
 print("------------------------")
-regexp2 = "(ab)(cd)"
-nfa2 = NFA.from_regexp(regexp2)
-print("regexpr:", regexp2)
-print("States:", nfa2.states)
-print("Alphabet:", nfa2.alphabet)
-print("Transitions:", nfa2.transitions)
-print("Start State:", nfa2.start_state)
-print("Accept States:", nfa2.accept_states)
+regexp3 = "(ab)"
+nfa3 = NFA.from_regexp(regexp3)
+print("regexpr:", regexp3)
+print("States:", nfa3.states)
+print("Alphabet:", nfa3.alphabet)
+print("Transitions:", nfa3.transitions)
+print("Start State:", nfa3.start_state)
+print("Accept States:", nfa3.accept_states)
+print("------------------------")
+
+print("------------------------")
+regexp4 = "(ab)(cd)"
+nfa4 = NFA.from_regexp(regexp4)
+print("regexpr:", regexp4)
+print("States:", nfa4.states)
+print("Alphabet:", nfa4.alphabet)
+print("Transitions:", nfa4.transitions)
+print("Start State:", nfa4.start_state)
+print("Accept States:", nfa4.accept_states)
 print("------------------------")
 
 #To check the error raising in grouping.
@@ -183,15 +194,3 @@ print("------------------------")
 # print("Start State:", nfa2.start_state)
 # print("Accept States:", nfa2.accept_states)
 # print("------------------------")
-
-print("------------------------")
-regexp2 = "a|b"
-nfa2 = NFA.from_regexp(regexp2)
-print("regexpr:", regexp2)
-print("States:", nfa2.states)
-print("Alphabet:", nfa2.alphabet)
-print("Transitions:", nfa2.transitions)
-print("Start State:", nfa2.start_state)
-print("Accept States:", nfa2.accept_states)
-print("------------------------")
-
