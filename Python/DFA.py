@@ -12,3 +12,5 @@ class DFA:
         #Implemet here
         pass
 
+#Currently epsilon does not appear in NFA, but the epsilon closure is part of conversion
+#Læs i method afsnit

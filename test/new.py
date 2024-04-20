@@ -5,13 +5,11 @@
 #operators to start with:
     # | : or
     # + : one or more
+    # * : zero or more
     # ? : zero or one
-    # . : any character
-        #this is a 'weird' behaviour, kinda wild card 
-        #works in principle and can be expanded. This can be used to show ^
 
 class NFA:
-    def __init__(self, states, alphabet, transitions, start_state, accept_states): #is innit nessesary?
+    def __init__(self, states, alphabet, transitions, start_state, accept_states):
         self.states = states
         self.alphabet = alphabet
         self.transitions = transitions
@@ -20,9 +18,9 @@ class NFA:
 
     def from_regexp(regexp):
         start_state = 'q0'
-        accept_states = []
+        accept_states = [] #This doesn't work yet
         states = [start_state]
-        alphabet = set(regexp) - {'(', ')'} #, '|', '.', '+', '?'} # extend if more operators are used
+        alphabet = set(regexp) - {'(', ')', '|', '*', '+', '?'} # extend if more operators are used
         transitions = {}
 
         # building NFA from regexp, could be done recursively
@@ -35,59 +33,71 @@ class NFA:
             # "switch case" on operators that sends on
             # if operator() then 
                 #returns true or false: operator() | * = true | + = true...
+            
+            branch_states = []  # Store the states for each branch
+            groupList = []
+            
+            #Make groupes - ()
+            i = 0
+            while (i < len(regex)):
+                char = regex[i]
+                if char == '(': #Make a list of chars, the list of groups
+                    group = grouping(regex[i + 1:])  # pass on from ith index and the rest of the regex. Removing '(' with +1
+                    groupList.append(group)
+                    i += len(group) + 2  # move i past the group and the closing ')'
+                else:
+                    groupList.append(char)
+                    i += 1
+            print('groupList:', groupList)
+           
+            #Itterate over list of groups
+            for i, group in enumerate(groupList): #maybe better with while - more control over i(make it j to avoid confusion)
+                print(f"group {i}: {group}")
+                
+                #operator logic
+                if (isoperator(char)):
+                    #implement logic for each operator here
+                    if (char == '|' ):
+                        pass
+                        #group[i-1] og group[i+1] er her 'a' og 'b' i 'a|b', da i er '|' : måske vigtigt?
+                                                # og så '(ab)' og '(cd)' i '(ab)|(cd)'
+                        #save Lside and Rside
+                        #call recursively on each side but incorporate the logic.
+                            # maybe
 
-            groups = grouping(regex) #divide into groups
-                #Skærer ( og ) fra :)
-            for group in groups:
-            for char in group: # instead of for char in regex:
-            
-            
-            for char in regex: 
+                #litteral logic
                 if char in alphabet:
-                    new_state = 'q' + str(state_counter) #naming new state
                     if stopklods == 1: # Single character, last char in regexp
                         transitions.setdefault(current_state, {}).setdefault(char, set()).add(new_state) #add the current state to states with "connnections"
                         accept_states.append(new_state) #If the last then this is the end and so accepting
-                        return     
+                        return
+                                
+                    new_state = 'q' + str(state_counter) #naming new state
                     transitions.setdefault(current_state, {}).setdefault(char, set()).add(new_state) # from current state to new state into transitions
                     states.append(new_state) #add new state to states
                     current_state = new_state
                     stopklods -= 1
                     state_counter += 1
-                    
+                
+            # common_state = 'q' + str(state_counter)
+            # state_counter += 1
+    
+    
         #recognises groupings
-        def grouping(regexp):
-            # inGroup = False # For another idea - gemt i Onenote "Design -> NFA grouping anden ide"
-            depth = 0 # For nested parentheses, count how many groups need to be closed
-            grouping = []
+        def grouping(charList):  #itterate through all the chars until ')' and return this collection
             group = []
-            stopklods = len(regexp) #Makes sure that the last group will be added
-            
-            for char in regexp:
-                if char == '(':
-                    depth += 1
-                    if group != []: # for the group that is outside a () will be added before resetting
-                        grouping.append(group)
-                    group = [] # Reset so that it wont continue a finished group, may have been done in elif, but may also not
-                elif char == ')':
-                    depth -= 1
-                    if group != []:
-                        grouping.append(group) # slut på group, tilføj til grouping og nulstil
-                    group = [] # This group is done, so reset
+            for char in charList:
+                if (char == ')'):
+                    print('end')
+                    return group
                 else:
-                    if char != ' ': # makes sure space is ignored
-                        group.append(char)
-                if stopklods == 1: # Makes sure that the last group will be added if no parenthesis are found
-                    if depth != 0:
-                        raise SyntaxError(f"mismatch in parentheses in the regular expression: {regexp}")
-                    if group != []: #If there are no parentheses then this group is the last and only once stopklods = 1
-                        grouping.append(group)
-                stopklods -= 1
-            return grouping
-            
+                    group.append(char)
+                print(group)
+            raise SyntaxError('error, expected grouping to be closed, expected )')
+
         #recognises operators
         def isoperator(char): #should be moved to a helper class?
-            if (char == '.') : #make to switch cases
+            if (char == '*') : #make to switch cases
                 return True
             elif (char == '+'):
                 return True
@@ -100,7 +110,7 @@ class NFA:
         
         #Does the logic and adds transitions for each operator
         def operatorOr(charList):
-            pass #Should maybe pass to sepperate functions too to avoid a very large function
+            pass
         def operatorStar(charList):
             pass   
         def operatorPlus(charList):
@@ -116,9 +126,6 @@ class NFA:
 
 
 # Testing
-# tests for the 'grouping' method in sepperate file
-
-#Completely basic
 print("------------------------")
 regexp = "abc"
 nfa = NFA.from_regexp(regexp)
@@ -130,8 +137,9 @@ print("Start State:", nfa.start_state)
 print("Accept States:", nfa.accept_states)
 print("------------------------")
 
-#Den her er forkert. Den vil kun give {'q0': {'a': {'q0'}}}, Mangler en q1.
-print("------------------------")
+print("")
+
+print("------------------------")#Den her er forkert. Den vil kun give {'q0': {'a': {'q0'}}}, Mangler en q1.
 regexp1 = "a"
 nfa1 = NFA.from_regexp(regexp1)
 print("regexpr:", regexp1)
@@ -139,23 +147,20 @@ print("States:", nfa1.states)
 print("Alphabet:", nfa1.alphabet)
 print("Transitions:", nfa1.transitions)
 print("Start State:", nfa1.start_state)
-print("Accept States:", nfa1.accept_states)
+#print("Accept States:", nfa1.accept_states)
 print("------------------------")
 
-#can recognise operators and litterals
-#Make this after operators are done
-# print("------------------------")
-# regexp2 = "a|b"
-# nfa2 = NFA.from_regexp(regexp2)
-# print("regexpr:", regexp2)
-# print("States:", nfa2.states)
-# print("Alphabet:", nfa2.alphabet)
-# print("Transitions:", nfa2.transitions)
-# print("Start State:", nfa2.start_state)
-# print("Accept States:", nfa2.accept_states)
-# print("------------------------")
+print("------------------------")
+regexp2 = "a|b"
+nfa2 = NFA.from_regexp(regexp2)
+print("regexpr:", regexp2)
+print("States:", nfa2.states)
+print("Alphabet:", nfa2.alphabet)
+print("Transitions:", nfa2.transitions)
+print("Start State:", nfa2.start_state)
+print("Accept States:", nfa2.accept_states)
+print("------------------------")
 
-#can dicide into groupings
 print("------------------------")
 regexp3 = "(ab)"
 nfa3 = NFA.from_regexp(regexp3)
@@ -168,7 +173,7 @@ print("Accept States:", nfa3.accept_states)
 print("------------------------")
 
 print("------------------------")
-regexp4 = "abc (a)(b)"
+regexp4 = "(ab)(cd)"
 nfa4 = NFA.from_regexp(regexp4)
 print("regexpr:", regexp4)
 print("States:", nfa4.states)
@@ -177,29 +182,6 @@ print("Transitions:", nfa4.transitions)
 print("Start State:", nfa4.start_state)
 print("Accept States:", nfa4.accept_states)
 print("------------------------")
-
-print("------------------------")
-regexp4 = "abc (a) d (b)"
-nfa4 = NFA.from_regexp(regexp4)
-print("regexpr:", regexp4)
-print("States:", nfa4.states)
-print("Alphabet:", nfa4.alphabet)
-print("Transitions:", nfa4.transitions)
-print("Start State:", nfa4.start_state)
-print("Accept States:", nfa4.accept_states)
-print("------------------------")
-
-
-# print("------------------------")
-# regexp4 = "(ab)(cd)"
-# nfa4 = NFA.from_regexp(regexp4)
-# print("regexpr:", regexp4)
-# print("States:", nfa4.states)
-# print("Alphabet:", nfa4.alphabet)
-# print("Transitions:", nfa4.transitions)
-# print("Start State:", nfa4.start_state)
-# print("Accept States:", nfa4.accept_states)
-# print("------------------------")
 
 #To check the error raising in grouping.
 # print("------------------------")
@@ -212,7 +194,3 @@ print("------------------------")
 # print("Start State:", nfa2.start_state)
 # print("Accept States:", nfa2.accept_states)
 # print("------------------------")
-
-#Needed:
-#To check groupings AND operators:
-#regex6 = "(a|b)|a"
