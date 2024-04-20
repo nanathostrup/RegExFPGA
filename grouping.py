@@ -45,7 +45,9 @@ print('string0:', grouping(stringnn))  # Output: ['abcd', 'a', 'b']
 
 #Nested parentheses
 stringnest0 = "(a(b))"
+stringnest1 = "(a(a(a(a(a(a))))))"
 print('stringnest0:', grouping(stringnest0))
+print('stringnest1:', grouping(stringnest1))
 
 #Error message testing:
 stringerror0 = "(ab"

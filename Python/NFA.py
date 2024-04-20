@@ -22,43 +22,39 @@ class NFA:
         start_state = 'q0'
         accept_states = []
         states = [start_state]
-        alphabet = set(regexp) - {'(', ')'} #, '|', '.', '+', '?'} # extend if more operators are used
+        alphabet = set(regexp) - {'(', ')', ' '} #, '|', '.', '+', '?'} # extend if more operators are used
         transitions = {}
 
         # building NFA from regexp, could be done recursively
         def construct_nfa(regex):
             current_state = start_state # initialises the start_state
-            stopklods = len(regex) # The total amount of chars to go throug, will be decreased as a counter
+            # stopklods = len(regex) # The total amount of chars to go throug, will be decreased as a counter
             state_counter = 1 #used to name the states 'qn', and a counter later on
+            groups = grouping(regex) # Divide into groups. Skærer '(' og ')' og ' ' (mellemrum) fra :)
             
-            # start to divide into functions that recognise litterals and operators
-            # "switch case" on operators that sends on
-            # if operator() then 
-                #returns true or false: operator() | * = true | + = true...
-
-            groups = grouping(regex) #divide into groups
-                #Skærer ( og ) fra :)
             for group in groups:
-            for char in group: # instead of for char in regex:
+                new_state, state_counter = process_group(group, current_state, state_counter)
+                current_state = new_state
+            accept_states.append(new_state)
+            return 
             
-            
-            for char in regex: 
+        def process_group(group, current_state, state_counter):
+            new_state = current_state  # Initialize the new state with the current state
+            for char in group:
+                #operator logic here
                 if char in alphabet:
-                    new_state = 'q' + str(state_counter) #naming new state
-                    if stopklods == 1: # Single character, last char in regexp
-                        transitions.setdefault(current_state, {}).setdefault(char, set()).add(new_state) #add the current state to states with "connnections"
-                        accept_states.append(new_state) #If the last then this is the end and so accepting
-                        return     
-                    transitions.setdefault(current_state, {}).setdefault(char, set()).add(new_state) # from current state to new state into transitions
-                    states.append(new_state) #add new state to states
-                    current_state = new_state
-                    stopklods -= 1
-                    state_counter += 1
-                    
-        #recognises groupings
+                    new_state = 'q' + str(state_counter)  # Naming new state
+                    transitions.setdefault(current_state, {}).setdefault(char, set()).add(new_state)  # Add transition
+                    states.append(new_state)  # Add new state to states
+                    current_state = new_state  # Update current state
+                    state_counter += 1  # Increment state counter
+
+            return new_state, state_counter #State counter is also returned so it is not overwritten in construct_nfa
+                      
+        #divides into groups
         def grouping(regexp):
             # inGroup = False # For another idea - gemt i Onenote "Design -> NFA grouping anden ide"
-            depth = 0 # For nested parentheses, count how many groups need to be closed
+            depth = 0 # For nested parentheses, counts how many parentheses need to be closed
             grouping = []
             group = []
             stopklods = len(regexp) #Makes sure that the last group will be added
@@ -86,9 +82,11 @@ class NFA:
             return grouping
             
         #recognises operators
-        def isoperator(char): #should be moved to a helper class?
+        #make this function pass on to the sepperate methods
+        def is_operator(char):
             if (char == '.') : #make to switch cases
                 return True
+                #Pass to operatorDot()
             elif (char == '+'):
                 return True
             elif (char == '|'):
@@ -99,13 +97,13 @@ class NFA:
                 return False
         
         #Does the logic and adds transitions for each operator
-        def operatorOr(charList):
+        def operator_or(charList):
             pass #Should maybe pass to sepperate functions too to avoid a very large function
-        def operatorStar(charList):
+        def operator_dot(charList):
             pass   
-        def operatorPlus(charList):
+        def operator_plus(charList):
             pass
-        def operatorQuestion(charList):
+        def operator_question(charList):
             pass   
         
         
@@ -142,6 +140,54 @@ print("Start State:", nfa1.start_state)
 print("Accept States:", nfa1.accept_states)
 print("------------------------")
 
+#can dicide into groupings
+print("------------------------")
+regexp3 = "(ab)"
+nfa3 = NFA.from_regexp(regexp3)
+print("regexpr:", regexp3)
+print("States:", nfa3.states)
+print("Alphabet:", nfa3.alphabet)
+print("Transitions:", nfa3.transitions)
+print("Start State:", nfa3.start_state)
+print("Accept States:", nfa3.accept_states)
+print("------------------------")
+
+# Multiple groups
+print("------------------------")
+regexp4 = "(ab)(cd)"
+nfa4 = NFA.from_regexp(regexp4)
+print("regexpr:", regexp4)
+print("States:", nfa4.states)
+print("Alphabet:", nfa4.alphabet)
+print("Transitions:", nfa4.transitions)
+print("Start State:", nfa4.start_state)
+print("Accept States:", nfa4.accept_states)
+print("------------------------")
+
+#can do groups in both () and without
+print("------------------------")
+regexp4 = "abc (a)(b)"
+nfa4 = NFA.from_regexp(regexp4)
+print("regexpr:", regexp4)
+print("States:", nfa4.states)
+print("Alphabet:", nfa4.alphabet)
+print("Transitions:", nfa4.transitions)
+print("Start State:", nfa4.start_state)
+print("Accept States:", nfa4.accept_states)
+print("------------------------")
+
+#Spaces
+print("------------------------")
+regexp4 = "ab c (a) d ( b )"
+nfa4 = NFA.from_regexp(regexp4)
+print("regexpr:", regexp4)
+print("States:", nfa4.states)
+print("Alphabet:", nfa4.alphabet)
+print("Transitions:", nfa4.transitions)
+print("Start State:", nfa4.start_state)
+print("Accept States:", nfa4.accept_states)
+print("------------------------")
+
 #can recognise operators and litterals
 #Make this after operators are done
 # print("------------------------")
@@ -155,53 +201,7 @@ print("------------------------")
 # print("Accept States:", nfa2.accept_states)
 # print("------------------------")
 
-#can dicide into groupings
-print("------------------------")
-regexp3 = "(ab)"
-nfa3 = NFA.from_regexp(regexp3)
-print("regexpr:", regexp3)
-print("States:", nfa3.states)
-print("Alphabet:", nfa3.alphabet)
-print("Transitions:", nfa3.transitions)
-print("Start State:", nfa3.start_state)
-print("Accept States:", nfa3.accept_states)
-print("------------------------")
-
-print("------------------------")
-regexp4 = "abc (a)(b)"
-nfa4 = NFA.from_regexp(regexp4)
-print("regexpr:", regexp4)
-print("States:", nfa4.states)
-print("Alphabet:", nfa4.alphabet)
-print("Transitions:", nfa4.transitions)
-print("Start State:", nfa4.start_state)
-print("Accept States:", nfa4.accept_states)
-print("------------------------")
-
-print("------------------------")
-regexp4 = "abc (a) d (b)"
-nfa4 = NFA.from_regexp(regexp4)
-print("regexpr:", regexp4)
-print("States:", nfa4.states)
-print("Alphabet:", nfa4.alphabet)
-print("Transitions:", nfa4.transitions)
-print("Start State:", nfa4.start_state)
-print("Accept States:", nfa4.accept_states)
-print("------------------------")
-
-
-# print("------------------------")
-# regexp4 = "(ab)(cd)"
-# nfa4 = NFA.from_regexp(regexp4)
-# print("regexpr:", regexp4)
-# print("States:", nfa4.states)
-# print("Alphabet:", nfa4.alphabet)
-# print("Transitions:", nfa4.transitions)
-# print("Start State:", nfa4.start_state)
-# print("Accept States:", nfa4.accept_states)
-# print("------------------------")
-
-#To check the error raising in grouping.
+# To check the error raising in grouping. Should raise an error.
 # print("------------------------")
 # regexp2 = "(ab)(cd"
 # nfa2 = NFA.from_regexp(regexp2)
