@@ -40,8 +40,8 @@ print('string3:', grouping(string3))
 
 stringn = "abc(a)(b)" # Groups with and with out parenthesis
 stringnn = "abc(a)d(b)" # Mix between using parenthesis and not
-print('string0:', grouping(stringn))  # Output: ['abc', 'a', 'b']
-print('string0:', grouping(stringnn))  # Output: ['abcd', 'a', 'b']
+print('string0:', grouping(stringn)) 
+print('string0:', grouping(stringnn))
 
 #Nested parentheses
 stringnest0 = "(a(b))"
