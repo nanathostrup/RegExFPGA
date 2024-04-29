@@ -128,23 +128,30 @@ class NFA:
         
         return NFA(states, alphabet, transitions, start_state, accept_states)
 
+
     def matches(self, input_string):
         # print(input_string)
         in_state = self.start_state
         # print('len:', len(input_string))
+    #This may have to be put some place else...
         for i in range(len(input_string)):
-            # print('input_string[i]:', input_string[i])
-            # print('i:', i)
-            for transition in self.transitions:
-                # If the from state in transition and the current character in the input string is the transition arrow
-                if transition[0] == in_state and input_string[i] == transition[1]:
-                    #Then the next transition can be traveled to
-                    in_state = transition[2]
-                    # print('in_state:', in_state)
-                    if in_state in self.accept_states: #in nfa it is true that if at any point an accepting state is reached, then it matches and funciton terminates
-                        return True
-            i += 1
+                # print('input_string[i]:', input_string[i])
+                # print('i:', i)
+            # for state in self.states: 
+                for transition in self.transitions:
+                    # If the from state in transition and the current character in the input string is the transition arrow
+                    if transition[0] == in_state and input_string[i] == transition[1]:
+                        #Then the next transition can be traveled to
+                        in_state = transition[2]
+                        # print('in_state:', in_state)
+                        if in_state in self.accept_states: #in nfa it is true that if at any point an accepting state is reached, then it matches and funciton terminates
+                            return True
+                i += 1
         return False #if in_state not in self.accept_states, then it does not match
+
+    # Stuff from online example
+
+
 
 
 # Testing

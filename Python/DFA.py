@@ -1,12 +1,4 @@
-import NFA #Probably not nessesary
-
-# class DFA:
-#     def __init__(self, states, alphabet, transition, start_state, accept_states):
-#         self.states = states
-#         self.alphabet = alphabet
-#         self.transition = transition
-#         self.start_state = start_state
-#         self.accept_states = accept_states
+import NFA
 
 #     # def from_nfa(nfa):
 #     #     # https://www.geeksforgeeks.org/conversion-from-nfa-to-dfa/
@@ -17,92 +9,122 @@ import NFA #Probably not nessesary
 #     #     # Step 5: Simplify the DFA
 #     #     # Step 6: Repeat steps 3-5 until no further simplification is possible
 
-#     def from_nfa(nfa):
-#         start_state = frozenset([nfa.start_state])
-#         transitions = {}
-#         queue = [start_state]
-#         states = set([start_state])
-#         accept_states = []
-#         alphabet = nfa.alphabet
-
-#         while queue:
-#             current_state = queue.pop(0)
-#             if isinstance(current_state, str):
-#                 current_state = frozenset([current_state])
-#             if current_state.intersection(nfa.accept_states):
-#                 accept_states.append(current_state)
-#             for symbol in alphabet:
-#                 next_states = set()
-#                 for state in current_state:
-#                     for transition in nfa.transitions:
-#                         if transition[0] == state and transition[1] == symbol:
-#                             next_states.add(transition[2])
-#                 next_state = frozenset(next_states)
-#                 transitions.setdefault(current_state, {})[symbol] = next_state
-#                 if next_state not in states:
-#                     states.add(next_state)
-#                     queue.append(next_state)
-
-#         return DFA(states, alphabet, transitions, start_state, accept_states)
-
 class DFA:
-    def __init__(self, states, alphabet, transition, start_state, accept_states):
+    def __init__(self, states, alphabet, transitions, start_state, accept_states):
         self.states = states
         self.alphabet = alphabet
-        self.transition = transition
+        self.transitions = transitions
         self.start_state = start_state
         self.accept_states = accept_states
 
-    @staticmethod
-    def from_nfa(nfa):
-        start_state = frozenset([nfa.start_state])
-        transitions = {}
-        queue = [start_state]
-        states = set([start_state])
+    # def from_nfa(self, nfa):
+    #     self.move(self, nfa)        
+    
+    def from_nfa(self, nfa):
+    # def move(nfa): # move function
+        print('in move')
+        states = []
+        accept_states = [] 
+        alphabet = nfa.alphabet - {'eps'} #the same alphabet except the empty string
+        start_state = []
+        transitions = []
+        newList = []
+        nfa_dfa = [] #Tracks the nfa states that belong in the new dfa state
         
-        # Convert accept_states to a set here
-        accept_states = set(nfa.accept_states)
-        
-        alphabet = nfa.alphabet
+        state_counter = 0 # to keep track of states and to name the states as well
+        in_accepting = False #if a state in nfa is accepting is encountered, then this is used
+        oldList = [] #To keep track of prior newList, and if 
+        in_state = nfa.start_state
+        # queue = [start_state]
+        # new_state = 's' + str(state_counter)
 
-        while queue:
-            current_state = queue.pop(0)
-            if isinstance(current_state, str):
-                current_state = frozenset([current_state])
-            # Now you can safely perform the intersection
-            if current_state.intersection(accept_states):
-                accept_states.append(current_state)
-            for symbol in alphabet:
-                next_states = set()
-                for state in current_state:
+        #epsilon closure on start state, initializing/starting the dfa
+        # print('start state')
+        # print('nfa.states[0]:', nfa.states[0])
+        newList.append(nfa.states[0])
+        newList, in_accepting = self.epsilonClosure(nfa, newList, in_accepting)
+        to_insert = []
+        to_insert.append(newList)
+        to_insert.append('start')
+        nfa_dfa.append(to_insert)
+        print('oldList:', oldList)
+        
+        #inserting this new state to relevant state trackers
+        new_state = 's' + str(state_counter)  # Naming new state
+        states.append(new_state)
+        start_state.append(new_state)
+        if in_accepting == True:
+            accept_states.append(new_state)
+        state_counter += 1
+
+        #there are no transitions yet, this is only the start state.
+
+
+        # kinda rigtigt neden under, men den itterer over nfa states i stedet for de dfa states der kommer til som i movefuntionen.
+        # for states in nfa.states:
+        # for i in range(len(states)): #dfa states
+        #     for symbol in alphabet: #dfa's alphabet
+        #         for transition in nfa.transitions: #the transitions that are searched through in move()
+        #             if transition[0] == nfa.states[i] in the dfa state
+
+        print(nfa_dfa)
+        for dfa_state in nfa_dfa:
+            print('newList:', newList)
+            print('dfa_state', dfa_state)
+            if dfa_state[0] != []:
+                for symbol in alphabet:
+                    newList = [] #reset for new symbol in alphabet
+                    in_accepting = False #reset for new symbol
                     for transition in nfa.transitions:
-                        if transition[0] == state and transition[1] == symbol:
-                            next_states.add(transition[2])
-                next_state = frozenset(next_states)
-                transitions.setdefault(current_state, {})[symbol] = next_state
-                if next_state not in states:
-                    states.add(next_state)
-                    queue.append(next_state)
+                        #if the state going out from nfa is the current symbol, then the next state should be added to the dfa states
+                        if (transition[0] in dfa_state[0]) and transition[1] == symbol:
+                            # if transition[2] in nfa.accepting_states:
+                            #     in_accepting = True
+                            newList.append(transition[2])
+                    # print('newList before epsilon closure:', newList) #Can be used to check if epsilon closure works and _
+                    newList, in_accepting = self.epsilonClosure(nfa, newList, in_accepting)
+                    # print('newList after epsilon closure:', newList) #Can be used to check if epsilon closure works and ^
+                    
+                    #If there are new states to add:
+                    if newList != []:
+                        to_insert = []
+                        to_insert.append(newList)
+                        to_insert.append(symbol)
+                        nfa_dfa.append(to_insert)
+                        # THIS ^^ COULD BE DONE TWICE IN IF STATEMENT BELLOW, LOOK INTO, MAKE BETTER
 
+                        #if not exist already, then a new state is made
+                        if newList not in dfa_state:
+                            new_state = 's' + str(state_counter)  # Naming new state
+                            states.append(new_state)
+                            state_counter += 1
+                            #if any nfa state in the newList is accepting then the new dfa state should also be accepting
+                            if in_accepting:
+                                accept_states.append(to_insert)
+                         #if the list already exists, then a new transition should be added
+                        elif newList in dfa_state:
+                            #transition skal addes med symbol
+                            pass
+
+        print('nfa_dfa:', nfa_dfa)
         return DFA(states, alphabet, transitions, start_state, accept_states)
 
 
-def move(states, symbol):
-    """
-    Function to compute the set of states reachable from a given set of states
-    using a specific input symbol.
-    """
-    new_states = set()
-    for state in states:
-        # Compute the set of states reachable from 'state' using 'symbol'
-        # Add them to 'new_states'
-    return new_states
+    
+    def epsilonClosure(self, nfa, newList, in_accepting):
+        for state in newList:
+            for transition in nfa.transitions:
+                if transition[1] == 'eps' and transition[0] == state:
+                    newList.append(transition[2])
+                    
+        #if any state in nfa in this list is accepting then the dfa state should be accepting
+        if any(state in nfa.accept_states for state in newList): #could be set up into the other method. 
+            print('in_accepting')
+            in_accepting = True
+        
+        return newList, in_accepting
 
-def closure(states):
-    """
-    Function to compute the closure of a set of states in the NFA.
-    """
-    # Implement the closure algorithm to compute the epsilon closure of 'states'
+
 
 # Define the NFA transitions and final states
 
@@ -126,17 +148,66 @@ def closure(states):
 
 
 
-# Usage example:
+print("------------------------")
+print("------------------------")
+regex = "a"
 nfa = NFA
-nfa = nfa.NFA.from_regexp("a")
-print(f"nfa acceptstates: {nfa.accept_states}")
-dfa = DFA
-dfa = dfa.from_nfa(nfa)
+nfa = nfa.NFA.from_regexp(regex)
+# nfa.states = ['q0', 'q1', 'q3', 'q4', 'q5']
+# nfa.alphabet = {'a', 'b'}
+# nfa.transitions = [['q0', 'eps', 'q1'], ['q0', 'eps', 'q3'], ['q1', 'a', 'q2'], ['q2', 'eps', 'q5'], ['q3', 'b', 'q4'], ['q4', 'eps', 'q5']]
+# nfa.accept_states = ['q5']
+print("regexpr:", regex)
+print("States:", nfa.states)
+print("Alphabet:", nfa.alphabet)
+print("Transitions:", nfa.transitions)
+print("Start State:", nfa.start_state)
+print("Accept States:", nfa.accept_states)
 
-# nfa.from_regexp("a")
-# print(nfa.accept_states)
-# nfa = NFA(states={'q0', 'q1'}, alphabet={'0', '1'}, transitions=[], start_state='q0', accept_states=['q1'])
-# dfa = DFA.from_nfa(nfa)
+print("~~~~~~~~~~~~~~~~~~~~~~~~")
+states = []
+alphabet = {}
+transitions = []
+start_state = []
+accept_states = []
+dfa = DFA(states, alphabet, transitions, start_state, accept_states)
+dfa = dfa.from_nfa(nfa)
+print("Alphabet:", dfa.alphabet)
+print("States:", dfa.states)
+print("Transitions:", dfa.transitions)
+print("Start State:", dfa.start_state)
+print("Accept States:", dfa.accept_states)
+print("------------------------")
+
+print("------------------------")
+regex = "a|b"
+nfa.states = ['q0', 'q1', 'q3', 'q4', 'q5']
+nfa.alphabet = {'a', 'b', 'eps'}
+nfa.transitions = [['q0', 'eps', 'q1'], ['q0', 'eps', 'q3'], ['q1', 'a', 'q2'], ['q2', 'eps', 'q5'], ['q3', 'b', 'q4'], ['q4', 'eps', 'q5']]
+nfa.accept_states = ['q5']
+print("regexpr:", regex)
+print("States:", nfa.states)
+print("Alphabet:", nfa.alphabet)
+print("Transitions:", nfa.transitions)
+print("Start State:", nfa.start_state)
+print("Accept States:", nfa.accept_states)
+
+print("~~~~~~~~~~~~~~~~~~~~~~~~")
+states = []
+alphabet = {}
+transitions = []
+start_state = []
+accept_states = []
+dfa = DFA(states, alphabet, transitions, start_state, accept_states)
+dfa1 = dfa.from_nfa(nfa)
+print("Alphabet:", dfa1.alphabet)
+print("States:", dfa1.states)
+print("Transitions:", dfa1.transitions)
+print("Start State:", dfa1.start_state)
+print("Accept States:", dfa1.accept_states)
+
+
+
 
 #Currently epsilon does not appear in NFA, but the epsilon closure is part of conversion
 #Læs i method afsnit
