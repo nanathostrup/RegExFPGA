@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/project/sme_intro.csproj": {}
+    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/Project/sme_intro.csproj": {}
   },
   "projects": {
-    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/project/sme_intro.csproj": {
+    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/Project/sme_intro.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/project/sme_intro.csproj",
+        "projectUniqueName": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/Project/sme_intro.csproj",
         "projectName": "sme_intro",
-        "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/project/sme_intro.csproj",
+        "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/Project/sme_intro.csproj",
         "packagesPath": "/Users/nanathostrupdavidsen/.nuget/packages/",
-        "outputPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/project/obj/",
+        "outputPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/Project/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/nanathostrupdavidsen/.nuget/NuGet/NuGet.Config"
@@ -26,23 +26,23 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.AST/SME.AST.csproj": {
-                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.AST/SME.AST.csproj"
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.AST/SME.AST.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.AST/SME.AST.csproj"
               },
-              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Components/SME.Components.csproj": {
-                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Components/SME.Components.csproj"
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.Components/SME.Components.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.Components/SME.Components.csproj"
               },
-              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.GraphViz/SME.GraphViz.csproj": {
-                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.GraphViz/SME.GraphViz.csproj"
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.GraphViz/SME.GraphViz.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.GraphViz/SME.GraphViz.csproj"
               },
-              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Tracer/SME.Tracer.csproj": {
-                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Tracer/SME.Tracer.csproj"
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.Tracer/SME.Tracer.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.Tracer/SME.Tracer.csproj"
               },
-              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.VHDL/SME.VHDL.csproj": {
-                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.VHDL/SME.VHDL.csproj"
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.VHDL/SME.VHDL.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.VHDL/SME.VHDL.csproj"
               },
-              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj": {
-                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj"
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME/SME.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME/SME.csproj"
               }
             }
           }
@@ -90,14 +90,14 @@
         }
       }
     },
-    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.AST/SME.AST.csproj": {
+    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.AST/SME.AST.csproj": {
       "version": "0.5.0",
       "restore": {
-        "projectUniqueName": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.AST/SME.AST.csproj",
+        "projectUniqueName": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.AST/SME.AST.csproj",
         "projectName": "SME.AST",
-        "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.AST/SME.AST.csproj",
+        "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.AST/SME.AST.csproj",
         "packagesPath": "/Users/nanathostrupdavidsen/.nuget/packages/",
-        "outputPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.AST/obj/",
+        "outputPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.AST/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/nanathostrupdavidsen/.nuget/NuGet/NuGet.Config"
@@ -112,8 +112,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj": {
-                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj"
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME/SME.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME/SME.csproj"
               }
             }
           }
@@ -175,14 +175,14 @@
         }
       }
     },
-    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Components/SME.Components.csproj": {
+    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.Components/SME.Components.csproj": {
       "version": "0.5.0",
       "restore": {
-        "projectUniqueName": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Components/SME.Components.csproj",
+        "projectUniqueName": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.Components/SME.Components.csproj",
         "projectName": "SME.Components",
-        "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Components/SME.Components.csproj",
+        "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.Components/SME.Components.csproj",
         "packagesPath": "/Users/nanathostrupdavidsen/.nuget/packages/",
-        "outputPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Components/obj/",
+        "outputPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.Components/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/nanathostrupdavidsen/.nuget/NuGet/NuGet.Config"
@@ -197,8 +197,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj": {
-                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj"
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME/SME.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME/SME.csproj"
               }
             }
           }
@@ -242,14 +242,14 @@
         }
       }
     },
-    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.GraphViz/SME.GraphViz.csproj": {
+    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.GraphViz/SME.GraphViz.csproj": {
       "version": "0.5.0",
       "restore": {
-        "projectUniqueName": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.GraphViz/SME.GraphViz.csproj",
+        "projectUniqueName": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.GraphViz/SME.GraphViz.csproj",
         "projectName": "SME.GraphViz",
-        "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.GraphViz/SME.GraphViz.csproj",
+        "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.GraphViz/SME.GraphViz.csproj",
         "packagesPath": "/Users/nanathostrupdavidsen/.nuget/packages/",
-        "outputPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.GraphViz/obj/",
+        "outputPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.GraphViz/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/nanathostrupdavidsen/.nuget/NuGet/NuGet.Config"
@@ -264,8 +264,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj": {
-                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj"
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME/SME.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME/SME.csproj"
               }
             }
           }
@@ -309,14 +309,14 @@
         }
       }
     },
-    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Tracer/SME.Tracer.csproj": {
+    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.Tracer/SME.Tracer.csproj": {
       "version": "0.5.0",
       "restore": {
-        "projectUniqueName": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Tracer/SME.Tracer.csproj",
+        "projectUniqueName": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.Tracer/SME.Tracer.csproj",
         "projectName": "SME.Tracer",
-        "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Tracer/SME.Tracer.csproj",
+        "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.Tracer/SME.Tracer.csproj",
         "packagesPath": "/Users/nanathostrupdavidsen/.nuget/packages/",
-        "outputPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Tracer/obj/",
+        "outputPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.Tracer/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/nanathostrupdavidsen/.nuget/NuGet/NuGet.Config"
@@ -331,8 +331,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj": {
-                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj"
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME/SME.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME/SME.csproj"
               }
             }
           }
@@ -382,14 +382,14 @@
         }
       }
     },
-    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.VHDL/SME.VHDL.csproj": {
+    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.VHDL/SME.VHDL.csproj": {
       "version": "0.5.0",
       "restore": {
-        "projectUniqueName": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.VHDL/SME.VHDL.csproj",
+        "projectUniqueName": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.VHDL/SME.VHDL.csproj",
         "projectName": "SME.VHDL",
-        "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.VHDL/SME.VHDL.csproj",
+        "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.VHDL/SME.VHDL.csproj",
         "packagesPath": "/Users/nanathostrupdavidsen/.nuget/packages/",
-        "outputPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.VHDL/obj/",
+        "outputPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.VHDL/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/nanathostrupdavidsen/.nuget/NuGet/NuGet.Config"
@@ -404,17 +404,17 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.AST/SME.AST.csproj": {
-                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.AST/SME.AST.csproj"
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.AST/SME.AST.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.AST/SME.AST.csproj"
               },
-              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Components/SME.Components.csproj": {
-                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Components/SME.Components.csproj"
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.Components/SME.Components.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.Components/SME.Components.csproj"
               },
-              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Tracer/SME.Tracer.csproj": {
-                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Tracer/SME.Tracer.csproj"
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.Tracer/SME.Tracer.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME.Tracer/SME.Tracer.csproj"
               },
-              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj": {
-                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj"
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME/SME.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME/SME.csproj"
               }
             }
           }
@@ -468,14 +468,14 @@
         }
       }
     },
-    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj": {
+    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME/SME.csproj": {
       "version": "0.5.0",
       "restore": {
-        "projectUniqueName": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj",
+        "projectUniqueName": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME/SME.csproj",
         "projectName": "SME",
-        "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj",
+        "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME/SME.csproj",
         "packagesPath": "/Users/nanathostrupdavidsen/.nuget/packages/",
-        "outputPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/obj/",
+        "outputPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/sme/src/SME/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/nanathostrupdavidsen/.nuget/NuGet/NuGet.Config"

@@ -23,6 +23,12 @@ entity sme_intro is
         Count_Count: out T_SYSTEM_UINT32;
         Count_CompareCharacter: out T_SYSTEM_UINT32;
 
+        -- Interconnection bus OrCounter signals
+        OrCounter_Counter: inout T_SYSTEM_UINT32;
+        OrCounter_Comparison0: inout T_SYSTEM_UINT32;
+        OrCounter_Comparison1: inout T_SYSTEM_UINT32;
+        OrCounter_Status: inout T_SYSTEM_BOOL;
+
         -- User defined signals here
         -- #### USER-DATA-ENTITYSIGNALS-START
         -- #### USER-DATA-ENTITYSIGNALS-END
@@ -49,6 +55,7 @@ architecture RTL of sme_intro is
 
     -- Process ready triggers
     signal FIN_Counter : std_logic;
+    signal FIN_OrClass : std_logic;
 
     -- The primary ready driver signal
     signal RDY : std_logic;
@@ -77,10 +84,35 @@ begin
         RST => RST
     );
 
+    -- Entity OrClass signals
+    OrClass: entity work.OrClass
+    generic map(
+        reset_internal_count => TO_UNSIGNED(0, 32),
+        reset_status => '0'
+    )
+    port map (
+        -- Input bus Control
+        control_Valid => Control_Valid,
+        control_Reset => Control_Reset,
+        control_Character => Control_Character,
+
+        -- Output bus OrCounter
+        orcounter_Counter => OrCounter_Counter,
+        orcounter_Status => OrCounter_Status,
+        orcounter_Comparison0 => OrCounter_Comparison0,
+        orcounter_Comparison1 => OrCounter_Comparison1,
+
+        CLK => CLK,
+        RDY => RDY,
+        FIN => FIN_OrClass,
+        ENB => ENB,
+        RST => RST
+    );
+
     -- Connect ready signals
 
     -- Setup the FIN feedback signals
-    FIN <= FIN_Counter;
+    FIN <= FIN_Counter when FIN_OrClass = FIN_Counter;
 
     -- Propagate all clocked and feedback signals
     process(

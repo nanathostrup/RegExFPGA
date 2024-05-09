@@ -1,4 +1,6 @@
 digraph sme_intro {
 "Counter" [shape=box];
+"OrClass" [shape=box];
 "Counter" -> "Tester";
+"OrClass" -> "Tester";
 }

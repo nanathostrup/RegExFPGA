@@ -15,6 +15,7 @@ namespace sme_intro
         private bool status = false;
         protected override void OnTick()
         {
+            Console.WriteLine("or class");
             status = false;
             if (control.Reset)
             {
@@ -32,7 +33,6 @@ namespace sme_intro
                     status = true;
             }
             //del ud i flere processer - er en ide - kan kigges på senere.
-            Console.WriteLine(":)");
             
             // else if (control.Valid && (control.Character == 97 ) || (control.Character == 98)) // Comparison1 and Comparison2 should be determined in the main program/tester
             // {
@@ -43,6 +43,7 @@ namespace sme_intro
             //Console.WriteLine($"status: {status} vs. orcounter.Status: {orcounter.Status}");
             }
             // Or(){}
+
 
         }
     }

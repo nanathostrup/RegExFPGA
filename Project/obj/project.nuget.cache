@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wOHQepeIhKSCu3PzvIem+LL93yhHJCZ8gmxmyi5ce5czrje1cam0zTTFGOSQwH9hGuFviVaHluRqDchlUjn3tQ==",
+  "dgSpecHash": "RMBjzanOfLVfqH8r1tuOuyS/iIlD9+0ZMvEhSc1Th9/zeMg17ZEamYOeEFPAS+MBf62obe5ZGyv9bFm7xoJJQQ==",
   "success": true,
-  "projectFilePath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/project/sme_intro.csproj",
+  "projectFilePath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/Project/sme_intro.csproj",
   "expectedPackageFiles": [
     "/Users/nanathostrupdavidsen/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/nanathostrupdavidsen/.nuget/packages/microsoft.bcl.asyncinterfaces/6.0.0/microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

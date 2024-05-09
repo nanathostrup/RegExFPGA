@@ -16,8 +16,9 @@ namespace sme_intro
         {
             Console.WriteLine("tester");
             var tests = new string[] { "a", "b", "ab", "ba", "aaa", "bbb", "abc", "cba", "abacaba", "En meget tilfaeldig streng"};
-
+            Console.WriteLine(":)");
             init(); // alle busses fields skal instantieres ellers smider den fejl når man sætter det senre. Men man kan godt opdatere den senere.
+            Console.WriteLine(":)");
 
             //testing count of a's in a string 
                     //Prøvet at rykke ud men await SKAL bruges i denne funtion så skal være en lang funtion. Evt spørg Carl om muligheder for at rykke det ud. 
@@ -31,8 +32,8 @@ namespace sme_intro
                 {
                     control.Character = (byte)test[i];
                     Console.WriteLine("Here");
-                    Console.WriteLine(buffer.Buff); //This aint working*upside down smiley9g*
-                    buffer.Buff.Add((byte)test[i]);
+                    // Console.WriteLine(buffer.Buff); //This aint working*upside down smiley9g*
+                    // buffer.Buff.Add((byte)test[i]);
                     Console.WriteLine("Here1");
 
                     control.Valid = true;
@@ -83,6 +84,7 @@ namespace sme_intro
             // }
             //buffer.Buffer.Add((byte)20);
             //Or initialiseres
+
             orcounter.Counter = 0;
             orcounter.Comparison0 = 0;
             orcounter.Comparison1 = 0;
