@@ -14,7 +14,8 @@ class DFA:
         start_state = []
         transitions = []
         newList = []
-        nfa_dfa = [] #Tracks the nfa states that belong in the new dfa state
+        # nfa_dfa = [] #Tracks the nfa states that belong in the new dfa state
+        # visited_states = [] #to avoid getting stuck in loops and doing the states all over again if a loop is in nfa
         
         state_counter = 0 # to keep track of states and to name the states as well
         in_accepting = False # if a state in nfa is accepting is encountered, then this is used
@@ -22,23 +23,20 @@ class DFA:
         #epsilon closure on start state, initializing/starting the dfa
         newList.append(nfa.states[0])
         newList, in_accepting = self.epsilonClosure(nfa, newList, in_accepting)
-        to_insert = []
-        to_insert.append(newList)
-        to_insert.append('start')
-        nfa_dfa.append(to_insert)
-        
+
         #inserting this new state to relevant state trackers
         new_state = 's' + str(state_counter)  # Naming new state
         insert = []
         insert.append(newList)
         insert.append(new_state)
-        states.append(insert)
-        start_state.append(new_state)
+        states.append(insert) #adding to states
+        start_state.append(new_state) #making start states
+        #checking if there are any accepting states
         if in_accepting == True:
             accept_states.append(new_state)
         state_counter += 1
-
-        for dfa_state in nfa_dfa:
+                
+        for dfa_state in states:
             if dfa_state[0] != []:
                 for symbol in alphabet:
                     newList = [] #reset for new symbol in alphabet
@@ -50,12 +48,6 @@ class DFA:
                     newList, in_accepting = self.epsilonClosure(nfa, newList, in_accepting)
                     
                     if newList != []:
-                        to_insert = []
-                        to_insert.append(newList) # these are the states where the symbols and eps go to from the current state
-                        to_insert.append(symbol) # The symbol in the alphabet
-                        to_insert.append(dfa_state[0]) # This is the dfa_state that is checked so this is the from state
-                        nfa_dfa.append(to_insert)
-
                         #making the transitions
                         transition_entry = []
                         from_state = ''
@@ -109,7 +101,42 @@ class DFA:
             in_accepting = True
         
         return newList, in_accepting
+    
+    #This is deterministic so this can be done itteratively. It HAS to follow a single stream to be true
+    #does not take dead states into considderation - should be optimized in future
+    
+    #Goes through all symbols and then through all the transitions for this symbol
+    #If it ends up in a state that is accepting, then true is returned
+    def traversal(self, dfa, input_string):
+        current_state = dfa.start_state[0]
+        for symbol in input_string:
+            print('symbol:', symbol)
+            # Check if there exists a transition for the current symbol from the current state
+            transition_found = False
+            for transition in dfa.transitions:
+                print(f"transition[0]: {transition[0]}, transition[1]:{transition[1]}, transition[2]: {transition[2]}, symbol:{symbol}")
+                if transition[0] == current_state and transition[1] == symbol:
+                    current_state = transition[2]  # Move to the next state
+                    transition_found = True
+                    print(transition_found)
+                    #The NFA would return true here
+                print('current_state:', current_state)
+            # If no transition found for the current symbol, the string is not accepted
+            print(transition_found)
+            if transition_found == False:
+                print('øv')
+                return False
+                #If you cannot move on from this symbol, then it cannot accept
+        
+        # After traversing the entire input string, check if the final state is an accept state
+        if current_state in dfa.accept_states:
+            
+            return True
+        else:
+            print('here')
+            return False
 
+print("------------------------")
 print("------------------------")
 
 #Basic one string
@@ -200,7 +227,7 @@ print("------------------------")
 #branching and consecutive string
 print("------------------------")
 regex = "ab|b"
-nfa.states = ['q0', 'q1', 'q3', 'q4', 'q5', 'q6']
+nfa.states = ['q0', 'q1', 'q2', 'q3', 'q4', 'q5', 'q6']
 nfa.alphabet = {'a', 'b', 'eps'}
 nfa.transitions = [['q0', 'eps', 'q1'], ['q0', 'eps', 'q4'], ['q1', 'a', 'q2'], ['q2', 'b', 'q3'], ['q3', 'eps', 'q6'], ['q4', 'b', 'q5'],  ['q5', 'eps', 'q6']]
 nfa.accept_states = ['q6']
@@ -226,10 +253,10 @@ print("Accept States:", dfa1.accept_states)
 
 #group
 print("------------------------")
-regex = "(ab)(b)"
-nfa.states = ['q0', 'q1', 'q3', 'q4', 'q5', 'q6']
+regex = "(a)(b)"
+nfa.states = ['q0', 'q1', 'q2']
 nfa.alphabet = {'a', 'b', 'eps'}
-nfa.transitions = [['q0', 'eps', 'q1'], ['q0', 'eps', 'q4'], ['q1', 'a', 'q2'], ['q2', 'b', 'q3'], ['q3', 'eps', 'q6'], ['q4', 'b', 'q5'],  ['q5', 'eps', 'q6']]
+nfa.transitions = [['q0', 'a', 'q1'], ['q1', 'b', 'q2']]
 nfa.accept_states = ['q6']
 print("regexpr:", regex)
 print("States:", nfa.states)
@@ -251,10 +278,10 @@ print("Transitions:", dfa1.transitions)
 print("Start State:", dfa1.start_state)
 print("Accept States:", dfa1.accept_states)
 
-#branching and consecutive string
+#branching and consecutive string and grouping
 print("------------------------")
 regex = "(ab)|(b)"
-nfa.states = ['q0', 'q1', 'q3', 'q4', 'q5', 'q6']
+nfa.states = ['q0', 'q1', 'q2','q3', 'q4', 'q5', 'q6']
 nfa.alphabet = {'a', 'b', 'eps'}
 nfa.transitions = [['q0', 'eps', 'q1'], ['q0', 'eps', 'q4'], ['q1', 'a', 'q2'], ['q2', 'b', 'q3'], ['q3', 'eps', 'q6'], ['q4', 'b', 'q5'],  ['q5', 'eps', 'q6']]
 nfa.accept_states = ['q6']
@@ -278,7 +305,133 @@ print("Transitions:", dfa1.transitions)
 print("Start State:", dfa1.start_state)
 print("Accept States:", dfa1.accept_states)
 
+#trick one - looks lige "a", but this is fine.
+#Quick note! q5 is added to states twice.
+#States: [[['q0', 'q1', 'q3'], 's0'], [['q2', 'q4', 'q5', 'q5'], 's1']]
+#This happens since the branch in the nfa both will lead to q5 and thus it is added twice. This may lead to issues?
+print("------------------------")
+regex = "a|a"
+nfa.states = ['q0', 'q1', 'q2','q3', 'q4', 'q5']
+nfa.alphabet = {'a', 'eps'}
+nfa.transitions = [['q0', 'eps', 'q1'], ['q0', 'eps', 'q3'], ['q1', 'a', 'q2'], ['q2', 'eps', 'q5'], ['q3', 'a', 'q4'], ['q4', 'eps', 'q5']]
+nfa.accept_states = ['q5']
+print("regexpr:", regex)
+print("States:", nfa.states)
+print("Alphabet:", nfa.alphabet)
+print("Transitions:", nfa.transitions)
+print("Start State:", nfa.start_state)
+print("Accept States:", nfa.accept_states)
+print("~~~~~~~~~~~~~~~~~~~~~~~~")
+states = []
+alphabet = {}
+transitions = []
+start_state = []
+accept_states = []
+dfa = DFA(states, alphabet, transitions, start_state, accept_states)
+dfa1 = dfa.from_nfa(nfa)
+print("Alphabet:", dfa1.alphabet)
+print("States:", dfa1.states)
+print("Transitions:", dfa1.transitions)
+print("Start State:", dfa1.start_state)
+print("Accept States:", dfa1.accept_states)
 
+
+#Other opperators:
+# +: one or more
+#also a loop here - good to test
+print("------------------------")
+regex = "(a)+"
+nfa.states = ['q0', 'q1', 'q2','q3', 'q4']
+nfa.alphabet = {'a', 'eps'}
+nfa.transitions = [['q0', 'a', 'q1'], ['q1', 'eps', 'q2'], ['q3', 'eps', 'q2'], ['q1', 'eps', 'q4'], ['q2', 'a', 'q3'], ['q3', 'eps', 'q4']]
+nfa.accept_states = ['q4']
+print("regexpr:", regex)
+print("States:", nfa.states)
+print("Alphabet:", nfa.alphabet)
+print("Transitions:", nfa.transitions)
+print("Start State:", nfa.start_state)
+print("Accept States:", nfa.accept_states)
+print("~~~~~~~~~~~~~~~~~~~~~~~~")
+states = []
+alphabet = {}
+transitions = []
+start_state = []
+accept_states = []
+dfa = DFA(states, alphabet, transitions, start_state, accept_states)
+dfa1 = dfa.from_nfa(nfa)
+print("Alphabet:", dfa1.alphabet)
+print("States:", dfa1.states)
+print("Transitions:", dfa1.transitions)
+print("Start State:", dfa1.start_state)
+print("Accept States:", dfa1.accept_states)
+
+# ?: zero or one
+# shows termination at start state - should be true as well
+print("------------------------")
+regex = "(a)?"
+nfa.states = ['q0', 'q1', 'q2','q3', 'q4', 'q5']
+nfa.alphabet = {'a', 'eps'}
+nfa.transitions = [['q0', 'eps', 'q1'], ['q1', 'a', 'q2'], ['q2', 'eps', 'q5'], ['q0', 'eps', 'q3'], ['q3', 'eps', 'q4'], ['q4', 'eps', 'q5']]
+nfa.accept_states = ['q5']
+print("regexpr:", regex)
+print("States:", nfa.states)
+print("Alphabet:", nfa.alphabet)
+print("Transitions:", nfa.transitions)
+print("Start State:", nfa.start_state)
+print("Accept States:", nfa.accept_states)
+print("~~~~~~~~~~~~~~~~~~~~~~~~")
+states = []
+alphabet = {}
+transitions = []
+start_state = []
+accept_states = []
+dfa = DFA(states, alphabet, transitions, start_state, accept_states)
+dfa1 = dfa.from_nfa(nfa)
+print("Alphabet:", dfa1.alphabet)
+print("States:", dfa1.states)
+print("Transitions:", dfa1.transitions)
+print("Start State:", dfa1.start_state)
+print("Accept States:", dfa1.accept_states)
+
+print("------------------------")
+print("------------------------")
+teststring = "abc"
+regex = "(a)?"
+nfa.states = ['q0', 'q1', 'q2','q3', 'q4', 'q5']
+nfa.alphabet = {'a', 'eps'}
+nfa.transitions = [['q0', 'eps', 'q1'], ['q1', 'a', 'q2'], ['q2', 'eps', 'q5'], ['q0', 'eps', 'q3'], ['q3', 'eps', 'q4'], ['q4', 'eps', 'q5']]
+nfa.accept_states = ['q5']
+
+print("regexpr:", regex)
+print("test string:", teststring)
+dfa = DFA(states, alphabet, transitions, start_state, accept_states)
+dfa1 = dfa.from_nfa(nfa)
+print('accept:', dfa1.accept_states)
+print('states:', dfa1.states)
+print('transitions:', dfa1.transitions)
+
+traversal = dfa.traversal(dfa1, teststring)
+print("traversal:", traversal)
+
+
+print("------------------------")
+teststring = "abc"
+regex = "(a)?"
+nfa.states = ['q0', 'q1', 'q2','q3', 'q4']
+nfa.alphabet = {'a', 'eps'}
+nfa.transitions = [['q0', 'a', 'q1'], ['q1', 'eps', 'q2'], ['q3', 'eps', 'q2'], ['q1', 'eps', 'q4'], ['q2', 'a', 'q3'], ['q3', 'eps', 'q4']]
+nfa.accept_states = ['q4']
+
+print("regexpr:", regex)
+print("test string:", teststring)
+dfa = DFA(states, alphabet, transitions, start_state, accept_states)
+dfa1 = dfa.from_nfa(nfa)
+print('accept:', dfa1.accept_states)
+print('states:', dfa1.states)
+print('transitions:', dfa1.transitions)
+
+traversal = dfa.traversal(dfa1, teststring)
+print("traversal:", traversal)
 
 #Currently epsilon does not appear in NFA, but the epsilon closure is part of conversion
 #Læs i method afsnit
