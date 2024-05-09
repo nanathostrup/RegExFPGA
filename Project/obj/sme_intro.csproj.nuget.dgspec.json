@@ -1,0 +1,541 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/project/sme_intro.csproj": {}
+  },
+  "projects": {
+    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/project/sme_intro.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/project/sme_intro.csproj",
+        "projectName": "sme_intro",
+        "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/project/sme_intro.csproj",
+        "packagesPath": "/Users/nanathostrupdavidsen/.nuget/packages/",
+        "outputPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/project/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/nanathostrupdavidsen/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.AST/SME.AST.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.AST/SME.AST.csproj"
+              },
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Components/SME.Components.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Components/SME.Components.csproj"
+              },
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.GraphViz/SME.GraphViz.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.GraphViz/SME.GraphViz.csproj"
+              },
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Tracer/SME.Tracer.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Tracer/SME.Tracer.csproj"
+              },
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.VHDL/SME.VHDL.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.VHDL/SME.VHDL.csproj"
+              },
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-x64",
+              "version": "[6.0.26, 6.0.26]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.AST/SME.AST.csproj": {
+      "version": "0.5.0",
+      "restore": {
+        "projectUniqueName": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.AST/SME.AST.csproj",
+        "projectName": "SME.AST",
+        "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.AST/SME.AST.csproj",
+        "packagesPath": "/Users/nanathostrupdavidsen/.nuget/packages/",
+        "outputPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.AST/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/nanathostrupdavidsen/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Build.Locator": {
+              "target": "Package",
+              "version": "[1.5.5, )"
+            },
+            "Microsoft.CodeAnalysis": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "Microsoft.CodeAnalysis.Workspaces.MSBuild": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "NewtonSoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Components/SME.Components.csproj": {
+      "version": "0.5.0",
+      "restore": {
+        "projectUniqueName": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Components/SME.Components.csproj",
+        "projectName": "SME.Components",
+        "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Components/SME.Components.csproj",
+        "packagesPath": "/Users/nanathostrupdavidsen/.nuget/packages/",
+        "outputPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Components/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/nanathostrupdavidsen/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.GraphViz/SME.GraphViz.csproj": {
+      "version": "0.5.0",
+      "restore": {
+        "projectUniqueName": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.GraphViz/SME.GraphViz.csproj",
+        "projectName": "SME.GraphViz",
+        "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.GraphViz/SME.GraphViz.csproj",
+        "packagesPath": "/Users/nanathostrupdavidsen/.nuget/packages/",
+        "outputPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.GraphViz/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/nanathostrupdavidsen/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Tracer/SME.Tracer.csproj": {
+      "version": "0.5.0",
+      "restore": {
+        "projectUniqueName": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Tracer/SME.Tracer.csproj",
+        "projectName": "SME.Tracer",
+        "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Tracer/SME.Tracer.csproj",
+        "packagesPath": "/Users/nanathostrupdavidsen/.nuget/packages/",
+        "outputPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Tracer/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/nanathostrupdavidsen/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "NewtonSoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.VHDL/SME.VHDL.csproj": {
+      "version": "0.5.0",
+      "restore": {
+        "projectUniqueName": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.VHDL/SME.VHDL.csproj",
+        "projectName": "SME.VHDL",
+        "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.VHDL/SME.VHDL.csproj",
+        "packagesPath": "/Users/nanathostrupdavidsen/.nuget/packages/",
+        "outputPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.VHDL/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/nanathostrupdavidsen/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.AST/SME.AST.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.AST/SME.AST.csproj"
+              },
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Components/SME.Components.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Components/SME.Components.csproj"
+              },
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Tracer/SME.Tracer.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME.Tracer/SME.Tracer.csproj"
+              },
+              "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj": {
+                "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.CodeAnalysis": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "System.CodeDom": {
+              "target": "Package",
+              "version": "[*, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj": {
+      "version": "0.5.0",
+      "restore": {
+        "projectUniqueName": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj",
+        "projectName": "SME",
+        "projectPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/SME.csproj",
+        "packagesPath": "/Users/nanathostrupdavidsen/.nuget/packages/",
+        "outputPath": "/Users/nanathostrupdavidsen/Desktop/RegExFPGA/SME/sme/src/SME/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/nanathostrupdavidsen/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "System.Reflection.Emit": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.26, 6.0.26]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

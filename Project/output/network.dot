@@ -1,0 +1,4 @@
+digraph sme_intro {
+"Counter" [shape=box];
+"Counter" -> "Tester";
+}
