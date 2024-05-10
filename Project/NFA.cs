@@ -10,8 +10,6 @@ namespace sme_intro{
 
     //     [OutputBus]
     //     public Count count = Scope.CreateBus<Count>();
-
-        //From book, NFA consists of the five:
         public List<string> states;
         // public List<string> alphabet;
         public HashSet<char> alphabet; //Maybe a list instead?
@@ -45,13 +43,8 @@ namespace sme_intro{
             //     }
             // }
 
-
             int state_counter = 1;
-            
-            this.ConstructNFA(regexp, state_counter);// start_state, accept_states, states, alphabet, transitions);
-            
-            // return NFA(this.states, this.alphabet, this.transitions, this.start_state,this.accept_states);
-            // this.accept_states.append(current_state);
+            this.ConstructNFA(regexp, state_counter);
         }
 
         private void ConstructNFA(string regexp, int state_counter) { //string start_state, List<string> accept_states, List<string> states, HashSet<char> alphanet, List<List<string>> transitions){
@@ -71,10 +64,8 @@ namespace sme_intro{
 
         private (string, int) ProcessGroup(List<char> group , string current_state, int state_counter){
             string new_state = current_state; // Initialize the new state with the current state
-            // char saved_char = "";
             int length = group.Count;
 
-            // for (int i = 0; i >= length ; i ++){
             foreach (char chr in group){
                 // Operator logic here - also before. Should make a clean slate when 
                 if (alphabet.Contains(chr)){ 
@@ -87,13 +78,11 @@ namespace sme_intro{
                     state_counter++;  // Increment state counter
                 }
             }
-
             return (new_state, state_counter);  // State counter is also returned so it is not overwritten in construct_nfa
         }
 
 
         public static List<List<char>> Grouping(string regexp){
-            // inGroup = False // For another idea - gemt i Onenote "Design -> NFA grouping anden ide"
             int depth = 0; // For nested parentheses, count how many groups need to be closed
             List<List<char>> grouping = new List<List<char>>();
             List<char> group = new List<char>();
@@ -122,7 +111,6 @@ namespace sme_intro{
                 if (stopklods == 1){ // Makes sure that the last group will be added if no parenthesis are found
                     if (depth != 0){
                         throw new Exception($"mismatch in parentheses in the regular expression: {regexp}");
-                        // raise SyntaxError(f"mismatch in parentheses in the regular expression: {regexp}")
                     }
                     if (group.Count != 0){ //If there are no parentheses then this group is the last and only once stopklods = 1
                         grouping.Add(group);
@@ -152,17 +140,9 @@ namespace sme_intro{
                     break;
                 }
         }
-        private void OrOperator(List<char> charList){
-            ;
-        }
-         private void PlusOperator(List<char> charList){
-            ;
-        }
-         private void QuestionOperator(List<char> charList){
-            ;
-        }
-         private void DotOperator(List<char> charList){
-            ;
-        }
+        private void OrOperator(List<char> charList){;}
+         private void PlusOperator(List<char> charList){;}
+         private void QuestionOperator(List<char> charList){;}
+         private void DotOperator(List<char> charList){;}
     }
 }

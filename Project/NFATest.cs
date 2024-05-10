@@ -5,11 +5,14 @@ namespace sme_intro{
     public class NFATest{
         public void Test(){
             Console.WriteLine("------------------------");
+            //Lav en test med noget der ikke er i alphabet.
+                //initialize en nfa, opdater nfa og lav igen. Dur nok egentlig ikke for bliver det initialiseret med from_regexp?
+            
             // string regexp = "a";
             // string regexp = "abc";
             // string regexp = "(ab)";
-            // string regexp = "(ab)(cd)";
-            string regexp = "abc (a)(b)";
+            string regexp = "(ab)(cd)";
+            // string regexp = "abc (a)(b)";
             // string regexp = "ab c (a) d ( b )";
             // string regexp = "(ab)(cd";
 

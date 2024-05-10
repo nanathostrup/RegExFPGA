@@ -138,12 +138,4 @@ namespace sme_intro{
 
         }
     }
-
-
-// stringerror2 = "(a(ab)"
-// stringerror3 = "(((aaa"
-// // console.WriteLine('stringerror0:', grouping(stringerror0)) #Works as intended - raises error 
-// // console.WriteLine('stringerror1:', grouping(stringerror1)) #Works as intended - raises error 
-// // console.WriteLine('stringerror2:', grouping(stringerror2)) #Works as intended - raises error
-// // console.WriteLine('stringerror3:', grouping(stringerror3)) #Works as intended - raises error
 }

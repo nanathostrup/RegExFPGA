@@ -9,7 +9,7 @@ namespace sme_intro
         {
             using (var sim = new Simulation())
             {
-                Console.WriteLine(":)ddd");
+                Console.WriteLine(":)");
 
                 var groupTest = new RegGroupingTest();
                 RegGroupingTest.Test();
