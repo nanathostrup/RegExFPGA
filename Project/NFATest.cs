@@ -5,6 +5,7 @@ namespace sme_intro{
     public class NFATest{
         public void Test(){
             Console.WriteLine("------------------------");
+            Console.WriteLine("NFA");
             //Lav en test med noget der ikke er i alphabet.
                 //initialize en nfa, opdater nfa og lav igen. Dur nok egentlig ikke for bliver det initialiseret med from_regexp?
             
@@ -28,8 +29,8 @@ namespace sme_intro{
 
             //Test for alphabet
             string alphabet = "";
-            foreach(char chr in nfa1.alphabet){
-                string str = chr.ToString();
+            foreach(string chr in nfa1.alphabet){
+                string str = chr;
                 alphabet = alphabet + str + " ";
             }
             Console.WriteLine("Alphabet: " + alphabet);

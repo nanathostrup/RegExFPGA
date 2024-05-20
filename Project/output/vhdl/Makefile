@@ -33,16 +33,13 @@ $(WORKDIR)/system_types.o: system_types.vhdl $(WORKDIR)
 $(WORKDIR)/Types_sme_intro.o: Types_sme_intro.vhdl $(WORKDIR)
 	ghdl -a --std=$(STD) --ieee=$(IEEE) --workdir=$(WORKDIR) $(FLAGS) Types_sme_intro.vhdl
 
-$(WORKDIR)/Counter.o: Counter.vhdl $(WORKDIR)/system_types.o $(WORKDIR)/Types_sme_intro.o $(WORKDIR)
-	ghdl -a --std=$(STD) --ieee=$(IEEE) --workdir=$(WORKDIR) $(FLAGS) Counter.vhdl
-
-$(WORKDIR)/OrClass.o: OrClass.vhdl $(WORKDIR)/system_types.o $(WORKDIR)/Types_sme_intro.o $(WORKDIR)
-	ghdl -a --std=$(STD) --ieee=$(IEEE) --workdir=$(WORKDIR) $(FLAGS) OrClass.vhdl
+$(WORKDIR)/Traverse.o: Traverse.vhdl $(WORKDIR)/system_types.o $(WORKDIR)/Types_sme_intro.o $(WORKDIR)
+	ghdl -a --std=$(STD) --ieee=$(IEEE) --workdir=$(WORKDIR) $(FLAGS) Traverse.vhdl
 
 $(WORKDIR)/csv_util.o: csv_util.vhdl $(WORKDIR)/system_types.o $(WORKDIR)/Types_sme_intro.o $(WORKDIR)
 	ghdl -a --std=$(STD) --ieee=$(IEEE) --workdir=$(WORKDIR) $(FLAGS) csv_util.vhdl
 
-$(WORKDIR)/sme_intro.o: sme_intro.vhdl $(WORKDIR)/system_types.o $(WORKDIR)/Types_sme_intro.o $(WORKDIR)/Counter.o $(WORKDIR)/OrClass.o $(WORKDIR)/csv_util.o 
+$(WORKDIR)/sme_intro.o: sme_intro.vhdl $(WORKDIR)/system_types.o $(WORKDIR)/Types_sme_intro.o $(WORKDIR)/Traverse.o $(WORKDIR)/csv_util.o 
 	ghdl -a --std=$(STD) --ieee=$(IEEE) --workdir=$(WORKDIR) $(FLAGS) sme_intro.vhdl
 
 $(WORKDIR)/TestBench_sme_intro.o: TestBench_sme_intro.vhdl $(WORKDIR)/sme_intro.o

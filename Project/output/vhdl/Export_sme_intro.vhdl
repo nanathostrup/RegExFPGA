@@ -17,11 +17,9 @@ entity sme_intro_export is
         -- Top-level bus Control signals
         Control_Valid: in STD_LOGIC;
         Control_Reset: in STD_LOGIC;
-        Control_Character: in STD_LOGIC_VECTOR(7 downto 0);
 
-        -- Top-level bus Count signals
-        Count_Count: out STD_LOGIC_VECTOR(31 downto 0);
-        Count_CompareCharacter: out STD_LOGIC_VECTOR(31 downto 0);
+        -- Top-level bus Traversal signals
+        Traversal_Count: out STD_LOGIC_VECTOR(31 downto 0);
 
         -- User defined signals here
         -- #### USER-DATA-ENTITYSIGNALS-START
@@ -48,14 +46,12 @@ architecture RTL of sme_intro_export is
     -- #### USER-DATA-SIGNALS-END
 
     -- Intermediate conversion signal to convert internal types to external ones
-    signal tmp_Count_Count : T_SYSTEM_UINT32;
-    signal tmp_Count_CompareCharacter : T_SYSTEM_UINT32;
+    signal tmp_Traversal_Count : T_SYSTEM_UINT32;
 
 begin
 
     -- Carry converted signals from entity to wrapped outputs
-    Count_Count <= std_logic_vector(tmp_Count_Count);
-    Count_CompareCharacter <= std_logic_vector(tmp_Count_CompareCharacter);
+    Traversal_Count <= std_logic_vector(tmp_Traversal_Count);
 
     -- Entity sme_intro signals
     sme_intro: entity work.sme_intro
@@ -63,11 +59,9 @@ begin
         -- Input bus Control
         Control_Valid => Control_Valid,
         Control_Reset => Control_Reset,
-        Control_Character => unsigned(Control_Character),
 
-        -- Output bus Count
-        Count_Count => tmp_Count_Count,
-        Count_CompareCharacter => tmp_Count_CompareCharacter,
+        -- Output bus Traversal
+        Traversal_Count => tmp_Traversal_Count,
 
         ENB => ENB,
         RST => RST,

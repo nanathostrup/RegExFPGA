@@ -1,128 +1,118 @@
 using SME;
 
 namespace sme_intro{
-
-    // [ClockedProcess]
-    public class DFA{ //: SimpleProcess
-    // {
-    //     [InputBus]
-    //     public Control control;
-
-    //     [OutputBus]
-    //     public Count count = Scope.CreateBus<Count>();
-        public List<List<string>> states {get; set;}
+    public class DFA {
+        // public List<List<string>> states;
         // public List<string> alphabet;
-        public HashSet<char> alphabet {get; set;} //Maybe a list instead?
-        public List<List<string>> transitions;
-        public List<string> start_state;
-        public List<string> accept_states;
+        // public List<List<string>> transitions;
+        // public List<string> start_state;
+        // public List<string> accept_states;
 
-        public void FromNFA(NFA nfa){
-            this.states = new List<List<string>>(); //Start state not added yet
-            this.accept_states = new List<string>();
-            this.alphabet = nfa.alphabet; // Initialize the alphabet
-            // HashSet<char> alphabet = new HashSet<char>(nfa.alphabet.Where(c => c != 'eps'));
-            // var alphabet = nfa.Alphabet.Except(new HashSet<char> { 'eps' }).ToHashSet();
-            // nfa.alphabet.ExceptWith(new HashSet<char> { 'eps' });
-            // this.alphabet = new HashSet<char>(nfa.alphabet.Replace("eps", "")); //the same but no eps
-            this.transitions = new List<List<string>>();
-            this.start_state = new List<string>();
+        public (char[],  char[], char[], char[],  char[][]) FromNFA(NFA nfa){
+            // this.states = new List<List<string>>(); //Start state not added yet
+            // this.accept_states = new List<string>();
+            // this.alphabet = new List<string>();
+            // this.transitions = new List<List<string>>();
+            // this.start_state = new List<string>();
+        
+            List<List<string>> states = new List<List<string>>();
+            List<string> alphabet = new List<string>();
+            List<List<string>> transitions = new List<List<string>>();
+            List<string> start_state = new List<string>();
+            List<string> accept_states = new List<string>();
 
-            int state_counter = 0;
-            bool in_accepting = false;
+            int state_counter = 0; // to keep track of states and to name the states as well
+            bool in_accepting = false; //if a state in nfa is accepting is encountered, then this is used
             List<string> newList = new List<string>();
 
-            // foreach (char symbol in nfa.Alphabet)
-            //     {
-            //         if (symbol != 'eps') // Exclude "eps"
-            //         {
-            //             alphabet.Add(symbol);
-            //         }
-            //     }
-
+            //Making the alphabet
+            int i = 0;
+            while(i < nfa.alphabet.Count) {
+                if(nfa.alphabet[i] != "eps"){ // the same alphabet, but excluding 
+                    alphabet.Add(nfa.alphabet[i]);
+                }
+                i ++;
+            }
+            
+            //Epsilon closure for the startstate of nfa, initializing/starting the dfa
             newList.Add(nfa.states[0]);
-            //call epsilonclosure for newlist her
             (newList, in_accepting) = EpsilonClosure(nfa, newList, in_accepting);
 
-            string new_state = "s" + state_counter;
+            //New state, transition, and accepting added to dfa
+            string new_state = "s" + state_counter; //Naming the new state
             state_counter++;
             List<string> insert = new List<string>();
             insert.Add(string.Join(",", newList));
             insert.Add(new_state);
-            this.states.Add(insert);
-            this.start_state.Add(new_state);
-            
+            states.Add(insert); //Adding both nfa states and the dfa state
+            start_state.Add(new_state); //start state added
+            //checking if there are any accepting nfa states
             if (in_accepting){
                 accept_states.Add(new_state);
             }
 
-            // Making a stack with the states
+            // Making a stack with the states to go through
             Stack<List<string>> stack = new Stack<List<string>>();
-            foreach (var state in this.states){
+            foreach (var state in states){
                 stack.Push(state);
             }
             
             while(stack.Count != 0){
-            // foreach(var dfa_state in this.states){ //laver rav i den, stack der kan tages fra er meget bedre
+            // foreach(var dfa_state in this.states){ //This will cast an exception since dfa.states is edited through out the loop. Stack instead
                 var dfa_state = stack.Pop();
                 if (dfa_state[0] != ""){
-                    foreach(var symbol in this.alphabet){
-                        newList = new List<string>();
-                        in_accepting = false;
+                    foreach(var symbol in alphabet){
+                        newList = new List<string>(); // reset for new symbol
+                        in_accepting = false; //reset for new symbol
+                        // the move() function
                         foreach (var transition in nfa.transitions){
                             if (transition[0] == dfa_state[0] && transition[1] == symbol.ToString()){
                                 newList.Add(transition[2]);
                             }
                         }
                         (newList, in_accepting) = EpsilonClosure(nfa, newList, in_accepting);
+ 
 
-                        //Making a stack to loop over
-                        Stack<List<string>> stackInLoop = new Stack<List<string>>();
-                        foreach (List<string> state in this.states){
-                            foreach (List<string> stateForStack in this.states){
+                        //Making a stack to loop over so the states and for loop combination is avoided
+                        Stack<List<string>> stackInLoop = new Stack<List<string>>(); //since other states could be added later, this is done with every symbol
+                        foreach (List<string> state in states){
+                            foreach (List<string> stateForStack in states){
                                 stackInLoop.Push(stateForStack);
                             }
                         }
 
                         if (newList.Any()){
-                            List<string> transition_entry = new List<string>();
-                            string from_state = "";
+                            string from_state = dfa_state[1];
                             string to_state = "";
-
-                            while (stackInLoop.Count != 0){
-                                var state = stackInLoop.Pop();
-                                string stringList = string.Join(",", newList);
-                                if(stringList == state[0]){
-                                    transition_entry = new List<string>();
-                                    to_state = state[1];
-                                }
-                                if(dfa_state[0] == state[0]){
-                                    from_state = state[1];
-                                }
-                                if (to_state == ""){
-                                    new_state = "s" + state_counter;
-                                    state_counter++;
-                                    to_state = new_state;
-                                    List<string> insertion = new List<string>();
-                                    insertion.Add(string.Join(",", newList));
-                                    insertion.Add(new_state);
-                                    this.states.Add(insertion);
-                                    stack.Push(insertion); //update the stack with the new state so the outer loop can function properly
-                                    if (in_accepting){
-                                        accept_states.Add(new_state);
-                                    } 
-                                    
+                            string stringList = string.Join(",", newList);
+                            var existingState = states.FirstOrDefault(s => s[0] == stringList);
+                            if (existingState != null){
+                                to_state = existingState[1];
+                            } else {
+                                new_state = "s" + state_counter;
+                                state_counter++;
+                                to_state = new_state;
+                                List<string> newDFAState = new List<string> { stringList, new_state };
+                                states.Add(newDFAState);
+                                stack.Push(newDFAState);
+                                if (in_accepting){
+                                    accept_states.Add(new_state);
                                 }
                             }
-                            transition_entry.Add(from_state);
-                            transition_entry.Add(symbol.ToString());
-                            transition_entry.Add(to_state);
-                            this.transitions.Add(transition_entry);
+                            List<string> transition_entry = new List<string> { from_state, symbol, to_state };
+                            transitions.Add(transition_entry);
                         }
                     }
                 }
             }
-        }
+            
+            char[] transformedStart = transformStartState(start_state);
+            char[] transformedAccept = transformAcceptStates(accept_states);
+            char[] transformedStates = transformStates(states);
+            char[] transformedAlphabet = transformAlphabet(alphabet);
+            char[][] transformedTrans = transformTransitions(transitions);
+            return (transformedStart, transformedAccept, transformedStates, transformedAlphabet, transformedTrans);
+        }    
 
         private (List<string>, bool) EpsilonClosure(NFA nfa, List<string> newList, bool in_accepting){
             foreach (var state in newList){
@@ -131,11 +121,77 @@ namespace sme_intro{
                         newList.Add(transition[2]);
                     }
                 }
-                if (newList.Any(states => nfa.accept_states.Contains(state))){
+                //if any state in nfa in this list is accepting then the dfa state should be accepting
+                if (newList.Any(states => nfa.accept_states.Contains(state))){ //could be moved to another method
                     in_accepting = true;
                 }
             }
             return (newList, in_accepting);
+        }
+        static char[] transformAlphabet(List<string> alphabet){
+            char[] array = new char[alphabet.Count];
+            for (int i = 0; i < alphabet.Count; i++){
+                foreach (char chr in alphabet[i]){
+                    array[i] = chr;
+                }
+            }
+            return array;
+        }
+
+        static char[] transformStartState(List<string> start_state){
+            char[] array = new char[1];
+            char save = 's';
+            for (int i = 0; i < start_state.Count; i++){
+                foreach (char chr in start_state[i]){
+                    save = chr; //skal egentlig bare ha den sidste. vil ik ha 's' med i 's0'
+                }
+            } 
+            array[0] = save;
+            return array;
+        }
+
+        static char[] transformAcceptStates(List<string> accept_states){
+            char[] array = new char[accept_states.Count];
+            char save = 's';
+            for (int i = 0; i < accept_states.Count; i++){
+                foreach (char chr in accept_states[i]){
+                    save = chr; //skal egentlig bare ha den sidste. vil ik ha 's' med i 's0'
+                }
+                array[i] = save;
+            }
+            return array;
+        }
+
+        static char[] transformStates(List<List<string>> states){
+            char[] array = new char[states.Count];
+            for (int i = 0; i < states.Count; i++)
+            {
+                // Step 2: Access the "dfa" string in the inner list
+                string dfa = states[i][1];
+
+                // Step 3: Get the last character of the "dfa" string
+                array[i] = dfa[dfa.Length - 1];
+            }
+            return array;
+
+            // Console.WriteLine("The last character of the last 'dfa' is: " + lastCharOfDfa);
+        }
+        static char[][] transformTransitions(List<List<string>> transitions)
+        {
+            char[][] transformedTransitions = new char[transitions.Count][];
+            for (int i = 0; i < transitions.Count; i++)
+            {
+                string to = transitions[i][0];
+                char symbol = transitions[i][1][0];
+                string from = transitions[i][2];
+
+                // Remove 's' from 'to' and 'from'
+                char toChar = to[to.Length - 1];
+                char fromChar = from[from.Length - 1];
+
+                transformedTransitions[i] = new char[] { toChar, symbol, fromChar };
+            }
+            return transformedTransitions;
         }
 
     }

@@ -26,15 +26,9 @@ architecture TestBench of sme_intro_tb is
     signal RESET : Std_logic;
     signal ENABLE : Std_logic;
 
-    signal Control_Character : T_SYSTEM_UINT8;
     signal Control_Reset : T_SYSTEM_BOOL;
     signal Control_Valid : T_SYSTEM_BOOL;
-    signal Count_CompareCharacter : T_SYSTEM_UINT32;
-    signal Count_Count : T_SYSTEM_UINT32;
-    signal OrCounter_Comparison0 : T_SYSTEM_UINT32;
-    signal OrCounter_Comparison1 : T_SYSTEM_UINT32;
-    signal OrCounter_Counter : T_SYSTEM_UINT32;
-    signal OrCounter_Status : T_SYSTEM_BOOL;
+    signal Traversal_Count : T_SYSTEM_UINT32;
 
 begin
 
@@ -42,13 +36,7 @@ begin
     port map (
         Control_Valid => Control_Valid,
         Control_Reset => Control_Reset,
-        Control_Character => Control_Character,
-        Count_Count => Count_Count,
-        Count_CompareCharacter => Count_CompareCharacter,
-        OrCounter_Counter => OrCounter_Counter,
-        OrCounter_Comparison0 => OrCounter_Comparison0,
-        OrCounter_Comparison1 => OrCounter_Comparison1,
-        OrCounter_Status => OrCounter_Status,
+        Traversal_Count => Traversal_Count,
 
         ENB => ENABLE,
         RST => RESET,
@@ -95,31 +83,13 @@ begin
 
             fieldno := 0;
             read_csv_field(L, tmp);
-            assert are_strings_equal(tmp, "Control.Character") report "Field #" & integer'image(fieldno) & " is not correctly named: " & truncate(tmp) & ", expected Control.Character" severity Failure;
-            fieldno := fieldno + 1;
-            read_csv_field(L, tmp);
             assert are_strings_equal(tmp, "Control.Reset") report "Field #" & integer'image(fieldno) & " is not correctly named: " & truncate(tmp) & ", expected Control.Reset" severity Failure;
             fieldno := fieldno + 1;
             read_csv_field(L, tmp);
             assert are_strings_equal(tmp, "Control.Valid") report "Field #" & integer'image(fieldno) & " is not correctly named: " & truncate(tmp) & ", expected Control.Valid" severity Failure;
             fieldno := fieldno + 1;
             read_csv_field(L, tmp);
-            assert are_strings_equal(tmp, "Count.CompareCharacter") report "Field #" & integer'image(fieldno) & " is not correctly named: " & truncate(tmp) & ", expected Count.CompareCharacter" severity Failure;
-            fieldno := fieldno + 1;
-            read_csv_field(L, tmp);
-            assert are_strings_equal(tmp, "Count.Count") report "Field #" & integer'image(fieldno) & " is not correctly named: " & truncate(tmp) & ", expected Count.Count" severity Failure;
-            fieldno := fieldno + 1;
-            read_csv_field(L, tmp);
-            assert are_strings_equal(tmp, "OrCounter.Comparison0") report "Field #" & integer'image(fieldno) & " is not correctly named: " & truncate(tmp) & ", expected OrCounter.Comparison0" severity Failure;
-            fieldno := fieldno + 1;
-            read_csv_field(L, tmp);
-            assert are_strings_equal(tmp, "OrCounter.Comparison1") report "Field #" & integer'image(fieldno) & " is not correctly named: " & truncate(tmp) & ", expected OrCounter.Comparison1" severity Failure;
-            fieldno := fieldno + 1;
-            read_csv_field(L, tmp);
-            assert are_strings_equal(tmp, "OrCounter.Counter") report "Field #" & integer'image(fieldno) & " is not correctly named: " & truncate(tmp) & ", expected OrCounter.Counter" severity Failure;
-            fieldno := fieldno + 1;
-            read_csv_field(L, tmp);
-            assert are_strings_equal(tmp, "OrCounter.Status") report "Field #" & integer'image(fieldno) & " is not correctly named: " & truncate(tmp) & ", expected OrCounter.Status" severity Failure;
+            assert are_strings_equal(tmp, "Traversal.Count") report "Field #" & integer'image(fieldno) & " is not correctly named: " & truncate(tmp) & ", expected Traversal.Count" severity Failure;
             fieldno := fieldno + 1;
 
             RESET <= '1';
@@ -141,13 +111,6 @@ begin
                     wait until rising_edge(CLOCK);
                 end if;
 
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Character <= (others => 'U');
-                else
-                    Control_Character <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
                 read_csv_field(L, tmp);
                 if are_strings_equal(tmp, "U") then
                     Control_Reset <= 'U';
@@ -173,49 +136,9 @@ begin
                 -- Compare each signal with the value in the CSV file
                 read_csv_field(L, tmp);
                 if not are_strings_equal(tmp, "U") then
-                    if not are_strings_equal(str(Count_CompareCharacter), tmp) then
+                    if not are_strings_equal(str(Traversal_Count), tmp) then
                         newfailures := newfailures + 1;
-                        report "Value for Count_CompareCharacter in cycle " & integer'image(clockcycle) & " was: " & str(Count_CompareCharacter) & " but should have been: " & truncate(tmp) severity Error;
-                    end if;
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if not are_strings_equal(tmp, "U") then
-                    if not are_strings_equal(str(Count_Count), tmp) then
-                        newfailures := newfailures + 1;
-                        report "Value for Count_Count in cycle " & integer'image(clockcycle) & " was: " & str(Count_Count) & " but should have been: " & truncate(tmp) severity Error;
-                    end if;
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if not are_strings_equal(tmp, "U") then
-                    if not are_strings_equal(str(OrCounter_Comparison0), tmp) then
-                        newfailures := newfailures + 1;
-                        report "Value for OrCounter_Comparison0 in cycle " & integer'image(clockcycle) & " was: " & str(OrCounter_Comparison0) & " but should have been: " & truncate(tmp) severity Error;
-                    end if;
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if not are_strings_equal(tmp, "U") then
-                    if not are_strings_equal(str(OrCounter_Comparison1), tmp) then
-                        newfailures := newfailures + 1;
-                        report "Value for OrCounter_Comparison1 in cycle " & integer'image(clockcycle) & " was: " & str(OrCounter_Comparison1) & " but should have been: " & truncate(tmp) severity Error;
-                    end if;
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if not are_strings_equal(tmp, "U") then
-                    if not are_strings_equal(str(OrCounter_Counter), tmp) then
-                        newfailures := newfailures + 1;
-                        report "Value for OrCounter_Counter in cycle " & integer'image(clockcycle) & " was: " & str(OrCounter_Counter) & " but should have been: " & truncate(tmp) severity Error;
-                    end if;
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if not are_strings_equal(tmp, "U") then
-                    if not are_strings_equal(str(OrCounter_Status), tmp) then
-                        newfailures := newfailures + 1;
-                        report "Value for OrCounter_Status in cycle " & integer'image(clockcycle) & " was: " & str(OrCounter_Status) & " but should have been: " & truncate(tmp) severity Error;
+                        report "Value for Traversal_Count in cycle " & integer'image(clockcycle) & " was: " & str(Traversal_Count) & " but should have been: " & truncate(tmp) severity Error;
                     end if;
                 end if;
                 fieldno := fieldno + 1;

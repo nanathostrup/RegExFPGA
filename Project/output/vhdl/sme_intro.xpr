@@ -70,14 +70,7 @@
                     <Attr Name="UsedIn" Val="simulation"/>
                 </FileInfo>
             </File>
-            <File Path="$PPRDIR/Counter.vhdl">
-                <FileInfo>
-                    <Attr Name="Library" Val="xil_defaultlib"/>
-                    <Attr Name="UsedIn" Val="synthesis"/>
-                    <Attr Name="UsedIn" Val="simulation"/>
-                </FileInfo>
-            </File>
-            <File Path="$PPRDIR/OrClass.vhdl">
+            <File Path="$PPRDIR/Traverse.vhdl">
                 <FileInfo>
                     <Attr Name="Library" Val="xil_defaultlib"/>
                     <Attr Name="UsedIn" Val="synthesis"/>
@@ -129,7 +122,7 @@
                 <Option Name="TransportPathDelay" Val="0"/>
                 <Option Name="TransportIntDelay" Val="0"/>
                 <Option Name="SrcSet" Val="sources_1"/>
-                <Option Name="xsim.simulate.runtime" Val="1460ns"/>
+                <Option Name="xsim.simulate.runtime" Val="70ns"/>
             </Config>
         </FileSet>
     </FileSets>
