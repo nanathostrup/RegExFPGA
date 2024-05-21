@@ -9,16 +9,16 @@ namespace sme_intro
         {
             using (var sim = new Simulation())
             {
-                // For testing the kun c# code
+                // For testing the c# only
                 var nfaTest = new NFATest();
                 nfaTest.Test();
                 
                 var dfaTest = new DFATest();
                 dfaTest.Test();
 
-                //traversalClass like the counter class stuff
+                //traversalClass som counter class
 
-                //Tag den dfa der er lavet her og så send den til Tester.
+                //Tag den dfa der er lavet her og så send den til Tester?
                         //Så bliver den ikke lavet i hardware men uden for
                         
                 NFA nfa = new NFA();
@@ -26,17 +26,7 @@ namespace sme_intro
 
                 nfa.FromRegExp("ab");
                 (char[] start_state, char[] accept_states, char[] states, char[] alphabet, char[][] transitions) = dfa.FromNFA(nfa); //den her bliver passed til tester
-            
-
-
-                //send det til traversal/tester whatever
-
-                //Lav en dfa her fra. send det til tester
-
-                // samme måde som tester så få den til at køre men den hedder bare traversal i stedet.
-                // var traversal = new Traversal();
-
-
+ 
 
                 //IKKE SLET DETTE:  
                 var tester = new Tester();

@@ -7,78 +7,72 @@ namespace sme_intro
         [InputBus]
         // public Count count;
         public Traversal traversal;
-        // public NFAClass nfaClass;
-        // public Buffer buffer;
 
         [OutputBus]
         public Control control = Scope.CreateBus<Control>();
+        public Traverse traverseProcess;
 
         public override async System.Threading.Tasks.Task Run()
         {
             Console.WriteLine("tester");
             var tests = new string[] { "a" };
             load();
-            init(); // alle busses fields skal instantieres ellers smider den fejl når man sætter det senre. Men man kan godt opdatere den senere.
-
+            Console.WriteLine("load");
+            init(); 
+            Console.WriteLine("init");
             await ClockAsync();
-            // count.CompareCharacter = 97; // 97 is ASCI 'a', and will be what will be searched for
+            Console.WriteLine("await");
 
             char[] array = new char[] {'1'};
 
             foreach (var test in tests)
             {
-                // load dfa ind i []array i en init
+                Console.WriteLine(";)");
                 init();
-                //HER SKAL MAN LAVE ET NFA FOR HVER TEST
-                    //OG BAGEFTER EN DFA
+                Console.WriteLine(":)");
+                traverseProcess.input = test.ToCharArray();
 
                 for (int i = 0; i < test.Length; i++)
                 {
-                    // control.Character = (byte)test[i];
                     control.Valid = true;
                     control.Reset = false;
                     Console.WriteLine("clock");
                     await ClockAsync();
+                    Console.WriteLine("await clock done");
                 }
 
                 control.Valid = false;
                 Console.WriteLine("clock");
                 await ClockAsync();
-                // System.Diagnostics.Debug.Assert(count.Count == test.Count(c => c == 'a'),
-                //    $"Count of 'a' in '{test}' is {count.Count}, expected {test.Count(c => c == 'a')}");
                 control.Reset = true;
                 Console.WriteLine("clock");
                 await ClockAsync();
             }
             await ClockAsync();
-            Console.WriteLine("All tests passed in 'a'"); // Otherwise, they would have hit the assert.
+            Console.WriteLine("All tests passed in 'a'"); // Old print statement that has stayed for debugging
         }
-
         public void init(){
-            // control.regex = "";
-
-            //Counter initialised
-            // count.Count = 0;
-            // count.CompareCharacter = 0;
-            Console.WriteLine(":)");
-            // char[] array = new char[] {'1'};
-            // count.CompareCharacter = 0;
-
             control.Valid = false;
             control.Reset = true;
 
-            traversal.Count = 0;
-            
-           
+            traversal.Count = 0;   
         }
+
         public void load(){
             NFA nfa = new NFA();
             DFA dfa = new DFA();
 
             nfa.FromRegExp("ab");
-            (char[] start_state1, char[] accept_states, char[] states, char[] alphabet, char[][] transitions) = dfa.FromNFA(nfa);
-            traversal.start_state = start_state1;
-        }     
+            (char[] start_state1, char[] accept_states1, char[] states1, char[] alphabet1, char[][] transitions1) = dfa.FromNFA(nfa);
+            
+            traverseProcess = new Traverse
+            {
+                start_state = start_state1,
+                accept_states = accept_states1,
+                transitions = transitions1,
+                input = new char[] { ' ' }
+            };
+        }   
     }
 }
 //restart window cmd shift p, reload window

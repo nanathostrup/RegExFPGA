@@ -14,12 +14,12 @@ namespace sme_intro
     public interface Count : IBus
     {
         public uint Count               { get; set; }
-        public uint CompareCharacter    { get; set; }
+        // public uint CompareCharacter    { get; set; }
     }
     [InitializedBus]
     public interface Traversal : IBus
     {
         public uint Count               { get; set; }
-        public char[] start_state       { get; set; }
+        // public char[] start_state       { get; set; }
     }
 }
