@@ -36,12 +36,12 @@ namespace sme_intro{
                     }
                 }
             }
-
-            this.ConstructNFA(regexp);
+            int state_counter = 1;
+            this.ConstructNFA(regexp, state_counter);
         }
 
-        private void ConstructNFA(string regexp) { //string start_state, List<string> accept_states, List<string> states, HashSet<char> alphanet, List<List<string>> transitions){
-            int state_counter = 1; //used to name the states 'qn', and a counter later on
+        private void ConstructNFA(string regexp, int state_counter) { //string start_state, List<string> accept_states, List<string> states, HashSet<char> alphanet, List<List<string>> transitions){
+            // int state_counter = 1; //used to name the states 'qn', and a counter later on
             string current_state = this.start_state;
             List<List<string>> groups = Grouping(regexp); //divide into groups
             string new_state = "";
@@ -58,6 +58,9 @@ namespace sme_intro{
         private (string, int) ProcessGroup(List<string> group , string current_state, int state_counter){
             string new_state = current_state; // Initialize the new state with the current state
             // int length = group.Count;
+
+
+
 
             foreach (string strr in group){
                 foreach (char chr in strr){

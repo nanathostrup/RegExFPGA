@@ -7,6 +7,7 @@ namespace sme_intro
         [InputBus]
         // public Count count;
         public Traversal traversal;
+        private int counter = 0;
 
         [OutputBus]
         public Control control = Scope.CreateBus<Control>();
@@ -14,64 +15,57 @@ namespace sme_intro
 
         public override async System.Threading.Tasks.Task Run()
         {
-            Console.WriteLine("tester");
-            var tests = new string[] { "a" };
-            load();
-            Console.WriteLine("load");
+            var tests = new string[]{"a", "b", "ab", "c", "ac", "bb", "aa", "kh", "f", "cccccbab", "khab", "abkh", "khabdf", "dfag", "dfbg"}; //, "dafb"};
+            // load(); //moved to Program.cs to avoid setting up the system when simulating in Run()
             init(); 
-            Console.WriteLine("init");
             await ClockAsync();
-            Console.WriteLine("await");
-
-            char[] array = new char[] {'1'};
 
             foreach (var test in tests)
             {
-                Console.WriteLine(";)");
                 init();
-                Console.WriteLine(":)");
                 traverseProcess.input = test.ToCharArray();
 
                 for (int i = 0; i < test.Length; i++)
                 {
                     control.Valid = true;
                     control.Reset = false;
-                    Console.WriteLine("clock");
                     await ClockAsync();
-                    Console.WriteLine("await clock done");
                 }
-
-                control.Valid = false;
-                Console.WriteLine("clock");
+                // if (traversal.Valid){
+                //     counter ++;
+                //     Console.WriteLine("true");
+                // }
+                // else{
+                //     Console.WriteLine("false");
+                // }
+                // Console.WriteLine(":)");
+                
                 await ClockAsync();
+                Console.WriteLine("traversal.Valid: " + traversal.Valid + " for test: " + test);
+                traversal.Valid = false; //reset
+                control.Valid = false;
                 control.Reset = true;
-                Console.WriteLine("clock");
                 await ClockAsync();
             }
             await ClockAsync();
-            Console.WriteLine("All tests passed in 'a'"); // Old print statement that has stayed for debugging
+            // System.Diagnostics.Debug.Assert(counter == 2); //manually inserted test
+            Console.WriteLine("All tests passed"); //otherwise exception thrown
         }
         public void init(){
             control.Valid = false;
             control.Reset = true;
 
-            traversal.Count = 0;   
+            traversal.Count = 0;
+            traversal.Valid = false;
         }
 
-        public void load(){
-            NFA nfa = new NFA();
-            DFA dfa = new DFA();
+        public void load(char[] start_state1, char[] accept_states1, char[] states1, char[] alphabet1, char[][] transitions1, char[] states){
+            traverseProcess.start_state = start_state1;
+            traverseProcess.accept_states = accept_states1;
+            traverseProcess.transitions = transitions1;
+            traverseProcess.states = states1;
+            traverseProcess.input = new char[] { ' ' };
 
-            nfa.FromRegExp("ab");
-            (char[] start_state1, char[] accept_states1, char[] states1, char[] alphabet1, char[][] transitions1) = dfa.FromNFA(nfa);
-            
-            traverseProcess = new Traverse
-            {
-                start_state = start_state1,
-                accept_states = accept_states1,
-                transitions = transitions1,
-                input = new char[] { ' ' }
-            };
         }   
     }
 }

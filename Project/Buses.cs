@@ -20,6 +20,8 @@ namespace sme_intro
     public interface Traversal : IBus
     {
         public uint Count               { get; set; }
+        public bool Valid               { get; set; }
+        // public char[] input               { get; set; }
         // public char[] start_state       { get; set; }
     }
 }
