@@ -10,12 +10,21 @@ namespace sme_intro
 
         [OutputBus]
         public Traversal traversal = Scope.CreateBus<Traversal>();
-        
-        public char[] input;
+
+        // public char[] input;
         public char[][] transitions;
-        public char[] accept_states;
-        public char[] start_state;
+        public char[] acceptStates;
+        public char[] startState;
         public char[] states;
+
+        public Traverse(){
+            // this.input = new char[1000]; //size
+            //Giving the arrays a fixed size
+            this.transitions = new char[1000][]; 
+            this.acceptStates = new char[1000]; 
+            this.startState = new char[1000];
+            this.states = new char[1000]; 
+        }
 
         protected override void OnTick()
         {
@@ -25,7 +34,7 @@ namespace sme_intro
             }
             else if (control.Valid)
             {
-                if(TraverseDFA(input, transitions, accept_states, start_state, states)){
+                if(TraverseDFA()){
                     traversal.Valid = true;
                 }
                 else{
@@ -34,39 +43,43 @@ namespace sme_intro
             }
         }
 
-        public bool TraverseDFA(char[] input, char[][] transitions, char[] accept_states, char[] start_state, char[] states)
+        public bool TraverseDFA()//(char[] input, char[][] transitions, char[] accept_states, char[] start_state, char[] states)
         {
-            int inputLength = input.Length;
-            char currentState = start_state[0];
+            int inputLength = control.Length;//input.Length; //int control.int
+            char currentState = this.startState[0];
             int counter = 0;
             for (int start = 0; start <= inputLength; start++)
             {
-                currentState = start_state[0];
+                currentState = this.startState[0];
                 bool isAccepted = false;
 
                 for (int i = start; i < inputLength; i++)
                 {
                     bool transitionFound = false;
-                    char symbolStr = input[i];
+                    char symbolStr = control.Array[i];
                     counter = 0;
 
-                    for (int j = 0; j < transitions.Length; j++)
+                    for (int j = 0; j < this.transitions.Length; j++)
                     {
-                        if (transitions[j][0] == currentState && transitions[j][1] == symbolStr)
+                        if (this.transitions[j][0] == currentState && this.transitions[j][1] == symbolStr)
                         {
                             transitionFound = true;
-                            currentState = transitions[j][2];
-                            if (accept_states.Contains(currentState)){
-                                return true; //return asap if found
+                            currentState = this.transitions[j][2];
+                            //this.accept_states.Contains(currentState)
+                            for (int h = 0; h < this.acceptStates.Length ; h++){ //return asap if found
+                                if (currentState == this.acceptStates[h]){
+                                    return true;
+                                }
                             }
                             break;
                         }
                     }
                     counter ++;
 
-                    if (accept_states.Contains(currentState))
-                    {
-                        return true;
+                    for (int h = 0; h < this.acceptStates.Length; h++){ //return asap if found
+                        if (currentState == this.acceptStates[h]){
+                            return true;
+                        }
                     }
                     if (!transitionFound)
                     {
@@ -75,9 +88,15 @@ namespace sme_intro
                     }
                 }
             }
-
-            return accept_states.Contains(currentState); // If no path is accepted, return false
+            for (int h = 0; h < this.acceptStates.Length; h++){ //return asap if found
+                if (currentState == this.acceptStates[h]){
+                    return true;
+                }
+            }
+            return false; // If no path is accepted, return false
+            // return accept_states.Contains(currentState); //RYK CONTAINS UD
         }
+
     //   public bool TraverseDFA(char[] input, char[][] transitions, char[]accept_states, char[] start_state, char[] states){ //(ta input som en dfa består af)
     //         char currentState = start_state[0];
     //         bool transitionFound = false;

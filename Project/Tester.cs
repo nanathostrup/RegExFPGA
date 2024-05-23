@@ -22,14 +22,20 @@ namespace sme_intro
             foreach (var test in tests)
             {
                 init();
-                traverseProcess.input = test.ToCharArray();
+                char[] array = test.ToCharArray(); //skal på bus
+                //for løkker der loader test ind i control.array 
+                for (int j = 0; j < test.Length; j++){
+                    control.Array[j] = array[j];
+                }
+                control.Length = test.Length;
 
                 for (int i = 0; i < test.Length; i++)
                 {
                     control.Valid = true;
                     control.Reset = false;
                     await ClockAsync();
-                }
+                } //Behøver den at køre over for loop?
+                //Kan man ikke bare sætte det her ud?
                 
                 await ClockAsync();
                 Console.WriteLine("traversal.Valid: " + traversal.Valid + " for test: " + test);
@@ -47,16 +53,15 @@ namespace sme_intro
             control.Valid = false;
             control.Reset = true;
 
-            traversal.Count = 0;
             traversal.Valid = false;
         }
 
-        public void load(char[] start_state1, char[] accept_states1, char[] states1, char[] alphabet1, char[][] transitions1, char[] states){
-            traverseProcess.start_state = start_state1;
-            traverseProcess.accept_states = accept_states1;
+        public void load(char[] startState1, char[] acceptStates1, char[] states1, char[] alphabet1, char[][] transitions1, char[] states){
+            traverseProcess.startState = startState1;
+            traverseProcess.acceptStates = acceptStates1;
             traverseProcess.transitions = transitions1;
             traverseProcess.states = states1;
-            traverseProcess.input = new char[] { ' ' };
+            // traverseProcess.input = new char[] { ' ' };
         }   
     }
 }

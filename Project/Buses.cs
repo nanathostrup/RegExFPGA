@@ -7,21 +7,21 @@ namespace sme_intro
     {
         public bool Valid               { get; set; } //good idea - for hardware stuff
         public bool Reset               { get; set; }
-        // public byte Character           { get; set; }
+        public int Length               { get; set; }
+       
+        [FixedArrayLength(1000)] //[FixedArrayLength(COLOR_WIDTH)]
+        IFixedArray<char> Array         { get; set; }
     }
 
     [InitializedBus]
     public interface Count : IBus
     {
         public uint Count               { get; set; }
-        // public uint CompareCharacter    { get; set; }
+        public uint CompareCharacter    { get; set; }
     }
     [InitializedBus]
     public interface Traversal : IBus
     {
-        public uint Count               { get; set; }
         public bool Valid               { get; set; }
-        // public char[] input               { get; set; }
-        // public char[] start_state       { get; set; }
     }
 }
