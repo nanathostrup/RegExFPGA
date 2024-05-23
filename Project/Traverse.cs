@@ -11,17 +11,17 @@ namespace sme_intro
         [OutputBus]
         public Traversal traversal = Scope.CreateBus<Traversal>();
 
-        public char[][] transitions;
-        public char[] acceptStates;
-        public char[] startState;
-        public char[] states;
+        public byte[][] transitions;
+        public byte[] acceptStates;
+        public byte startState;
+        public byte[] states;
 
         public Traverse(){
             //Giving the arrays a fixed size
-            this.transitions = new char[1000][]; 
-            this.acceptStates = new char[1000]; 
-            this.startState = new char[1000];
-            this.states = new char[1000]; 
+            this.transitions = new byte[1000][]; 
+            this.acceptStates = new byte[1000]; 
+            this.startState = 0;
+            this.states = new byte[1000]; 
         }
 
         protected override void OnTick()
@@ -43,18 +43,18 @@ namespace sme_intro
 
         public bool TraverseDFA()//(char[] input, char[][] transitions, char[] accept_states, char[] start_state, char[] states)
         {
-            int inputLength = control.Length;//input.Length; //int control.int
-            char currentState = this.startState[0];
+            int inputLength = control.Length; //input.Length; //int control.int
+            byte currentState = this.startState;
             int counter = 0;
             for (int start = 0; start <= inputLength; start++)
             {
-                currentState = this.startState[0];
+                currentState = this.startState;
                 bool isAccepted = false;
 
                 for (int i = start; i < inputLength; i++)
                 {
                     bool transitionFound = false;
-                    char symbolStr = control.Array[i];
+                    byte symbolStr = control.Array[i];
                     counter = 0;
 
                     for (int j = 0; j < this.transitions.Length; j++)
@@ -92,10 +92,10 @@ namespace sme_intro
                 }
             }
             return false; // If no path is accepted, return false
-            // return accept_states.Contains(currentState); //RYK CONTAINS UD
+            // return accept_states.Contains(currentState); //RYK CONTAINS() UD
         }
 
-        public void load(char[] startState1, char[] acceptStates1, char[] states1, char[] alphabet1, char[][] transitions1, char[] states){
+        public void load(byte startState1, byte[] acceptStates1, byte[] states1, byte[] alphabet1, byte[][] transitions1, byte[] states){
             this.startState = startState1;
             this.acceptStates = acceptStates1;
             this.transitions = transitions1;

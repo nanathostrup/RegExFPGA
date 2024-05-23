@@ -13,7 +13,7 @@ namespace sme_intro
         public int Length               { get; set; }
        
         [FixedArrayLength(1000)] //[FixedArrayLength(COLOR_WIDTH)]
-        IFixedArray<char> Array         { get; set; }
+        IFixedArray<byte> Array         { get; set; }
     }
 
     [InitializedBus]

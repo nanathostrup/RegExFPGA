@@ -16,7 +16,7 @@ namespace sme_intro
         {
             Console.WriteLine(":)");
 
-            var tests = new string[]{"a"};//, "b", "ab", "c", "ac", "bb", "aa", "kh", "f", "cccccbab", "khab", "abkh", "khabdf", "dfag", "dfbg", "dafb" , "dafbgc", "dafbdab"};
+            var tests = new string[]{"a", "b", "ab", "c", "ac", "bb", "aa", "kh", "f", "cccccbab", "khab", "abkh", "khabdf", "dfag", "dfbg", "dafb" , "dafbgc", "dafbdab"};
             // load(); //moved to Program.cs to avoid setting up the system when simulating in Run()
             init(); 
             await ClockAsync();
@@ -25,9 +25,9 @@ namespace sme_intro
             {
                 init();
                 char[] array = test.ToCharArray(); //skal på bus
-                //for løkker der loader test ind i control.array 
+                //for løkker der loader test ind i control.array som bytes
                 for (int j = 0; j < test.Length; j++){
-                    control.Array[j] = array[j];
+                    control.Array[j] = (byte)array[j];
                 }
                 control.Length = test.Length;
 
