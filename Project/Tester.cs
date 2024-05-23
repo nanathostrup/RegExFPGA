@@ -60,7 +60,10 @@ namespace sme_intro
         }
         
         public void load(){
-            control.Array = new iFixedArray<char>(1000);   
+            // control.Array = new FixedArray<char>(1000);
+            // IFixedArray<int> fixedArray = new FixedArray<int>(5);
+            Console.WriteLine(":)");
+            // IFixedArray<int> fixedArray = new FixedArray<int>(5); 
         }
     }
 }
