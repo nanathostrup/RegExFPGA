@@ -15,7 +15,7 @@ namespace sme_intro
 
         public override async System.Threading.Tasks.Task Run()
         {
-            var tests = new string[]{"a", "b", "ab", "c", "ac", "bb", "aa", "kh", "f", "cccccbab", "khab", "abkh", "khabdf", "dfag", "dfbg"}; //, "dafb"};
+            var tests = new string[]{"a", "b", "ab", "c", "ac", "bb", "aa", "kh", "f", "cccccbab", "khab", "abkh", "khabdf", "dfag", "dfbg", "dafb" , "dafbgc", "dafbdab"};
             // load(); //moved to Program.cs to avoid setting up the system when simulating in Run()
             init(); 
             await ClockAsync();

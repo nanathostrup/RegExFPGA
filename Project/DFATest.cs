@@ -181,72 +181,184 @@ namespace sme_intro{
             char[] transition9y = new char[]{'2', 'c', '6'};
             char[] transition10y = new char[]{'6', 'a', '4'};
             char[] transition11y = new char[]{'6', 'c', '6'};
-            transitions1 = new char[][]{transition0y, transition1y, transition2y, transition3y, transition4y, transition5y, transition6y, transition7y, transition8y, transition9y, transition10y, transition11y};
+            transitionsy = new char[][]{transition0y, transition1y, transition2y, transition3y, transition4y, transition5y, transition6y, transition7y, transition8y, transition9y, transition10y, transition11y};
 
             Console.WriteLine("((ab)|(c))+");
             char[] Input00 = new char[] {'a'};
             Console.WriteLine("Traversal for 'a': " + TraverseDFA(Input00, transitionsy, accept_statesy, start_statey, statesy));
+            char[] Input001 = new char[] {'c'};
+            Console.WriteLine("Traversal for 'c': " + TraverseDFA(Input001, transitionsy, accept_statesy, start_statey, statesy));
+            char[] Input002 = new char[] {'a', 'b'};
+            Console.WriteLine("Traversal for 'ab': " + TraverseDFA(Input002, transitionsy, accept_statesy, start_statey, statesy));
             char[] Input111 = new char[] {'d','f', 'a', 'g'};
             Console.WriteLine("Traversal for 'dfag': " + TraverseDFA(Input111, transitionsy, accept_statesy, start_statey, statesy));
             char[] Input222 = new char[] {'d','a', 'f', 'b'};
             Console.WriteLine("Traversal for 'dafb': " + TraverseDFA(Input222, transitionsy, accept_statesy, start_statey, statesy));
+            char[] Input333 = new char[] {'d','a', 'f', 'b', 'g', 'c'};
+            Console.WriteLine("Traversal for 'dafbgc': " + TraverseDFA(Input333, transitionsy, accept_statesy, start_statey, statesy));
+            char[] Input004 = new char[] {'d','a', 'f', 'b', 'g', 'a', 'b'};
+            Console.WriteLine("Traversal for 'dafbgab': " + TraverseDFA(Input004, transitionsy, accept_statesy, start_statey, statesy));
 
         }
     
-        public bool TraverseDFA(char[] input, char[][] transitions, char[]accept_states, char[] start_state, char[] states){ //(ta input som en dfa består af)
+        // public bool TraverseDFA(char[] input, char[][] transitions, char[]accept_states, char[] start_state, char[] states){ //(ta input som en dfa består af)
+        //     char currentState = start_state[0];
+        //     bool transitionFound = false;
+        //     char[] visited = new char[input.Length];
+        //     int counter = 0; 
+        //     int stopklods = input.Length; //makes sure that the function terminates
+        //     for (int i = 0; i < input.Length; i++)
+        //     {
+        //         transitionFound = false;
+        //         char symbolStr = input[i];
+        //         for (int j = 0; j < transitions.Length; j ++)
+        //         {
+        //             // Console.WriteLine(symbolStr);
+        //             transitionFound = false;
+        //             if (transitions[j][0] == currentState && transitions[j][1] == symbolStr && !visited.Contains(transitions[j][2]))
+        //             {
+        //                 transitionFound = true;
+        //                 currentState = transitions[j][2];
+        //                 counter ++;
+        //                 break;
+        //             }
+        //         }
+        //         // Console.WriteLine(symbolStr);
+        //         // Console.WriteLine(currentState);
+        //         // Console.WriteLine(transitionFound);
+        //         //We want to terminate as soon as we encounter an acepting state
+        //         if (accept_states.Contains(currentState)){ //prevents the reset that comes later if we already have an accepting state. Test eg.'abaccaad' would not be accepted otherwise
+        //             return true;
+        //         }
+        //         //not in accepting, so no check needed here
+        //         if (transitionFound == true && input.Length == 1){ 
+        //             visited[i] = currentState;
+        //             i = 0;
+        //             counter = 0; //counter er lige meget her
+        //             currentState = start_state[0];
+        //         }
+        //         if (transitionFound == false){ //&& stopklods != counter) {//if the string does not follow the order of the dfa, we start over, to check the rest of the string
+        //             if (symbolStr == input[input.Length-1]){ //we have reached the last char of the string and should exit
+        //             // Console.WriteLine(":)");
+        //             // if (visited.Contains(currentState)){
+        //             //     Console.WriteLine(":(())");
+        //                 return accept_states.Contains(currentState);
+        //             }
+        //             else{
+        //             // visited[i] = currentState;
+        //             // i --;
+        //                 i = i-counter; //start fra næste char i string
+        //                 currentState = start_state[0];
+        //             }
+        //         }
+        //         // Console.WriteLine(i);
+        //     }
+        //     return accept_states.Contains(currentState);
+        // }
+    
+        // public bool TraverseDFA(char[] input, char[][] transitions, char[] accept_states, char[] start_state, char[] states)
+        // {
+        //     char currentState = start_state[0];
+        //     char[] visited = new char[input.Length];
+        //     int counter = 0;
+            
+        //     for (int i = 0; i < input.Length; i++)
+        //     {
+        //         bool transitionFound = false;
+        //         char symbolStr = input[i];
+                
+        //         for (int j = 0; j < transitions.Length; j++)
+        //         {
+        //             if (transitions[j][0] == currentState && transitions[j][1] == symbolStr)
+        //             {
+        //                 transitionFound = true;
+        //                 currentState = transitions[j][2];
+        //                 break;
+        //             }
+        //         }
+                
+        //         if (accept_states.Contains(currentState))
+        //         {
+        //             // If we reach an accepting state, return true immediately
+        //             return true;
+        //         }
+                
+        //         if (!transitionFound)
+        //         {
+        //             // If no transition was found for the current symbol, we need to reset
+        //             // Check if we have reached the last character
+        //             if (i == input.Length - 1)
+        //             {
+        //                 // If it's the last character, return whether the current state is accepting
+        //                 return accept_states.Contains(currentState);
+        //             }
+        //             else
+        //             {
+        //                 // Reset to start state and restart traversal from the next character
+        //                 currentState = start_state[0];
+        //                 i = i - counter; // Move back by 'counter' positions to retry from next character
+        //                 counter = 0; // Reset the counter
+        //             }
+        //         }
+        //         else
+        //         {
+        //             // If a valid transition was found, increment the counter
+        //             counter++;
+        //         }
+        //     }
+            
+        //     // After processing all input characters, check if we are in an accepting state
+        //     return accept_states.Contains(currentState);
+        // }
+        public bool TraverseDFA(char[] input, char[][] transitions, char[] accept_states, char[] start_state, char[] states)
+        {
+            int inputLength = input.Length;
             char currentState = start_state[0];
-            bool transitionFound = false;
-            char[] visited = new char[input.Length];
-            int counter = 0; 
-            int stopklods = input.Length; //makes sure that the function terminates
-            for (int i = 0; i < input.Length; i++)
+            int counter = 0;
+            for (int start = 0; start <= inputLength; start++)
             {
-                transitionFound = false;
-                char symbolStr = input[i];
-                for (int j = 0; j < transitions.Length; j ++)
+                currentState = start_state[0];
+                bool isAccepted = false;
+
+                for (int i = start; i < inputLength; i++)
                 {
-                    // Console.WriteLine(symbolStr);
-                    transitionFound = false;
-                    if (transitions[j][0] == currentState && transitions[j][1] == symbolStr && !visited.Contains(transitions[j][2]))
+                    bool transitionFound = false;
+                    char symbolStr = input[i];
+                    counter = 0;
+
+                    for (int j = 0; j < transitions.Length; j++)
                     {
-                        transitionFound = true;
-                        currentState = transitions[j][2];
-                        counter ++;
-                        break;
+                        if (transitions[j][0] == currentState && transitions[j][1] == symbolStr)
+                        {
+                            transitionFound = true;
+                            currentState = transitions[j][2];
+                            if (accept_states.Contains(currentState)){
+                                return true;
+                            }
+                            break;
+                        }
                     }
-                }
-                // Console.WriteLine(symbolStr);
-                // Console.WriteLine(currentState);
-                // Console.WriteLine(transitionFound);
-                //We want to terminate as soon as we encounter an acepting state
-                if (accept_states.Contains(currentState)){ //prevents the reset that comes later if we already have an accepting state. Test eg.'abaccaad' would not be accepted otherwise
-                    return true;
+                    counter ++;
+
+                    if (accept_states.Contains(currentState))
+                    {
+                        return true;
+                        // isAccepted = true; // Mark as accepted if an accepting state is reached
+                    }
+                    if (!transitionFound)
+                    {
+                        i = i-counter;
+                        break; // No valid transition, break out and try from the next start position
+                    }
                 }
 
-                if (symbolStr == input[input.Length-1]){ //we have reached the last char of the string and should exit
-                    Console.WriteLine(":)");
-                    if (visited.Contains(currentState)){
-                        Console.WriteLine(":(())");
-                        return accept_states.Contains(currentState);
-                    }
-                }
-                //not in accepting, so no check needed here
-                if (transitionFound == true && input.Length == 1){ 
-                    visited[i] = currentState;
-                    i = 0;
-                    counter = 0; //counter er lige meget her
-                    currentState = start_state[0];
-                }
-                if (transitionFound == false){ //&& stopklods != counter) {//if the string does not follow the order of the dfa, we start over, to check the rest of the string
-                    visited[i] = currentState;
-                    // i --;
-                    i = i-counter; //start fra næste char i string
-                    currentState = start_state[0];
-                }
-                // Console.WriteLine(i);
+                // if (isAccepted)
+                // {
+                //     return true; // If any path from any start position is accepted, return true
+                // }
             }
-            return accept_states.Contains(currentState);
+
+            return accept_states.Contains(currentState); // If no path is accepted, return false
         }
-    
     }
 }
