@@ -5,13 +5,12 @@ namespace sme_intro
     public class Tester : SimulationProcess
     {
         [InputBus]
-        // public Count count;
         public Traversal traversal;
-        private int counter = 0;
+        public Traverse traverseProcess;
 
         [OutputBus]
+        //MAybe the traversal instead?
         public Control control = Scope.CreateBus<Control>();
-        public Traverse traverseProcess;
 
         public override async System.Threading.Tasks.Task Run()
         {
@@ -31,18 +30,11 @@ namespace sme_intro
                     control.Reset = false;
                     await ClockAsync();
                 }
-                // if (traversal.Valid){
-                //     counter ++;
-                //     Console.WriteLine("true");
-                // }
-                // else{
-                //     Console.WriteLine("false");
-                // }
-                // Console.WriteLine(":)");
                 
                 await ClockAsync();
                 Console.WriteLine("traversal.Valid: " + traversal.Valid + " for test: " + test);
-                traversal.Valid = false; //reset
+                //reset
+                traversal.Valid = false; 
                 control.Valid = false;
                 control.Reset = true;
                 await ClockAsync();
@@ -65,7 +57,6 @@ namespace sme_intro
             traverseProcess.transitions = transitions1;
             traverseProcess.states = states1;
             traverseProcess.input = new char[] { ' ' };
-
         }   
     }
 }

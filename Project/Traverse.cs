@@ -10,8 +10,7 @@ namespace sme_intro
 
         [OutputBus]
         public Traversal traversal = Scope.CreateBus<Traversal>();
-
-        // private uint internal_count = 0;
+        
         public char[] input;
         public char[][] transitions;
         public char[] accept_states;
@@ -20,30 +19,21 @@ namespace sme_intro
 
         protected override void OnTick()
         {
-            // Console.WriteLine("traversal");
             if (control.Reset)
             {
                 traversal.Valid = false;
-                // internal_count = 0;
             }
-            else if (control.Valid)//&& count.CompareCharacter == control.Character) //control.Char = the current char, count.Comp = the char to search for (initialized in tester)
+            else if (control.Valid)
             {
                 if(TraverseDFA(input, transitions, accept_states, start_state, states)){
-                    // Console.WriteLine("true");
                     traversal.Valid = true;
-                    // internal_count ++;
-                    // Console.WriteLine("traversal.Count:" + traversal.Count);
                 }
                 else{
-                    // Console.WriteLine("false");
                     traversal.Valid = false;
-                    // Console.WriteLine("traversal.Count:" + traversal.Count);
                 }
             }
-            // internal_count ++;
-            // traversal.Count = internal_count;
-            // Console.WriteLine("traversal.Count:" + traversal.Count);
         }
+
         public bool TraverseDFA(char[] input, char[][] transitions, char[] accept_states, char[] start_state, char[] states)
         {
             int inputLength = input.Length;
