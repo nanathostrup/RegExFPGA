@@ -14,7 +14,9 @@ namespace sme_intro
 
         public override async System.Threading.Tasks.Task Run()
         {
-            var tests = new string[]{"a", "b", "ab", "c", "ac", "bb", "aa", "kh", "f", "cccccbab", "khab", "abkh", "khabdf", "dfag", "dfbg", "dafb" , "dafbgc", "dafbdab"};
+            Console.WriteLine(":)");
+
+            var tests = new string[]{"a"};//, "b", "ab", "c", "ac", "bb", "aa", "kh", "f", "cccccbab", "khab", "abkh", "khabdf", "dfag", "dfbg", "dafb" , "dafbgc", "dafbdab"};
             // load(); //moved to Program.cs to avoid setting up the system when simulating in Run()
             init(); 
             await ClockAsync();
@@ -52,17 +54,13 @@ namespace sme_intro
         public void init(){
             control.Valid = false;
             control.Reset = true;
-
             traversal.Valid = false;
-        }
+            // control.Array = Scope.CreateArray<char>(1000); // Initialize the fixed array with the correct length
 
-        public void load(char[] startState1, char[] acceptStates1, char[] states1, char[] alphabet1, char[][] transitions1, char[] states){
-            traverseProcess.startState = startState1;
-            traverseProcess.acceptStates = acceptStates1;
-            traverseProcess.transitions = transitions1;
-            traverseProcess.states = states1;
-            // traverseProcess.input = new char[] { ' ' };
-        }   
+        }
+        
+        public void load(){
+            control.Array = new iFixedArray<char>(1000);   
+        }
     }
 }
-//restart window cmd shift p, reload window

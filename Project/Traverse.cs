@@ -11,14 +11,12 @@ namespace sme_intro
         [OutputBus]
         public Traversal traversal = Scope.CreateBus<Traversal>();
 
-        // public char[] input;
         public char[][] transitions;
         public char[] acceptStates;
         public char[] startState;
         public char[] states;
 
         public Traverse(){
-            // this.input = new char[1000]; //size
             //Giving the arrays a fixed size
             this.transitions = new char[1000][]; 
             this.acceptStates = new char[1000]; 
@@ -95,6 +93,13 @@ namespace sme_intro
             }
             return false; // If no path is accepted, return false
             // return accept_states.Contains(currentState); //RYK CONTAINS UD
+        }
+
+        public void load(char[] startState1, char[] acceptStates1, char[] states1, char[] alphabet1, char[][] transitions1, char[] states){
+            this.startState = startState1;
+            this.acceptStates = acceptStates1;
+            this.transitions = transitions1;
+            this.states = states1;
         }
 
     //   public bool TraverseDFA(char[] input, char[][] transitions, char[]accept_states, char[] start_state, char[] states){ //(ta input som en dfa består af)
