@@ -9,7 +9,6 @@ namespace sme_intro
         public Traverse traverseProcess;
 
         [OutputBus]
-        //MAybe the traversal instead?
         public Control control = Scope.CreateBus<Control>();
 
         public override async System.Threading.Tasks.Task Run()

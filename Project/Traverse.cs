@@ -68,6 +68,7 @@ namespace sme_intro
                             transitionFound = true;
                             // currentState = this.transitions[j][2];
                             currentState = this.transitions[(3 * j) + 2];
+                            //Ryk ud
                             //this.accept_states.Contains(currentState)
                             for (int h = 0; h < this.acceptStates.Length ; h++){ //return asap if found
                                 if (currentState == this.acceptStates[h]){
