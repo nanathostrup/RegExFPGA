@@ -32,7 +32,7 @@ namespace sme_intro{
             // List<string> alphabet = new List<string>();
             // List<List<string>> transitions = new List<List<string>>(); 
 
-            (byte start_state, byte[] accept_states, byte[] states, byte[] alphabet, byte[][] transitions)= dfa.FromNFA(nfa);
+            (byte start_state, byte[] accept_states, byte[] states, byte[] alphabet, byte[] transitions)= dfa.FromNFA(nfa);
 
             //The regular expression:
             Console.WriteLine("RegExp:" + regExp);
@@ -62,18 +62,31 @@ namespace sme_intro{
             }
             Console.Write("\n");
 
-            string transition2 = "";
-            string transitions2 = "";
-            foreach(var trans in transitions){
-                transitions2 = transitions2 + "[";
-                foreach(var b in trans){
-                    transition2 = transition2 + (char)b + " ";
-                }
-                transitions2 = transitions2 + " " + transition2.Trim() + "]";
-                transition2 = "";
+            // string transition2 = "";
+            // string transitions2 = "";
+            // foreach(var trans in transitions){
+            //     transitions2 = transitions2 + "[";
+            //     foreach(var b in trans){
+            //         transition2 = transition2 + (char)b + " ";
+            //     }
+            //     transitions2 = transitions2 + " " + transition2.Trim() + "]";
+            //     transition2 = "";
+            // }
+            // Console.WriteLine("DFA transitions:" + transitions2);
+
+
+
+            // byte[] odtrans = flatten(transitions);
+            // oneDArrayTransitions(transitions);
+            string str = "[";
+            for (int i = 0; i < transitions.Length; i++){
+                str = str + (char)transitions[i] + " ";
             }
-            Console.WriteLine("DFA transitions:" + transitions2);
-        
+            str = str + "]";
+            Console.WriteLine(str);
+          
+    
+
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~");
             Console.WriteLine("regExp: " + regExp);
             byte[] input0 = new byte[] {(byte)'a'}; //single char fra regex dur ikke
@@ -100,15 +113,15 @@ namespace sme_intro{
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~");
             string regexp1 = "((ab)|(a))?";
             nfa.FromRegExp(regexp1);
-            (byte start_state1, byte[] accept_states1, byte[] states1, byte[] alphabet1, byte[][] transitions1) = dfa.FromNFA(nfa);
+            (byte start_state1, byte[] accept_states1, byte[] states1, byte[] alphabet1, byte[] transitions1) = dfa.FromNFA(nfa);
             accept_states1 = new byte[]{(byte)'3', (byte)'0', (byte)'2'};
             states1 = new byte[] {(byte)'0', (byte)'1', (byte)'2', (byte)'3'};
             start_state1 = (byte)'0';
             alphabet1 = new byte[]{(byte)'a', (byte)'b', (byte)'c'};
-            byte[] insert2 = new byte[]{(byte)'0', (byte)'a', (byte)'1'};
-            byte[] insert0 = new byte[]{(byte)'0', (byte)'a', (byte)'3'};
-            byte[] insert1 = new byte[]{(byte)'1', (byte)'b', (byte)'2'};
-            transitions1 = new byte[][]{insert0, insert1, insert2};
+            transitions1 = new byte[]{(byte)'0', (byte)'a', (byte)'1', (byte)'0', (byte)'a', (byte)'3', (byte)'1', (byte)'b', (byte)'2'};
+            // byte[] insert0 = new byte[]{(byte)'0', (byte)'a', (byte)'3'};
+            // byte[] insert1 = new byte[]{(byte)'1', (byte)'b', (byte)'2'};
+            // transitions1 = new byte[]{insert2};
 
             Console.WriteLine("regExp: " + regexp1);
             byte[] input00 = new byte[] {(byte)'a'};
@@ -132,15 +145,16 @@ namespace sme_intro{
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~");
             
             nfa.FromRegExp("((ab)|(c))");
-            (byte start_statex, byte[] accept_statesx, byte[] statesx, byte[] alphabetx, byte[][] transitionsx) = dfa.FromNFA(nfa);
+            (byte start_statex, byte[] accept_statesx, byte[] statesx, byte[] alphabetx, byte[] transitionsx) = dfa.FromNFA(nfa);
             accept_statesx = new byte[]{(byte)'3', (byte)'2'};
             statesx = new byte[] {(byte)'0', (byte)'1', (byte)'2', (byte)'3'};
             start_statex = (byte)'0';
             alphabetx = new byte[]{(byte)'a', (byte)'b', (byte)'c'};
-            byte[] insert0x = new byte[]{(byte)'0', (byte)'a', (byte)'1'};
-            byte[] insert2x = new byte[]{(byte)'1', (byte)'b', (byte)'2'};
-            byte[] insert1x = new byte[]{(byte)'0', (byte)'c', (byte)'3'};
-            transitionsx = new byte[][]{insert0x, insert1x, insert2x};
+            // byte[] insert0x = new byte[]{(byte)'0', (byte)'a', (byte)'1'};
+            // byte[] insert2x = new byte[]{(byte)'1', (byte)'b', (byte)'2'};
+            // byte[] insert1x = new byte[]{(byte)'0', (byte)'c', (byte)'3'};
+            // // transitionsx = new byte[][]{insert0x, insert1x, insert2x};
+            transitionsx = new byte[]{(byte)'0', (byte)'a', (byte)'1', (byte)'1', (byte)'b', (byte)'2', (byte)'0', (byte)'c', (byte)'3'};
 
             Console.WriteLine("((ab)|(c))");
             byte[] Input0 = new byte[] {(byte)'a'};
@@ -160,7 +174,7 @@ namespace sme_intro{
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~");
 
             nfa.FromRegExp("ab");
-            (byte start_statey, byte[] accept_statesy, byte[] statesy, byte[] alphabety, byte[][] transitionsy) = dfa.FromNFA(nfa);
+            (byte start_statey, byte[] accept_statesy, byte[] statesy, byte[] alphabety, byte[] transitionsy) = dfa.FromNFA(nfa);
             accept_statesy = new byte[]{(byte)'2', (byte)'3', (byte)'5', (byte)'6'};
             statesy = new byte[] {(byte)'0', (byte)'1', (byte)'2', (byte)'3', (byte)'4', (byte)'5', (byte)'6'};
             start_statey = (byte)'0';
@@ -177,8 +191,8 @@ namespace sme_intro{
             byte[] transition9y = new byte[]{(byte)'2', (byte)'c',  (byte)'6'};
             byte[] transition10y = new byte[]{(byte)'6', (byte)'a', (byte)'4'};
             byte[] transition11y = new byte[]{(byte)'6', (byte)'c', (byte)'6'};
-            transitionsy = new byte[][]{transition0y, transition1y, transition2y, transition3y, transition4y, transition5y, transition6y, transition7y, transition8y, transition9y, transition10y, transition11y};
-
+            // transitionsy = new byte[][]{transition0y, transition1y, transition2y, transition3y, transition4y, transition5y, transition6y, transition7y, transition8y, transition9y, transition10y, transition11y};
+            transitionsy = new byte[]{(byte)'0', (byte)'c', (byte)'3', (byte)'0', (byte)'a',  (byte)'1', (byte)'1', (byte)'b',  (byte)'2',(byte)'3', (byte)'c',  (byte)'6', (byte)'3', (byte)'a',  (byte)'4', (byte)'2', (byte)'a',  (byte)'4', (byte)'4', (byte)'b',  (byte)'5', (byte)'5', (byte)'a',  (byte)'4', (byte)'5', (byte)'c',  (byte)'6', (byte)'2', (byte)'c',  (byte)'6', (byte)'6', (byte)'a', (byte)'4', (byte)'6', (byte)'c', (byte)'6'};
             Console.WriteLine("((ab)|(c))+");
             byte[] Input00 = new byte[] {(byte)'a'};
             Console.WriteLine("Traversal for 'a': " + TraverseDFA(Input00, transitionsy, accept_statesy, start_statey, statesy));
@@ -196,11 +210,13 @@ namespace sme_intro{
             Console.WriteLine("Traversal for 'dafbgab': " + TraverseDFA(Input004, transitionsy, accept_statesy, start_statey, statesy));
 
         }
-         public bool TraverseDFA(byte[] input, byte[][] transitions, byte[] accept_states, byte start_state, byte[] states)
+         public bool TraverseDFA(byte[] input, byte[] transitions, byte[] accept_states, byte start_state, byte[] states)
         {
             int inputLength = input.Length;
             byte currentState = start_state;
             int counter = 0;
+            int transLength = transitions.Length/3;
+
             for (int start = 0; start <= inputLength; start++)
             {
                 currentState = start_state;
@@ -212,12 +228,12 @@ namespace sme_intro{
                     byte symbolStr = input[i];
                     counter = 0;
 
-                    for (int j = 0; j < transitions.Length; j++)
+                    for (int j = 0; j < transLength; j++)
                     {
-                        if (transitions[j][0] == currentState && transitions[j][1] == symbolStr)
+                        if (transitions[(3 * j) + 0] == currentState && transitions[(3 * j ) + 1] == symbolStr)
                         {
                             transitionFound = true;
-                            currentState = transitions[j][2];
+                            currentState = transitions[(3 * j) + 2];
                             if (accept_states.Contains(currentState)){
                                 return true;
                             }
@@ -238,10 +254,6 @@ namespace sme_intro{
                     }
                 }
 
-                // if (isAccepted)
-                // {
-                //     return true; // If any path from any start position is accepted, return true
-                // }
             }
 
             return accept_states.Contains(currentState); // If no path is accepted, return false

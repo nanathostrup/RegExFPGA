@@ -17,9 +17,11 @@ entity sme_intro is
         -- Top-level bus Control signals
         Control_Valid: in T_SYSTEM_BOOL;
         Control_Reset: in T_SYSTEM_BOOL;
+        Control_Length: in T_SYSTEM_INT32;
+        Control_Array: in Control_Array_type;
 
         -- Top-level bus Traversal signals
-        Traversal_Count: out T_SYSTEM_UINT32;
+        Traversal_Valid: out T_SYSTEM_BOOL;
 
         -- User defined signals here
         -- #### USER-DATA-ENTITYSIGNALS-START
@@ -56,15 +58,20 @@ begin
     -- Entity Traverse signals
     Traverse: entity work.Traverse
     generic map(
-        reset_internal_count => TO_UNSIGNED(0, 32)
+        reset_transitions (0 to 35) => (TO_UNSIGNED(48, 8), TO_UNSIGNED(99, 8), TO_UNSIGNED(51, 8), TO_UNSIGNED(48, 8), TO_UNSIGNED(97, 8), TO_UNSIGNED(49, 8), TO_UNSIGNED(49, 8), TO_UNSIGNED(98, 8), TO_UNSIGNED(50, 8), TO_UNSIGNED(51, 8), TO_UNSIGNED(99, 8), TO_UNSIGNED(54, 8), TO_UNSIGNED(51, 8), TO_UNSIGNED(97, 8), TO_UNSIGNED(52, 8), TO_UNSIGNED(50, 8), TO_UNSIGNED(97, 8), TO_UNSIGNED(52, 8), TO_UNSIGNED(52, 8), TO_UNSIGNED(98, 8), TO_UNSIGNED(53, 8), TO_UNSIGNED(53, 8), TO_UNSIGNED(97, 8), TO_UNSIGNED(52, 8), TO_UNSIGNED(53, 8), TO_UNSIGNED(99, 8), TO_UNSIGNED(54, 8), TO_UNSIGNED(50, 8), TO_UNSIGNED(99, 8), TO_UNSIGNED(54, 8), TO_UNSIGNED(54, 8), TO_UNSIGNED(97, 8), TO_UNSIGNED(52, 8), TO_UNSIGNED(54, 8), TO_UNSIGNED(99, 8), TO_UNSIGNED(54, 8)),
+        reset_acceptStates (0 to 3) => (TO_UNSIGNED(50, 8), TO_UNSIGNED(51, 8), TO_UNSIGNED(53, 8), TO_UNSIGNED(54, 8)),
+        reset_startState => TO_UNSIGNED(48, 8),
+        reset_states (0 to 6) => (TO_UNSIGNED(48, 8), TO_UNSIGNED(49, 8), TO_UNSIGNED(50, 8), TO_UNSIGNED(51, 8), TO_UNSIGNED(52, 8), TO_UNSIGNED(53, 8), TO_UNSIGNED(54, 8))
     )
     port map (
         -- Input bus Control
         control_Valid => Control_Valid,
         control_Reset => Control_Reset,
+        control_Length => Control_Length,
+        control_Array => Control_Array,
 
         -- Output bus Traversal
-        traversal_Count => Traversal_Count,
+        traversal_Valid => Traversal_Valid,
 
         CLK => CLK,
         RDY => RDY,

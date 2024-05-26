@@ -8,7 +8,7 @@ namespace sme_intro{
         // public List<string> start_state;
         // public List<string> accept_states;
 
-        public (byte,  byte[], byte[], byte[],  byte[][]) FromNFA(NFA nfa){
+        public (byte,  byte[], byte[], byte[],  byte[]) FromNFA(NFA nfa){
             // this.states = new List<List<string>>(); //Start state not added yet
             // this.accept_states = new List<string>();
             // this.alphabet = new List<string>();
@@ -120,7 +120,8 @@ namespace sme_intro{
 
             char[][] transformedTrans = transformTransitions(transitions);
             byte[][] byteTransitions = byteTransformTransitions(transformedTrans);
-            return (byteStart, byteAccept, byteStates, byteAlphabet, byteTransitions);
+            byte[] flat = flatten(byteTransitions);
+            return (byteStart, byteAccept, byteStates, byteAlphabet, flat);
         }    
 
         private (List<string>, bool) EpsilonClosure(NFA nfa, List<string> newList, bool in_accepting){
@@ -237,5 +238,21 @@ namespace sme_intro{
             }
             return byteArray;
         }
+
+        static byte[] flatten(byte[][] array){
+            int totalLength = 0;
+            foreach (var subArray in array){
+                totalLength += subArray.Length;
+            }
+
+            byte[] flattenedArray = new byte[totalLength];
+            int currentIndex = 0;
+
+            foreach (var subArray in array){
+                Array.Copy(subArray, 0, flattenedArray, currentIndex, subArray.Length);
+                currentIndex += subArray.Length;
+            }
+            return flattenedArray;
+            }
     }
 }

@@ -11,14 +11,14 @@ namespace sme_intro
         [OutputBus]
         public Traversal traversal = Scope.CreateBus<Traversal>();
 
-        public byte[][] transitions;
+        public byte[] transitions;
         public byte[] acceptStates;
         public byte startState;
         public byte[] states;
 
         public Traverse(){
             //Giving the arrays a fixed size
-            this.transitions = new byte[1000][]; 
+            this.transitions = new byte[1000]; 
             this.acceptStates = new byte[1000]; 
             this.startState = 0;
             this.states = new byte[1000]; 
@@ -46,7 +46,9 @@ namespace sme_intro
             int inputLength = control.Length; //input.Length; //int control.int
             byte currentState = this.startState;
             int counter = 0;
-            for (int start = 0; start <= inputLength; start++)
+            int transLength = transitions.Length/3;
+
+            for (int start = 0; start < inputLength; start++)
             {
                 currentState = this.startState;
                 bool isAccepted = false;
@@ -57,12 +59,15 @@ namespace sme_intro
                     byte symbolStr = control.Array[i];
                     counter = 0;
 
-                    for (int j = 0; j < this.transitions.Length; j++)
+                    for (int j = 0; j < transLength; j++)
                     {
-                        if (this.transitions[j][0] == currentState && this.transitions[j][1] == symbolStr)
+                        if (this.transitions[(3 * j) + 0] == currentState && this.transitions[(3 * j ) + 1] == symbolStr)
                         {
+                        // flattened array for transitions
+                        // if (this.transitions[j][0] == currentState && this.transitions[j][1] == symbolStr)
                             transitionFound = true;
-                            currentState = this.transitions[j][2];
+                            // currentState = this.transitions[j][2];
+                            currentState = this.transitions[(3 * j) + 2];
                             //this.accept_states.Contains(currentState)
                             for (int h = 0; h < this.acceptStates.Length ; h++){ //return asap if found
                                 if (currentState == this.acceptStates[h]){
@@ -92,64 +97,13 @@ namespace sme_intro
                 }
             }
             return false; // If no path is accepted, return false
-            // return accept_states.Contains(currentState); //RYK CONTAINS() UD
         }
 
-        public void load(byte startState1, byte[] acceptStates1, byte[] states1, byte[] alphabet1, byte[][] transitions1, byte[] states){
+        public void load(byte startState1, byte[] acceptStates1, byte[] states1, byte[] alphabet1, byte[] transitions1, byte[] states){
             this.startState = startState1;
             this.acceptStates = acceptStates1;
             this.transitions = transitions1;
             this.states = states1;
         }
-
-    //   public bool TraverseDFA(char[] input, char[][] transitions, char[]accept_states, char[] start_state, char[] states){ //(ta input som en dfa består af)
-    //         char currentState = start_state[0];
-    //         bool transitionFound = false;
-    //         char[] visited = new char[input.Length];
-    //         int counter = 0; 
-    //         int stopklods = input.Length; //makes sure that the function terminates
-    //         for (int i = 0; i < input.Length; i++)
-    //         {
-    //             transitionFound = false;
-    //             char symbolStr = input[i];
-    //             for (int j = 0; j < transitions.Length; j ++)
-    //             {
-    //                 // Console.WriteLine(symbolStr);
-    //                 transitionFound = false;
-    //                 if (transitions[j][0] == currentState && transitions[j][1] == symbolStr && !visited.Contains(transitions[j][2]))
-    //                 {
-    //                     transitionFound = true;
-    //                     currentState = transitions[j][2];
-    //                     counter ++;
-    //                     break;
-    //                 }
-    //             }
-    //             //We want to terminate as soon as we encounter an acepting state
-    //             if (accept_states.Contains(currentState)){ //prevents the reset that comes later if we already have an accepting state. Test eg.'abaccaad' would not be accepted otherwise
-    //                 return true;
-    //             }
-    //             //not in accepting, so no check needed here
-    //             if (transitionFound == true && input.Length == 1){ 
-    //                 visited[i] = currentState;
-    //                 i = 0;
-    //                 counter = 0; //counter er lige meget her
-    //                 currentState = start_state[0];
-    //             }
-    //             if (transitionFound == false){ //&& stopklods != counter) {//if the string does not follow the order of the dfa, we start over, to check the rest of the string
-    //                 visited[i] = currentState;
-    //                 i = i-counter; //start fra næste char i string
-    //                 currentState = start_state[0];
-    //             }
-    //             // Console.WriteLine(i);
-    //             if (symbolStr == input[input.Length-1]){ //we have reached the last char of the string and should exit
-    //                 if (visited.Contains(currentState)){
-    //                     return accept_states.Contains(currentState);
-    //                 }
-    //             }
-    //         }
-    //         return accept_states.Contains(currentState);
-        // }
     }
 }
-
-//restart window cmd shift p, reload window

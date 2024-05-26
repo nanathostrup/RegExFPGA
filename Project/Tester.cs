@@ -36,7 +36,7 @@ namespace sme_intro
                     control.Valid = true;
                     control.Reset = false;
                     await ClockAsync();
-                } //Behøver den at køre over for loop?
+                } //Behøver den at køre over for loop? -- ja ellers vil alle tests være false.
                 //Kan man ikke bare sætte det her ud?
                 
                 await ClockAsync();
