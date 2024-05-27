@@ -57,12 +57,5 @@ namespace sme_intro
             // control.Array = Scope.CreateArray<char>(1000); // Initialize the fixed array with the correct length
 
         }
-        
-        public void load(){
-            // control.Array = new FixedArray<char>(1000);
-            // IFixedArray<int> fixedArray = new FixedArray<int>(5);
-            Console.WriteLine(":)");
-            // IFixedArray<int> fixedArray = new FixedArray<int>(5); 
-        }
     }
 }

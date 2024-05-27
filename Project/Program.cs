@@ -48,11 +48,10 @@ namespace sme_intro
                 // transitions1 = new byte[][]{transition0, transition1, transition2, transition3, transition4, transition5, transition6, transition7, transition8, transition9, transition10, transition11};
 
                 traversal.load(start_state1, accept_states1, states1, alphabet1, transitions1, states1);
-                tester.load();
 
                 sim
                     .AddTopLevelInputs(traversal.control) //travs input
-                    .AddTopLevelOutputs(traversal.traversal)//traversal output
+                    .AddTopLevelOutputs(traversal.traversal) //traversal output
                     .BuildGraph(render_buses: false)
                     .BuildCSVFile()
                     .BuildVHDL()
