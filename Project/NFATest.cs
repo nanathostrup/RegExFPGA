@@ -11,6 +11,7 @@ namespace sme_intro{
             
             // string regexp = "a";
             // string regexp = "abc";
+            // string regecp = "an example string";
             // string regexp = "(ab)";
             string regexp = "(ab)(cd)";
             // string regexp = "abc (a)(b)";

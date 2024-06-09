@@ -24,7 +24,7 @@ namespace sme_intro
             this.states = new byte[1000]; 
         }
 
-        protected override void OnTick()
+        protected override async void OnTick()
         {
             if (control.Reset)
             {
@@ -51,7 +51,6 @@ namespace sme_intro
             bool running_i = true;
             bool transitionFound = false;
             int i_offset = 0;
-
 
             for (int start = 0; start < control.Array.Length; start++){
                 currentState = this.startState;
@@ -91,7 +90,6 @@ namespace sme_intro
                                     }
                                 }
                             }
-                        // }
                         counter ++;
 
                         for (int h = 0; h < this.acceptStates.Length; h++){ //return asap if found
@@ -102,7 +100,7 @@ namespace sme_intro
                         if (!transitionFound){
                             // i = i-counter;
                             running_i = false;
-                            i_offset = -counter;
+                            i_offset = i_offset - counter;
                             // break; // No valid transition, break out and try from the next start position
                         }
                     }

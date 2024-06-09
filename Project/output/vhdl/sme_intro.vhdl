@@ -15,13 +15,13 @@ use work.CUSTOM_TYPES.ALL;
 entity sme_intro is
     port(
         -- Top-level bus Control signals
-        Control_Valid: in T_SYSTEM_BOOL;
-        Control_Reset: in T_SYSTEM_BOOL;
-        Control_Length: in T_SYSTEM_INT32;
-        Control_Array: in Control_Array_type;
+        Control_Valid: out T_SYSTEM_BOOL;
+        Control_Reset: out T_SYSTEM_BOOL;
+        Control_Length: out T_SYSTEM_INT32;
+        Control_Array: out Control_Array_type;
 
         -- Top-level bus Traversal signals
-        Traversal_Valid: out T_SYSTEM_BOOL;
+        Traversal_Valid: in T_SYSTEM_BOOL;
 
         -- User defined signals here
         -- #### USER-DATA-ENTITYSIGNALS-START
@@ -50,6 +50,11 @@ architecture RTL of sme_intro is
     -- Process ready triggers
     signal FIN_Traverse : std_logic;
 
+    signal tmp_Control_Valid: T_SYSTEM_BOOL;
+    signal tmp_Control_Reset: T_SYSTEM_BOOL;
+    signal tmp_Control_Length: T_SYSTEM_INT32;
+    signal tmp_Control_Array: Control_Array_type;
+
     -- The primary ready driver signal
     signal RDY : std_logic;
 
@@ -65,10 +70,10 @@ begin
     )
     port map (
         -- Input bus Control
-        control_Valid => Control_Valid,
-        control_Reset => Control_Reset,
-        control_Length => Control_Length,
-        control_Array => Control_Array,
+        control_Valid => tmp_Control_Valid,
+        control_Reset => tmp_Control_Reset,
+        control_Length => tmp_Control_Length,
+        control_Array => tmp_Control_Array,
 
         -- Output bus Traversal
         traversal_Valid => Traversal_Valid,
@@ -102,6 +107,12 @@ begin
             end if;
         end if;
     end process;
+
+    -- Propegate tmp signals
+    Control_Valid <= tmp_Control_Valid;
+    Control_Reset <= tmp_Control_Reset;
+    Control_Length <= tmp_Control_Length;
+    Control_Array <= tmp_Control_Array;
 
     -- User defined processes here
     -- #### USER-DATA-CODE-START

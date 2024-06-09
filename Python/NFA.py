@@ -152,127 +152,59 @@ class NFA:
     # Stuff from online example
 
 
+# # Testing
+# # Tests for the 'grouping' method in sepperate file
 
-
-# Testing
-# Tests for the 'grouping' method in sepperate file
-
-# Completely basic: Single character
-print("------------------------")
-regexp = "a"
-nfa = NFA.from_regexp(regexp)
-print("regexpr:", regexp)
-print("States:", nfa.states)
-print("Alphabet:", nfa.alphabet)
-print("Transitions:", nfa.transitions)
-print("Start State:", nfa.start_state)
-print("Accept States:", nfa.accept_states)
-print("~~~~~~~~~~~~~~~~~~~~~~~~")
-stringtest0 = "a" #exact match 
-stringtest1 = "abc" #start of string
-stringtest2 = "bb" #no match at all
-stringtest3 = "bca" #end of string
-stringtest4 = "bac" #middle of string
-print(f"the string '{stringtest0}' should be True and is: {nfa.matches(stringtest0)}")
-print(f"the string '{stringtest1}' should be True and is: {nfa.matches(stringtest1)}")
-print(f"the string '{stringtest2}' should be False and is: {nfa.matches(stringtest2)}")
-print(f"the string '{stringtest3}' should be True and is: {nfa.matches(stringtest3)}")
-print(f"the string '{stringtest4}' should be True and is: {nfa.matches(stringtest4)}")
-print("------------------------")
-
-#Completely basic: longer string
-print("------------------------")
-regexp1 = "abc"
-nfa1 = NFA.from_regexp(regexp1)
-print("regexpr:", regexp1)
-print("States:", nfa1.states)
-print("Alphabet:", nfa1.alphabet)
-print("Transitions:", nfa1.transitions)
-print("Start State:", nfa1.start_state)
-print("Accept States:", nfa1.accept_states)
-print("~~~~~~~~~~~~~~~~~~~~~~~~")
-stringtest00 = "a" #start match only, not rest (no end in accepting state) 
-stringtest11 = "abc" #exact string
-stringtest22 = "aaabc" #last bit of string match
-stringtest33 = "abcccc" #start bit of string match
-stringtest44 = "sjsjabckddk" #middle of string match
-print(f"the string '{stringtest00}' should be False and is: {nfa1.matches(stringtest00)}")
-print(f"the string '{stringtest11}' should be True and is: {nfa1.matches(stringtest11)}")
-print(f"the string '{stringtest22}' should be True and is: {nfa1.matches(stringtest22)}")
-print(f"the string '{stringtest33}' should be True and is: {nfa1.matches(stringtest33)}")
-print(f"the string '{stringtest44}' should be True and is: {nfa1.matches(stringtest44)}")
-
-print("------------------------")
-
-# Can divide into groupings
-print("------------------------")
-regexp2 = "(ab)"
-nfa2 = NFA.from_regexp(regexp2)
-print("regexpr:", regexp2)
-print("States:", nfa2.states)
-print("Alphabet:", nfa2.alphabet)
-print("Transitions:", nfa2.transitions)
-print("Start State:", nfa2.start_state)
-print("Accept States:", nfa2.accept_states)
-print("~~~~~~~~~~~~~~~~~~~~~~~~")
-stringtest000 = "a" #start match only, not rest (no end in accepting state) 
-stringtest111 = "ab" #exact string
-stringtest222 = "b" #last bit
-stringtest333 = "bc" #last bit and extra
-stringtest444 = "(abdbdablæsd)" #random with 2x ab in string
-print(f"the string '{stringtest000}' should be False and is: {nfa2.matches(stringtest000)}")
-print(f"the string '{stringtest111}' should be True and is: {nfa2.matches(stringtest111)}")
-print(f"the string '{stringtest222}' should be True and is: {nfa2.matches(stringtest222)}")
-print(f"the string '{stringtest333}' should be True and is: {nfa2.matches(stringtest333)}")
-print(f"the string '{stringtest444}' should be True and is: {nfa2.matches(stringtest444)}")
-print("------------------------")
-
-# Multiple groups
-print("------------------------")
-regexp3 = "(ab)(cd)"
-nfa3 = NFA.from_regexp(regexp3)
-print("regexpr:", regexp3)
-print("States:", nfa3.states)
-print("Alphabet:", nfa3.alphabet)
-print("Transitions:", nfa3.transitions)
-print("Start State:", nfa3.start_state)
-print("Accept States:", nfa3.accept_states)
-print("~~~~~~~~~~~~~~~~~~~~~~~~")
-stringtest0000 = "abcd" #exact
-stringtest1111 = "ab" #only part of regex, not ending
-stringtest2222 = "bbbbabcdkkkk" #sandwitched
-print(f"the string '{stringtest0000}' should be True and is: {nfa3.matches(stringtest0000)}")
-print(f"the string '{stringtest1111}' should be False and is: {nfa3.matches(stringtest1111)}")
-print(f"the string '{stringtest2222}' should be True and is: {nfa3.matches(stringtest2222)}")
-print("------------------------")
-
-# Can do groups in both () and without
-print("------------------------")
-regexp4 = "abc (a)(b)"
-nfa4 = NFA.from_regexp(regexp4)
-print("regexpr:", regexp4)
-print("States:", nfa4.states)
-print("Alphabet:", nfa4.alphabet)
-print("Transitions:", nfa4.transitions)
-print("Start State:", nfa4.start_state)
-print("Accept States:", nfa4.accept_states)
-print("------------------------")
-
-# Spaces
-print("------------------------")
-regexp5 = "ab c (a) d ( b )"
-nfa5 = NFA.from_regexp(regexp5)
-print("regexpr:", regexp5)
-print("States:", nfa5.states)
-print("Alphabet:", nfa5.alphabet)
-print("Transitions:", nfa5.transitions)
-print("Start State:", nfa5.start_state)
-print("Accept States:", nfa5.accept_states)
-print("------------------------")
-
-# To check the error raising in grouping. Should raise an error.
+# # Completely basic: Single character
 # print("------------------------")
-# regexp2 = "(ab)(cd"
+# regexp = "a"
+# nfa = NFA.from_regexp(regexp)
+# print("regexpr:", regexp)
+# print("States:", nfa.states)
+# print("Alphabet:", nfa.alphabet)
+# print("Transitions:", nfa.transitions)
+# print("Start State:", nfa.start_state)
+# print("Accept States:", nfa.accept_states)
+# print("~~~~~~~~~~~~~~~~~~~~~~~~")
+# stringtest0 = "a" #exact match 
+# stringtest1 = "abc" #start of string
+# stringtest2 = "bb" #no match at all
+# stringtest3 = "bca" #end of string
+# stringtest4 = "bac" #middle of string
+# print(f"the string '{stringtest0}' should be True and is: {nfa.matches(stringtest0)}")
+# print(f"the string '{stringtest1}' should be True and is: {nfa.matches(stringtest1)}")
+# print(f"the string '{stringtest2}' should be False and is: {nfa.matches(stringtest2)}")
+# print(f"the string '{stringtest3}' should be True and is: {nfa.matches(stringtest3)}")
+# print(f"the string '{stringtest4}' should be True and is: {nfa.matches(stringtest4)}")
+# print("------------------------")
+
+# #Completely basic: longer string
+# print("------------------------")
+# regexp1 = "abc"
+# nfa1 = NFA.from_regexp(regexp1)
+# print("regexpr:", regexp1)
+# print("States:", nfa1.states)
+# print("Alphabet:", nfa1.alphabet)
+# print("Transitions:", nfa1.transitions)
+# print("Start State:", nfa1.start_state)
+# print("Accept States:", nfa1.accept_states)
+# print("~~~~~~~~~~~~~~~~~~~~~~~~")
+# stringtest00 = "a" #start match only, not rest (no end in accepting state) 
+# stringtest11 = "abc" #exact string
+# stringtest22 = "aaabc" #last bit of string match
+# stringtest33 = "abcccc" #start bit of string match
+# stringtest44 = "sjsjabckddk" #middle of string match
+# print(f"the string '{stringtest00}' should be False and is: {nfa1.matches(stringtest00)}")
+# print(f"the string '{stringtest11}' should be True and is: {nfa1.matches(stringtest11)}")
+# print(f"the string '{stringtest22}' should be True and is: {nfa1.matches(stringtest22)}")
+# print(f"the string '{stringtest33}' should be True and is: {nfa1.matches(stringtest33)}")
+# print(f"the string '{stringtest44}' should be True and is: {nfa1.matches(stringtest44)}")
+
+# print("------------------------")
+
+# # Can divide into groupings
+# print("------------------------")
+# regexp2 = "(ab)"
 # nfa2 = NFA.from_regexp(regexp2)
 # print("regexpr:", regexp2)
 # print("States:", nfa2.states)
@@ -280,65 +212,131 @@ print("------------------------")
 # print("Transitions:", nfa2.transitions)
 # print("Start State:", nfa2.start_state)
 # print("Accept States:", nfa2.accept_states)
+# print("~~~~~~~~~~~~~~~~~~~~~~~~")
+# stringtest000 = "a" #start match only, not rest (no end in accepting state) 
+# stringtest111 = "ab" #exact string
+# stringtest222 = "b" #last bit
+# stringtest333 = "bc" #last bit and extra
+# stringtest444 = "(abdbdablæsd)" #random with 2x ab in string
+# print(f"the string '{stringtest000}' should be False and is: {nfa2.matches(stringtest000)}")
+# print(f"the string '{stringtest111}' should be True and is: {nfa2.matches(stringtest111)}")
+# print(f"the string '{stringtest222}' should be True and is: {nfa2.matches(stringtest222)}")
+# print(f"the string '{stringtest333}' should be True and is: {nfa2.matches(stringtest333)}")
+# print(f"the string '{stringtest444}' should be True and is: {nfa2.matches(stringtest444)}")
 # print("------------------------")
 
-#################################################################################
-
-#can recognise operators and litterals
-#Make this after operators are done
+# # Multiple groups
 # print("------------------------")
-# regexp2 = "a|b"
-# nfa2 = NFA.from_regexp(regexp2)
-# print("regexpr:", regexp2)
-# print("States:", nfa2.states)
-# print("Alphabet:", nfa2.alphabet)
-# print("Transitions:", nfa2.transitions)
-# print("Start State:", nfa2.start_state)
-# print("Accept States:", nfa2.accept_states)
+# regexp3 = "(ab)(cd)"
+# nfa3 = NFA.from_regexp(regexp3)
+# print("regexpr:", regexp3)
+# print("States:", nfa3.states)
+# print("Alphabet:", nfa3.alphabet)
+# print("Transitions:", nfa3.transitions)
+# print("Start State:", nfa3.start_state)
+# print("Accept States:", nfa3.accept_states)
+# print("~~~~~~~~~~~~~~~~~~~~~~~~")
+# stringtest0000 = "abcd" #exact
+# stringtest1111 = "ab" #only part of regex, not ending
+# stringtest2222 = "bbbbabcdkkkk" #sandwitched
+# print(f"the string '{stringtest0000}' should be True and is: {nfa3.matches(stringtest0000)}")
+# print(f"the string '{stringtest1111}' should be False and is: {nfa3.matches(stringtest1111)}")
+# print(f"the string '{stringtest2222}' should be True and is: {nfa3.matches(stringtest2222)}")
 # print("------------------------")
 
-#Searching through nfa with a string
+# # Can do groups in both () and without
 # print("------------------------")
-# regexstr = "a"
-# nfastr = NFA.from_regexp(regexstr)
-# teststr = "ab"
-# # nfastr.assertTrue(nfa.accept_states!=[])
+# regexp4 = "abc (a)(b)"
+# nfa4 = NFA.from_regexp(regexp4)
+# print("regexpr:", regexp4)
+# print("States:", nfa4.states)
+# print("Alphabet:", nfa4.alphabet)
+# print("Transitions:", nfa4.transitions)
+# print("Start State:", nfa4.start_state)
+# print("Accept States:", nfa4.accept_states)
+# print("------------------------")
 
-# import unittest
-# class TestNFA(unittest.TestCase):
-#     def test_single_character(self):
-#         nfa = NFA.from_regexp("a")
-#         self.assertTrue(nfa.accept_states != [])
-#         self.assertTrue('q1' in nfa.accept_states)
-#         self.assertTrue('a' in nfa.accept_states)
-#         self.assertFalse('b' in nfa.accept_states)
-#         self.assertFalse('a' in nfa.transitions)
-#         self.assertFalse('b' in nfa.transitions)
-#         teststring = "abc"
-#         wrongstring = "q"
+# # Spaces
+# print("------------------------")
+# regexp5 = "ab c (a) d ( b )"
+# nfa5 = NFA.from_regexp(regexp5)
+# print("regexpr:", regexp5)
+# print("States:", nfa5.states)
+# print("Alphabet:", nfa5.alphabet)
+# print("Transitions:", nfa5.transitions)
+# print("Start State:", nfa5.start_state)
+# print("Accept States:", nfa5.accept_states)
+# print("------------------------")
+
+# # To check the error raising in grouping. Should raise an error.
+# # print("------------------------")
+# # regexp2 = "(ab)(cd"
+# # nfa2 = NFA.from_regexp(regexp2)
+# # print("regexpr:", regexp2)
+# # print("States:", nfa2.states)
+# # print("Alphabet:", nfa2.alphabet)
+# # print("Transitions:", nfa2.transitions)
+# # print("Start State:", nfa2.start_state)
+# # print("Accept States:", nfa2.accept_states)
+# # print("------------------------")
+
+# #################################################################################
+
+# #can recognise operators and litterals
+# #Make this after operators are done
+# # print("------------------------")
+# # regexp2 = "a|b"
+# # nfa2 = NFA.from_regexp(regexp2)
+# # print("regexpr:", regexp2)
+# # print("States:", nfa2.states)
+# # print("Alphabet:", nfa2.alphabet)
+# # print("Transitions:", nfa2.transitions)
+# # print("Start State:", nfa2.start_state)
+# # print("Accept States:", nfa2.accept_states)
+# # print("------------------------")
+
+# #Searching through nfa with a string
+# # print("------------------------")
+# # regexstr = "a"
+# # nfastr = NFA.from_regexp(regexstr)
+# # teststr = "ab"
+# # # nfastr.assertTrue(nfa.accept_states!=[])
+
+# # import unittest
+# # class TestNFA(unittest.TestCase):
+# #     def test_single_character(self):
+# #         nfa = NFA.from_regexp("a")
+# #         self.assertTrue(nfa.accept_states != [])
+# #         self.assertTrue('q1' in nfa.accept_states)
+# #         self.assertTrue('a' in nfa.accept_states)
+# #         self.assertFalse('b' in nfa.accept_states)
+# #         self.assertFalse('a' in nfa.transitions)
+# #         self.assertFalse('b' in nfa.transitions)
+# #         teststring = "abc"
+# #         wrongstring = "q"
         
-#         any_char_in_accept_states = any(char in nfa.accept_states for char in teststring)
-#         self.assertTrue(any_char_in_accept_states)
+# #         any_char_in_accept_states = any(char in nfa.accept_states for char in teststring)
+# #         self.assertTrue(any_char_in_accept_states)
         
         
-#         any_char_in_accept_states_wrong = any(char in nfa.accept_states for char in wrongstring)
-#         self.assertFalse(any_char_in_accept_states_wrong)
-#         # for char in teststring:
-#         #     self.assertTrue(char in nfa.accept_states)
+# #         any_char_in_accept_states_wrong = any(char in nfa.accept_states for char in wrongstring)
+# #         self.assertFalse(any_char_in_accept_states_wrong)
+# #         # for char in teststring:
+# #         #     self.assertTrue(char in nfa.accept_states)
 
-#         for char in wrongstring:
-#             self.assertFalse(char in nfa.accept_states)
+# #         for char in wrongstring:
+# #             self.assertFalse(char in nfa.accept_states)
 
-#     def test_simple_concatenation(self):
-#         nfa1 = NFA.from_regexp("ab")
-#         self.assertTrue('q2' in nfa1.accept_states)
-#         # self.assertFalse(nfa.accepts("a"))
-#         # self.assertFalse(nfa.accepts("b"))
-#         # self.assertFalse(nfa.accepts("ba"))
+# #     def test_simple_concatenation(self):
+# #         nfa1 = NFA.from_regexp("ab")
+# #         self.assertTrue('q2' in nfa1.accept_states)
+# #         # self.assertFalse(nfa.accepts("a"))
+# #         # self.assertFalse(nfa.accepts("b"))
+# #         # self.assertFalse(nfa.accepts("ba"))
 
-#     # Add more test methods for other cases...
+# #     # Add more test methods for other cases...
 
-# if __name__ == '__main__':
-#     unittest.main()
+# # if __name__ == '__main__':
+# #     unittest.main()
 
-# Example usage:
+# # Example usage:

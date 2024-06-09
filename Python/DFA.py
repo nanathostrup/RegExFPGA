@@ -105,52 +105,89 @@ class DFA:
     #This is deterministic so this can be done itteratively. It HAS to follow a single stream to be true
     #does not take dead states into considderation - should be optimized in future
     
+    
     #Goes through all symbols and then through all the transitions for this symbol
     #If it ends up in a state that is accepting, then true is returned
+    # def traversal(self, dfa, input_string):
+    #     current_state = dfa.start_state[0]
+    #     for symbol in input_string:
+    #         # print('symbol:', symbol)
+    #         # Check if there exists a transition for the current symbol from the current state
+    #         transition_found = False
+    #         for transition in dfa.transitions:
+    #             # print(f"transition[0]: {transition[0]}, transition[1]:{transition[1]}, transition[2]: {transition[2]}, symbol:{symbol}")
+    #             if transition[0] == current_state and transition[1] == symbol:
+    #                 current_state = transition[2]  # Move to the next state
+    #                 transition_found = True
+    #                 # print(transition_found)
+    #                 #The NFA would return true here
+    #             # print('current_state:', current_state)
+    #         # If no transition found for the current symbol, the string is not accepted
+    #         # print(transition_found)
+    #         if transition_found == False:
+    #         #     # print('øv')
+    #             return False
+    #             #If you cannot move on from this symbol, then it cannot accept
+        
+    #     # After traversing the entire input string, check if the final state is an accept state
+    #     if current_state in dfa.accept_states:
+    #         return True
+    #     else:
+    #         # print('here')
+    #         return False
+    
     def traversal(self, dfa, input_string):
         current_state = dfa.start_state[0]
+        
         for symbol in input_string:
-            print('symbol:', symbol)
             # Check if there exists a transition for the current symbol from the current state
             transition_found = False
+            # print("symbol:", symbol)
             for transition in dfa.transitions:
-                print(f"transition[0]: {transition[0]}, transition[1]:{transition[1]}, transition[2]: {transition[2]}, symbol:{symbol}")
                 if transition[0] == current_state and transition[1] == symbol:
                     current_state = transition[2]  # Move to the next state
                     transition_found = True
-                    print(transition_found)
-                    #The NFA would return true here
-                print('current_state:', current_state)
-            # If no transition found for the current symbol, the string is not accepted
-            print(transition_found)
-            if transition_found == False:
-                print('øv')
-                return False
-                #If you cannot move on from this symbol, then it cannot accept
-        
-        # After traversing the entire input string, check if the final state is an accept state
-        if current_state in dfa.accept_states:
+                    # print(":)")
+                    break  # Transition found, exit the inner loop
             
-            return True
-        else:
-            print('here')
-            return False
+            # If no transition found for the current symbol, the string is not accepted
+            # if not transition_found:
+            #     return False
 
-print("------------------------")
-print("------------------------")
+        # After traversing the entire input string, check if the final state is an accept state
+        return current_state in dfa.accept_states
+    
+    # def accepts(self, dfa, string):
+    #     current_state = dfa.start_state
+    #     for char in string:
+    #         if char in dfa.transitions[current_state]:
+    #             current_state = dfa.transitions[current_state][char]
+    #         else:
+    #             return False
+    #     return current_state in dfa.accept_states
+    # def traversal(self, input_string):
+    #     current_state = self.start_state[0]
+    #     for symbol in input_string:
+    #         transition_found = False
+    #         for transition in self.transitions:
+    #             if transition[0] == current_state and transition[1] == symbol:
+    #                 current_state = transition[2]
+    #                 transition_found = True
+    #                 break
+    #         if not transition_found:
+    #             return False
+    #     return current_state in self.accept_states
 
-#Basic one string
-print("------------------------")
+    # def accepts(self, string):
+    #     return self.traversal(string)
+
+
+# print("------------------------")
+# print("------------------------")
 regex = "a"
 nfa = NFA
 nfa = nfa.NFA.from_regexp(regex)
 print("regexpr:", regex)
-print("States:", nfa.states)
-print("Alphabet:", nfa.alphabet)
-print("Transitions:", nfa.transitions)
-print("Start State:", nfa.start_state)
-print("Accept States:", nfa.accept_states)
-print("~~~~~~~~~~~~~~~~~~~~~~~~")
 states = []
 alphabet = {}
 transitions = []
@@ -158,29 +195,15 @@ start_state = []
 accept_states = []
 dfa = DFA(states, alphabet, transitions, start_state, accept_states)
 dfa = dfa.from_nfa(nfa)
-print("Alphabet:", dfa.alphabet)
-print("States:", dfa.states)
-print("Transitions:", dfa.transitions)
-print("Start State:", dfa.start_state)
-print("Accept States:", dfa.accept_states)
+print("a:", dfa.traversal(dfa, "a"))
+print("b:", dfa.traversal(dfa, "b"))
+print("aa:", dfa.traversal(dfa, "aa"))
+print("aab:", dfa.traversal(dfa, "aab"))
 print("------------------------")
 
-#consecutive string
-print("------------------------")
-regex = "ab"
+regex = "aa"
 nfa = NFA
 nfa = nfa.NFA.from_regexp(regex)
-nfa.states = ['q0', 'q1', 'q2']
-nfa.alphabet = {'a', 'b'}
-nfa.transitions = [['q0', 'a', 'q1'], ['q1', 'b', 'q2']]
-nfa.accept_states = ['q2']
-print("regexpr:", regex)
-print("States:", nfa.states)
-print("Alphabet:", nfa.alphabet)
-print("Transitions:", nfa.transitions)
-print("Start State:", nfa.start_state)
-print("Accept States:", nfa.accept_states)
-print("~~~~~~~~~~~~~~~~~~~~~~~~")
 states = []
 alphabet = {}
 transitions = []
@@ -188,250 +211,403 @@ start_state = []
 accept_states = []
 dfa = DFA(states, alphabet, transitions, start_state, accept_states)
 dfa = dfa.from_nfa(nfa)
-print("Alphabet:", dfa.alphabet)
-print("States:", dfa.states)
-print("Transitions:", dfa.transitions)
-print("Start State:", dfa.start_state)
-print("Accept States:", dfa.accept_states)
-print("------------------------")
-
-#branching
-print("------------------------")
-# a self made nfa, that cannot be made with current nfa program
-regex = "a|b"
-nfa.states = ['q0', 'q1', 'q3', 'q4', 'q5']
-nfa.alphabet = {'a', 'b', 'eps'}
-nfa.transitions = [['q0', 'eps', 'q1'], ['q0', 'eps', 'q3'], ['q1', 'a', 'q2'], ['q2', 'eps', 'q5'], ['q3', 'b', 'q4'], ['q4', 'eps', 'q5']]
-nfa.accept_states = ['q5']
-print("regexpr:", regex)
-print("States:", nfa.states)
-print("Alphabet:", nfa.alphabet)
-print("Transitions:", nfa.transitions)
-print("Start State:", nfa.start_state)
-print("Accept States:", nfa.accept_states)
 print("~~~~~~~~~~~~~~~~~~~~~~~~")
-states = []
-alphabet = {}
-transitions = []
-start_state = []
-accept_states = []
-dfa = DFA(states, alphabet, transitions, start_state, accept_states)
-dfa1 = dfa.from_nfa(nfa)
-print("Alphabet:", dfa1.alphabet)
-print("States:", dfa1.states)
-print("Transitions:", dfa1.transitions)
-print("Start State:", dfa1.start_state)
-print("Accept States:", dfa1.accept_states)
+print("a:", dfa.traversal(dfa, "a"))
+print("b:", dfa.traversal(dfa, "b"))
+print("aa:", dfa.traversal(dfa, "aa"))
+print("aab:", dfa.traversal(dfa, "aab"))
 print("------------------------")
 
-#branching and consecutive string
-print("------------------------")
-regex = "ab|b"
-nfa.states = ['q0', 'q1', 'q2', 'q3', 'q4', 'q5', 'q6']
-nfa.alphabet = {'a', 'b', 'eps'}
-nfa.transitions = [['q0', 'eps', 'q1'], ['q0', 'eps', 'q4'], ['q1', 'a', 'q2'], ['q2', 'b', 'q3'], ['q3', 'eps', 'q6'], ['q4', 'b', 'q5'],  ['q5', 'eps', 'q6']]
-nfa.accept_states = ['q6']
-print("regexpr:", regex)
-print("States:", nfa.states)
-print("Alphabet:", nfa.alphabet)
-print("Transitions:", nfa.transitions)
-print("Start State:", nfa.start_state)
-print("Accept States:", nfa.accept_states)
-print("~~~~~~~~~~~~~~~~~~~~~~~~")
-states = []
-alphabet = {}
-transitions = []
-start_state = []
-accept_states = []
-dfa = DFA(states, alphabet, transitions, start_state, accept_states)
-dfa1 = dfa.from_nfa(nfa)
-print("Alphabet:", dfa1.alphabet)
-print("States:", dfa1.states)
-print("Transitions:", dfa1.transitions)
-print("Start State:", dfa1.start_state)
-print("Accept States:", dfa1.accept_states)
-
-#group
-print("------------------------")
-regex = "(a)(b)"
-nfa.states = ['q0', 'q1', 'q2']
-nfa.alphabet = {'a', 'b', 'eps'}
-nfa.transitions = [['q0', 'a', 'q1'], ['q1', 'b', 'q2']]
-nfa.accept_states = ['q6']
-print("regexpr:", regex)
-print("States:", nfa.states)
-print("Alphabet:", nfa.alphabet)
-print("Transitions:", nfa.transitions)
-print("Start State:", nfa.start_state)
-print("Accept States:", nfa.accept_states)
-print("~~~~~~~~~~~~~~~~~~~~~~~~")
-states = []
-alphabet = {}
-transitions = []
-start_state = []
-accept_states = []
-dfa = DFA(states, alphabet, transitions, start_state, accept_states)
-dfa1 = dfa.from_nfa(nfa)
-print("Alphabet:", dfa1.alphabet)
-print("States:", dfa1.states)
-print("Transitions:", dfa1.transitions)
-print("Start State:", dfa1.start_state)
-print("Accept States:", dfa1.accept_states)
-
-#branching and consecutive string and grouping
-print("------------------------")
-regex = "(ab)|(b)"
-nfa.states = ['q0', 'q1', 'q2','q3', 'q4', 'q5', 'q6']
-nfa.alphabet = {'a', 'b', 'eps'}
-nfa.transitions = [['q0', 'eps', 'q1'], ['q0', 'eps', 'q4'], ['q1', 'a', 'q2'], ['q2', 'b', 'q3'], ['q3', 'eps', 'q6'], ['q4', 'b', 'q5'],  ['q5', 'eps', 'q6']]
-nfa.accept_states = ['q6']
-print("regexpr:", regex)
-print("States:", nfa.states)
-print("Alphabet:", nfa.alphabet)
-print("Transitions:", nfa.transitions)
-print("Start State:", nfa.start_state)
-print("Accept States:", nfa.accept_states)
-print("~~~~~~~~~~~~~~~~~~~~~~~~")
-states = []
-alphabet = {}
-transitions = []
-start_state = []
-accept_states = []
-dfa = DFA(states, alphabet, transitions, start_state, accept_states)
-dfa1 = dfa.from_nfa(nfa)
-print("Alphabet:", dfa1.alphabet)
-print("States:", dfa1.states)
-print("Transitions:", dfa1.transitions)
-print("Start State:", dfa1.start_state)
-print("Accept States:", dfa1.accept_states)
-
-#trick one - looks lige "a", but this is fine.
-#Quick note! q5 is added to states twice.
-#States: [[['q0', 'q1', 'q3'], 's0'], [['q2', 'q4', 'q5', 'q5'], 's1']]
-#This happens since the branch in the nfa both will lead to q5 and thus it is added twice. This may lead to issues?
-print("------------------------")
-regex = "a|a"
-nfa.states = ['q0', 'q1', 'q2','q3', 'q4', 'q5']
-nfa.alphabet = {'a', 'eps'}
-nfa.transitions = [['q0', 'eps', 'q1'], ['q0', 'eps', 'q3'], ['q1', 'a', 'q2'], ['q2', 'eps', 'q5'], ['q3', 'a', 'q4'], ['q4', 'eps', 'q5']]
-nfa.accept_states = ['q5']
-print("regexpr:", regex)
-print("States:", nfa.states)
-print("Alphabet:", nfa.alphabet)
-print("Transitions:", nfa.transitions)
-print("Start State:", nfa.start_state)
-print("Accept States:", nfa.accept_states)
-print("~~~~~~~~~~~~~~~~~~~~~~~~")
-states = []
-alphabet = {}
-transitions = []
-start_state = []
-accept_states = []
-dfa = DFA(states, alphabet, transitions, start_state, accept_states)
-dfa1 = dfa.from_nfa(nfa)
-print("Alphabet:", dfa1.alphabet)
-print("States:", dfa1.states)
-print("Transitions:", dfa1.transitions)
-print("Start State:", dfa1.start_state)
-print("Accept States:", dfa1.accept_states)
 
 
-#Other opperators:
-# +: one or more
-#also a loop here - good to test
-print("------------------------")
-regex = "(a)+"
-nfa.states = ['q0', 'q1', 'q2','q3', 'q4']
-nfa.alphabet = {'a', 'eps'}
-nfa.transitions = [['q0', 'a', 'q1'], ['q1', 'eps', 'q2'], ['q3', 'eps', 'q2'], ['q1', 'eps', 'q4'], ['q2', 'a', 'q3'], ['q3', 'eps', 'q4']]
-nfa.accept_states = ['q4']
-print("regexpr:", regex)
-print("States:", nfa.states)
-print("Alphabet:", nfa.alphabet)
-print("Transitions:", nfa.transitions)
-print("Start State:", nfa.start_state)
-print("Accept States:", nfa.accept_states)
-print("~~~~~~~~~~~~~~~~~~~~~~~~")
-states = []
-alphabet = {}
-transitions = []
-start_state = []
-accept_states = []
-dfa = DFA(states, alphabet, transitions, start_state, accept_states)
-dfa1 = dfa.from_nfa(nfa)
-print("Alphabet:", dfa1.alphabet)
-print("States:", dfa1.states)
-print("Transitions:", dfa1.transitions)
-print("Start State:", dfa1.start_state)
-print("Accept States:", dfa1.accept_states)
-
-# ?: zero or one
-# shows termination at start state - should be true as well
-print("------------------------")
-regex = "(a)?"
-nfa.states = ['q0', 'q1', 'q2','q3', 'q4', 'q5']
-nfa.alphabet = {'a', 'eps'}
-nfa.transitions = [['q0', 'eps', 'q1'], ['q1', 'a', 'q2'], ['q2', 'eps', 'q5'], ['q0', 'eps', 'q3'], ['q3', 'eps', 'q4'], ['q4', 'eps', 'q5']]
-nfa.accept_states = ['q5']
-print("regexpr:", regex)
-print("States:", nfa.states)
-print("Alphabet:", nfa.alphabet)
-print("Transitions:", nfa.transitions)
-print("Start State:", nfa.start_state)
-print("Accept States:", nfa.accept_states)
-print("~~~~~~~~~~~~~~~~~~~~~~~~")
-states = []
-alphabet = {}
-transitions = []
-start_state = []
-accept_states = []
-dfa = DFA(states, alphabet, transitions, start_state, accept_states)
-dfa1 = dfa.from_nfa(nfa)
-print("Alphabet:", dfa1.alphabet)
-print("States:", dfa1.states)
-print("Transitions:", dfa1.transitions)
-print("Start State:", dfa1.start_state)
-print("Accept States:", dfa1.accept_states)
-
-print("------------------------")
-print("------------------------")
-teststring = "abc"
-regex = "(a)?"
-nfa.states = ['q0', 'q1', 'q2','q3', 'q4', 'q5']
-nfa.alphabet = {'a', 'eps'}
-nfa.transitions = [['q0', 'eps', 'q1'], ['q1', 'a', 'q2'], ['q2', 'eps', 'q5'], ['q0', 'eps', 'q3'], ['q3', 'eps', 'q4'], ['q4', 'eps', 'q5']]
-nfa.accept_states = ['q5']
-
-print("regexpr:", regex)
-print("test string:", teststring)
-dfa = DFA(states, alphabet, transitions, start_state, accept_states)
-dfa1 = dfa.from_nfa(nfa)
-print('accept:', dfa1.accept_states)
-print('states:', dfa1.states)
-print('transitions:', dfa1.transitions)
-
-traversal = dfa.traversal(dfa1, teststring)
-print("traversal:", traversal)
 
 
-print("------------------------")
-teststring = "abc"
-regex = "(a)?"
-nfa.states = ['q0', 'q1', 'q2','q3', 'q4']
-nfa.alphabet = {'a', 'eps'}
-nfa.transitions = [['q0', 'a', 'q1'], ['q1', 'eps', 'q2'], ['q3', 'eps', 'q2'], ['q1', 'eps', 'q4'], ['q2', 'a', 'q3'], ['q3', 'eps', 'q4']]
-nfa.accept_states = ['q4']
+# #Basic one string
+# print("------------------------")
+# regex = "a"
+# nfa = NFA
+# nfa = nfa.NFA.from_regexp(regex)
+# print("regexpr:", regex)
+# print("States:", nfa.states)
+# print("Alphabet:", nfa.alphabet)
+# print("Transitions:", nfa.transitions)
+# print("Start State:", nfa.start_state)
+# print("Accept States:", nfa.accept_states)
+# print("~~~~~~~~~~~~~~~~~~~~~~~~")
+# states = []
+# alphabet = {}
+# transitions = []
+# start_state = []
+# accept_states = []
+# dfa = DFA(states, alphabet, transitions, start_state, accept_states)
+# dfa = dfa.from_nfa(nfa)
+# print("Alphabet:", dfa.alphabet)
+# print("States:", dfa.states)
+# print("Transitions:", dfa.transitions)
+# print("Start State:", dfa.start_state)
+# print("Accept States:", dfa.accept_states)
+# print("~~~~~~~~~~~~~~~~~~~~~~~~")
+# print("aab:", dfa.traversal(dfa, "aab"))
+# print("a:", dfa.traversal(dfa, "a"))
+# print("b:", dfa.traversal(dfa, "b"))
+# print("aa:", dfa.traversal(dfa, "aa"))
+# print("------------------------")
+# print("------------------------")
+# regex = "aa"
+# nfa = NFA
+# nfa = nfa.NFA.from_regexp(regex)
+# states = []
+# alphabet = {}
+# transitions = []
+# start_state = []
+# accept_states = []
+# dfa = DFA(states, alphabet, transitions, start_state, accept_states)
+# dfa = dfa.from_nfa(nfa)
+# print("RegEx:", regex)
+# print("Alphabet:", dfa.alphabet)
+# print("States:", dfa.states)
+# print("Transitions:", dfa.transitions)
+# print("Start State:", dfa.start_state)
+# print("Accept States:", dfa.accept_states)
+# print("~~~~~~~~~~~~~~~~~~~~~~~~")
+# print("aab:", dfa.traversal(dfa, "aab"))
+# print("a:", dfa.traversal(dfa, "a"))
+# print("b:", dfa.traversal(dfa, "b"))
+# print("aa:", dfa.traversal(dfa, "aa"))
+# print("------------------------")
 
-print("regexpr:", regex)
-print("test string:", teststring)
-dfa = DFA(states, alphabet, transitions, start_state, accept_states)
-dfa1 = dfa.from_nfa(nfa)
-print('accept:', dfa1.accept_states)
-print('states:', dfa1.states)
-print('transitions:', dfa1.transitions)
+# #consecutive string
+# print("------------------------")
+# regex = "ab"
+# nfa = NFA
+# nfa = nfa.NFA.from_regexp(regex)
+# nfa.states = ['q0', 'q1', 'q2']
+# nfa.alphabet = {'a', 'b'}
+# nfa.transitions = [['q0', 'a', 'q1'], ['q1', 'b', 'q2']]
+# nfa.accept_states = ['q2']
+# print("regexpr:", regex)
+# print("States:", nfa.states)
+# print("Alphabet:", nfa.alphabet)
+# print("Transitions:", nfa.transitions)
+# print("Start State:", nfa.start_state)
+# print("Accept States:", nfa.accept_states)
+# print("~~~~~~~~~~~~~~~~~~~~~~~~")
+# states = []
+# alphabet = {}
+# transitions = []
+# start_state = []
+# accept_states = []
+# dfa = DFA(states, alphabet, transitions, start_state, accept_states)
+# dfa = dfa.from_nfa(nfa)
+# print("Alphabet:", dfa.alphabet)
+# print("States:", dfa.states)
+# print("Transitions:", dfa.transitions)
+# print("Start State:", dfa.start_state)
+# print("Accept States:", dfa.accept_states)
+# print("------------------------")
 
-traversal = dfa.traversal(dfa1, teststring)
-print("traversal:", traversal)
+# #branching
+# print("------------------------")
+# # a self made nfa, that cannot be made with current nfa program
+# regex = "a|b"
+# nfa.states = ['q0', 'q1', 'q3', 'q4', 'q5']
+# nfa.alphabet = {'a', 'b', 'eps'}
+# nfa.transitions = [['q0', 'eps', 'q1'], ['q0', 'eps', 'q3'], ['q1', 'a', 'q2'], ['q2', 'eps', 'q5'], ['q3', 'b', 'q4'], ['q4', 'eps', 'q5']]
+# nfa.accept_states = ['q5']
+# print("regexpr:", regex)
+# print("States:", nfa.states)
+# print("Alphabet:", nfa.alphabet)
+# print("Transitions:", nfa.transitions)
+# print("Start State:", nfa.start_state)
+# print("Accept States:", nfa.accept_states)
+# print("~~~~~~~~~~~~~~~~~~~~~~~~")
+# states = []
+# alphabet = {}
+# transitions = []
+# start_state = []
+# accept_states = []
+# dfa = DFA(states, alphabet, transitions, start_state, accept_states)
+# dfa1 = dfa.from_nfa(nfa)
+# print("Alphabet:", dfa1.alphabet)
+# print("States:", dfa1.states)
+# print("Transitions:", dfa1.transitions)
+# print("Start State:", dfa1.start_state)
+# print("Accept States:", dfa1.accept_states)
+# print("------------------------")
 
-#Currently epsilon does not appear in NFA, but the epsilon closure is part of conversion
-#Læs i method afsnit
+# #branching and consecutive string
+# print("------------------------")
+# regex = "ab|b"
+# nfa.states = ['q0', 'q1', 'q2', 'q3', 'q4', 'q5', 'q6']
+# nfa.alphabet = {'a', 'b', 'eps'}
+# nfa.transitions = [['q0', 'eps', 'q1'], ['q0', 'eps', 'q4'], ['q1', 'a', 'q2'], ['q2', 'b', 'q3'], ['q3', 'eps', 'q6'], ['q4', 'b', 'q5'],  ['q5', 'eps', 'q6']]
+# nfa.accept_states = ['q6']
+# print("regexpr:", regex)
+# print("States:", nfa.states)
+# print("Alphabet:", nfa.alphabet)
+# print("Transitions:", nfa.transitions)
+# print("Start State:", nfa.start_state)
+# print("Accept States:", nfa.accept_states)
+# print("~~~~~~~~~~~~~~~~~~~~~~~~")
+# states = []
+# alphabet = {}
+# transitions = []
+# start_state = []
+# accept_states = []
+# dfa = DFA(states, alphabet, transitions, start_state, accept_states)
+# dfa1 = dfa.from_nfa(nfa)
+# print("Alphabet:", dfa1.alphabet)
+# print("States:", dfa1.states)
+# print("Transitions:", dfa1.transitions)
+# print("Start State:", dfa1.start_state)
+# print("Accept States:", dfa1.accept_states)
+
+# print("------------------------")
+# regex = "ab|d"
+# nfa.states = ['q0', 'q1', 'q2', 'q3', 'q4', 'q5', 'q6']
+# nfa.alphabet = {'a', 'b', 'd', 'eps'}
+# nfa.transitions = [['q0', 'eps', 'q1'], ['q0', 'eps', 'q4'], ['q1', 'a', 'q2'], ['q2', 'b', 'q3'], ['q3', 'eps', 'q6'], ['q4', 'd', 'q5'],  ['q5', 'eps', 'q6']]
+# nfa.accept_states = ['q6']
+# print("regexpr:", regex)
+# print("States:", nfa.states)
+# print("Alphabet:", nfa.alphabet)
+# print("Transitions:", nfa.transitions)
+# print("Start State:", nfa.start_state)
+# print("Accept States:", nfa.accept_states)
+# print("~~~~~~~~~~~~~~~~~~~~~~~~")
+# states = []
+# alphabet = {}
+# transitions = []
+# start_state = []
+# accept_states = []
+# dfa = DFA(states, alphabet, transitions, start_state, accept_states)
+# dfa1 = dfa.from_nfa(nfa)
+# print("Alphabet:", dfa1.alphabet)
+# print("States:", dfa1.states)
+# print("Transitions:", dfa1.transitions)
+# print("Start State:", dfa1.start_state)
+# print("Accept States:", dfa1.accept_states)
+
+# traversal = dfa.traversal(dfa1, "abc")
+# print("traversal for 'abc':", traversal)
+# traversal1 = dfa.traversal(dfa1, "ddd")
+# print("traversal for 'ddd':", traversal1)
+# traversal2 = dfa.traversal(dfa1, "b")
+# print("traversal for 'b':", traversal2)
+# traversal3 = dfa.traversal(dfa1, "a")
+# print("traversal for 'a':", traversal3)
+# traversal4 = dfa.traversal(dfa1, "asmskb")
+# print("traversal for 'asmskb':", traversal4) 
+
+
+# #group
+# print("------------------------")
+# regex = "(a)(b)"
+# nfa.states = ['q0', 'q1', 'q2']
+# nfa.alphabet = {'a', 'b', 'eps'}
+# nfa.transitions = [['q0', 'a', 'q1'], ['q1', 'b', 'q2']]
+# nfa.accept_states = ['q6']
+# print("regexpr:", regex)
+# print("States:", nfa.states)
+# print("Alphabet:", nfa.alphabet)
+# print("Transitions:", nfa.transitions)
+# print("Start State:", nfa.start_state)
+# print("Accept States:", nfa.accept_states)
+# print("~~~~~~~~~~~~~~~~~~~~~~~~")
+# states = []
+# alphabet = {}
+# transitions = []
+# start_state = []
+# accept_states = []
+# dfa = DFA(states, alphabet, transitions, start_state, accept_states)
+# dfa1 = dfa.from_nfa(nfa)
+# print("Alphabet:", dfa1.alphabet)
+# print("States:", dfa1.states)
+# print("Transitions:", dfa1.transitions)
+# print("Start State:", dfa1.start_state)
+# print("Accept States:", dfa1.accept_states)
+
+# #branching and consecutive string and grouping
+# print("------------------------")
+# regex = "(ab)|(b)"
+# nfa.states = ['q0', 'q1', 'q2','q3', 'q4', 'q5', 'q6']
+# nfa.alphabet = {'a', 'b', 'eps'}
+# nfa.transitions = [['q0', 'eps', 'q1'], ['q0', 'eps', 'q4'], ['q1', 'a', 'q2'], ['q2', 'b', 'q3'], ['q3', 'eps', 'q6'], ['q4', 'b', 'q5'],  ['q5', 'eps', 'q6']]
+# nfa.accept_states = ['q6']
+# print("regexpr:", regex)
+# print("States:", nfa.states)
+# print("Alphabet:", nfa.alphabet)
+# print("Transitions:", nfa.transitions)
+# print("Start State:", nfa.start_state)
+# print("Accept States:", nfa.accept_states)
+# print("~~~~~~~~~~~~~~~~~~~~~~~~")
+# states = []
+# alphabet = {}
+# transitions = []
+# start_state = []
+# accept_states = []
+# dfa = DFA(states, alphabet, transitions, start_state, accept_states)
+# dfa1 = dfa.from_nfa(nfa)
+# print("Alphabet:", dfa1.alphabet)
+# print("States:", dfa1.states)
+# print("Transitions:", dfa1.transitions)
+# print("Start State:", dfa1.start_state)
+# print("Accept States:", dfa1.accept_states)
+
+
+# traversal = dfa.traversal(dfa1, "abc")
+# print("traversal for 'abc':", traversal)
+# traversal1 = dfa.traversal(dfa1, "ddd")
+# print("traversal for 'ddd':", traversal1)
+# traversal2 = dfa.traversal(dfa1, "b")
+# print("traversal for 'b':", traversal2)
+# traversal3 = dfa.traversal(dfa1, "a")
+# print("traversal for 'a':", traversal3)
+# traversal4 = dfa.traversal(dfa1, "adbc") #true fordi den finder b'et. Damn duh altså
+# print("traversal for 'adbc':", traversal4)
+
+
+# #trick one - looks lige "a", but this is fine.
+# #Quick note! q5 is added to states twice.
+# #States: [[['q0', 'q1', 'q3'], 's0'], [['q2', 'q4', 'q5', 'q5'], 's1']]
+# #This happens since the branch in the nfa both will lead to q5 and thus it is added twice. This may lead to issues?
+# print("------------------------")
+# regex = "a|a"
+# nfa.states = ['q0', 'q1', 'q2','q3', 'q4', 'q5']
+# nfa.alphabet = {'a', 'eps'}
+# nfa.transitions = [['q0', 'eps', 'q1'], ['q0', 'eps', 'q3'], ['q1', 'a', 'q2'], ['q2', 'eps', 'q5'], ['q3', 'a', 'q4'], ['q4', 'eps', 'q5']]
+# nfa.accept_states = ['q5']
+# print("regexpr:", regex)
+# print("States:", nfa.states)
+# print("Alphabet:", nfa.alphabet)
+# print("Transitions:", nfa.transitions)
+# print("Start State:", nfa.start_state)
+# print("Accept States:", nfa.accept_states)
+# print("~~~~~~~~~~~~~~~~~~~~~~~~")
+# states = []
+# alphabet = {}
+# transitions = []
+# start_state = []
+# accept_states = []
+# dfa = DFA(states, alphabet, transitions, start_state, accept_states)
+# dfa1 = dfa.from_nfa(nfa)
+# print("Alphabet:", dfa1.alphabet)
+# print("States:", dfa1.states)
+# print("Transitions:", dfa1.transitions)
+# print("Start State:", dfa1.start_state)
+# print("Accept States:", dfa1.accept_states)
+
+# traversal = dfa.traversal(dfa1, "abc")
+# print("traversal for 'abc':", traversal)
+# traversal1 = dfa.traversal(dfa1, "ddd")
+# print("traversal for 'ddd':", traversal1)
+# traversal2 = dfa.traversal(dfa1, "b")
+# print("traversal for 'b':", traversal2)
+# traversal3 = dfa.traversal(dfa1, "a")
+# print("traversal for 'a':", traversal3)
+# traversal4 = dfa.traversal(dfa1, "aaaaa")
+# print("traversal for 'aaaaa':", traversal4)
+
+# #Other opperators:
+# # +: one or more
+# #also a loop here - good to test
+# print("------------------------")
+# regex = "(a)+"
+# nfa.states = ['q0', 'q1', 'q2','q3', 'q4']
+# nfa.alphabet = {'a', 'eps'}
+# nfa.transitions = [['q0', 'a', 'q1'], ['q1', 'eps', 'q2'], ['q3', 'eps', 'q2'], ['q1', 'eps', 'q4'], ['q2', 'a', 'q3'], ['q3', 'eps', 'q4']]
+# nfa.accept_states = ['q4']
+# print("regexpr:", regex)
+# print("States:", nfa.states)
+# print("Alphabet:", nfa.alphabet)
+# print("Transitions:", nfa.transitions)
+# print("Start State:", nfa.start_state)
+# print("Accept States:", nfa.accept_states)
+# print("~~~~~~~~~~~~~~~~~~~~~~~~")
+# states = []
+# alphabet = {}
+# transitions = []
+# start_state = []
+# accept_states = []
+# dfa = DFA(states, alphabet, transitions, start_state, accept_states)
+# dfa1 = dfa.from_nfa(nfa)
+# print("Alphabet:", dfa1.alphabet)
+# print("States:", dfa1.states)
+# print("Transitions:", dfa1.transitions)
+# print("Start State:", dfa1.start_state)
+# print("Accept States:", dfa1.accept_states)
+
+# # ?: zero or one
+# # shows termination at start state - should be true as well
+# print("------------------------")
+# regex = "(a)?"
+# nfa.states = ['q0', 'q1', 'q2','q3', 'q4', 'q5']
+# nfa.alphabet = {'a', 'eps'}
+# nfa.transitions = [['q0', 'eps', 'q1'], ['q1', 'a', 'q2'], ['q2', 'eps', 'q5'], ['q0', 'eps', 'q3'], ['q3', 'eps', 'q4'], ['q4', 'eps', 'q5']]
+# nfa.accept_states = ['q5']
+# print("regexpr:", regex)
+# print("States:", nfa.states)
+# print("Alphabet:", nfa.alphabet)
+# print("Transitions:", nfa.transitions)
+# print("Start State:", nfa.start_state)
+# print("Accept States:", nfa.accept_states)
+# print("~~~~~~~~~~~~~~~~~~~~~~~~")
+# states = []
+# alphabet = {}
+# transitions = []
+# start_state = []
+# accept_states = []
+# dfa = DFA(states, alphabet, transitions, start_state, accept_states)
+# dfa1 = dfa.from_nfa(nfa)
+# print("Alphabet:", dfa1.alphabet)
+# print("States:", dfa1.states)
+# print("Transitions:", dfa1.transitions)
+# print("Start State:", dfa1.start_state)
+# print("Accept States:", dfa1.accept_states)
+
+# print("------------------------")
+# print("------------------------")
+# regex = "(a)?"
+# nfa.states = ['q0', 'q1', 'q2','q3', 'q4', 'q5']
+# nfa.alphabet = {'a', 'eps'}
+# nfa.transitions = [['q0', 'eps', 'q1'], ['q1', 'a', 'q2'], ['q2', 'eps', 'q5'], ['q0', 'eps', 'q3'], ['q3', 'eps', 'q4'], ['q4', 'eps', 'q5']]
+# nfa.accept_states = ['q5']
+
+# print("regexpr:", regex)
+# dfa = DFA(states, alphabet, transitions, start_state, accept_states)
+# dfa1 = dfa.from_nfa(nfa)
+# print('accept:', dfa1.accept_states)
+# print('states:', dfa1.states)
+# print('transitions:', dfa1.transitions)
+
+# traversal = dfa.traversal(dfa1, "abc")
+# print("traversal for 'abc':", traversal)
+# traversal1 = dfa.traversal(dfa1, "aa")
+# print("traversal for 'aa':", traversal1)
+
+
+# print("------------------------")
+# regex = "(a)+"
+# nfa.states = ['q0', 'q1', 'q2','q3', 'q4']
+# nfa.alphabet = {'a', 'eps'}
+# nfa.transitions = [['q0', 'a', 'q1'], ['q1', 'eps', 'q2'], ['q3', 'eps', 'q2'], ['q1', 'eps', 'q4'], ['q2', 'a', 'q3'], ['q3', 'eps', 'q4']]
+# nfa.accept_states = ['q4']
+
+# print("regexpr:", regex)
+# dfa = DFA(states, alphabet, transitions, start_state, accept_states)
+# dfa1 = dfa.from_nfa(nfa)
+# print('accept:', dfa1.accept_states)
+# print('states:', dfa1.states)
+# print('transitions:', dfa1.transitions)
+
+# traversal0 = dfa.traversal(dfa1, "abc")
+# print("traversal for 'abc':", traversal0)
+# traversal1 = dfa.traversal(dfa1, "aaaa")
+# print("traversal for 'aaaa':", traversal1)
+# traversal2 = dfa.traversal(dfa1, "teststaringa")
+# print("traversal for 'teststaringa':", traversal2)
+# traversal3 = dfa.traversal(dfa1, "teststring")
+# print("traversal for 'teststring':", traversal3)
+
+# #Currently epsilon does not appear in NFA, but the epsilon closure is part of conversion
+# #Læs i method afsnit

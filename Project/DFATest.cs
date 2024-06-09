@@ -209,6 +209,27 @@ namespace sme_intro{
             byte[] Input004 = new byte[] {(byte)'d', (byte)'a', (byte)'f', (byte)'b', (byte)'g', (byte)'a', (byte)'b'};
             Console.WriteLine("Traversal for 'dafbgab': " + TraverseDFA(Input004, transitionsy, accept_statesy, start_statey, statesy));
 
+
+            //TIMING TEST --- RYK DEN
+            var watch = new System.Diagnostics.Stopwatch();
+            watch.Start();
+            
+            var tests = new string[]{"a", "b", "ab", "c", "ac", "bb", "aa", "kh", "f", "cccccbab", "khab", "abkh", "khabdf", "dfag", "dfbg", "dafb" , "dafbgc", "dafbdab"};
+            foreach (var test in tests)
+            {
+                char[] array = test.ToCharArray(); //skal på bus
+                //for løkker der loader test ind i control.array som bytes
+                byte[] Array = new byte[test.Length];
+                for (int j = 0; j < test.Length; j++){
+                    Array[j] = (byte)array[j];
+                }
+                TraverseDFA(Array, transitions1, accept_states1, start_state1, states1);
+            }
+
+            watch.Stop();
+            Console.WriteLine($"Execution Time: {watch.ElapsedMilliseconds} ms");
+
+
         }
          public bool TraverseDFA(byte[] input, byte[] transitions, byte[] accept_states, byte start_state, byte[] states)
         {

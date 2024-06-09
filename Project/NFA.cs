@@ -58,10 +58,6 @@ namespace sme_intro{
         private (string, int) ProcessGroup(List<string> group , string current_state, int state_counter){
             string new_state = current_state; // Initialize the new state with the current state
             // int length = group.Count;
-
-
-
-
             foreach (string strr in group){
                 foreach (char chr in strr){
                     // Operator logic here - also before. Should make a clean slate when 

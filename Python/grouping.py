@@ -49,6 +49,10 @@ stringnest1 = "(a(a(a(a(a(a))))))"
 print('stringnest0:', grouping(stringnest0))
 print('stringnest1:', grouping(stringnest1))
 
+stringnest01 = "(ab(b(d)f)g)g"
+print('stringnest0:', grouping(stringnest01))
+
+
 #Error message testing:
 stringerror0 = "(ab"
 stringerror1 = "ab)"

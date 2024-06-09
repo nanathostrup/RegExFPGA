@@ -87,6 +87,9 @@ begin
 
             fieldno := 0;
             read_csv_field(L, tmp);
+            assert are_strings_equal(tmp, "Traversal.Valid") report "Field #" & integer'image(fieldno) & " is not correctly named: " & truncate(tmp) & ", expected Traversal.Valid" severity Failure;
+            fieldno := fieldno + 1;
+            read_csv_field(L, tmp);
             assert are_strings_equal(tmp, "Control.Array(0)") report "Field #" & integer'image(fieldno) & " is not correctly named: " & truncate(tmp) & ", expected Control.Array(0)" severity Failure;
             fieldno := fieldno + 1;
             read_csv_field(L, tmp);
@@ -3095,9 +3098,6 @@ begin
             read_csv_field(L, tmp);
             assert are_strings_equal(tmp, "Control.Valid") report "Field #" & integer'image(fieldno) & " is not correctly named: " & truncate(tmp) & ", expected Control.Valid" severity Failure;
             fieldno := fieldno + 1;
-            read_csv_field(L, tmp);
-            assert are_strings_equal(tmp, "Traversal.Valid") report "Field #" & integer'image(fieldno) & " is not correctly named: " & truncate(tmp) & ", expected Traversal.Valid" severity Failure;
-            fieldno := fieldno + 1;
 
             RESET <= '1';
             ENABLE <= '0';
@@ -3120,7023 +3120,9 @@ begin
 
                 read_csv_field(L, tmp);
                 if are_strings_equal(tmp, "U") then
-                    Control_Array(0) <= (others => 'U');
+                    Traversal_Valid <= 'U';
                 else
-                    Control_Array(0) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(1) <= (others => 'U');
-                else
-                    Control_Array(1) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(2) <= (others => 'U');
-                else
-                    Control_Array(2) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(3) <= (others => 'U');
-                else
-                    Control_Array(3) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(4) <= (others => 'U');
-                else
-                    Control_Array(4) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(5) <= (others => 'U');
-                else
-                    Control_Array(5) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(6) <= (others => 'U');
-                else
-                    Control_Array(6) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(7) <= (others => 'U');
-                else
-                    Control_Array(7) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(8) <= (others => 'U');
-                else
-                    Control_Array(8) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(9) <= (others => 'U');
-                else
-                    Control_Array(9) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(10) <= (others => 'U');
-                else
-                    Control_Array(10) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(11) <= (others => 'U');
-                else
-                    Control_Array(11) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(12) <= (others => 'U');
-                else
-                    Control_Array(12) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(13) <= (others => 'U');
-                else
-                    Control_Array(13) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(14) <= (others => 'U');
-                else
-                    Control_Array(14) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(15) <= (others => 'U');
-                else
-                    Control_Array(15) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(16) <= (others => 'U');
-                else
-                    Control_Array(16) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(17) <= (others => 'U');
-                else
-                    Control_Array(17) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(18) <= (others => 'U');
-                else
-                    Control_Array(18) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(19) <= (others => 'U');
-                else
-                    Control_Array(19) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(20) <= (others => 'U');
-                else
-                    Control_Array(20) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(21) <= (others => 'U');
-                else
-                    Control_Array(21) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(22) <= (others => 'U');
-                else
-                    Control_Array(22) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(23) <= (others => 'U');
-                else
-                    Control_Array(23) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(24) <= (others => 'U');
-                else
-                    Control_Array(24) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(25) <= (others => 'U');
-                else
-                    Control_Array(25) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(26) <= (others => 'U');
-                else
-                    Control_Array(26) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(27) <= (others => 'U');
-                else
-                    Control_Array(27) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(28) <= (others => 'U');
-                else
-                    Control_Array(28) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(29) <= (others => 'U');
-                else
-                    Control_Array(29) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(30) <= (others => 'U');
-                else
-                    Control_Array(30) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(31) <= (others => 'U');
-                else
-                    Control_Array(31) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(32) <= (others => 'U');
-                else
-                    Control_Array(32) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(33) <= (others => 'U');
-                else
-                    Control_Array(33) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(34) <= (others => 'U');
-                else
-                    Control_Array(34) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(35) <= (others => 'U');
-                else
-                    Control_Array(35) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(36) <= (others => 'U');
-                else
-                    Control_Array(36) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(37) <= (others => 'U');
-                else
-                    Control_Array(37) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(38) <= (others => 'U');
-                else
-                    Control_Array(38) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(39) <= (others => 'U');
-                else
-                    Control_Array(39) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(40) <= (others => 'U');
-                else
-                    Control_Array(40) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(41) <= (others => 'U');
-                else
-                    Control_Array(41) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(42) <= (others => 'U');
-                else
-                    Control_Array(42) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(43) <= (others => 'U');
-                else
-                    Control_Array(43) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(44) <= (others => 'U');
-                else
-                    Control_Array(44) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(45) <= (others => 'U');
-                else
-                    Control_Array(45) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(46) <= (others => 'U');
-                else
-                    Control_Array(46) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(47) <= (others => 'U');
-                else
-                    Control_Array(47) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(48) <= (others => 'U');
-                else
-                    Control_Array(48) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(49) <= (others => 'U');
-                else
-                    Control_Array(49) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(50) <= (others => 'U');
-                else
-                    Control_Array(50) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(51) <= (others => 'U');
-                else
-                    Control_Array(51) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(52) <= (others => 'U');
-                else
-                    Control_Array(52) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(53) <= (others => 'U');
-                else
-                    Control_Array(53) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(54) <= (others => 'U');
-                else
-                    Control_Array(54) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(55) <= (others => 'U');
-                else
-                    Control_Array(55) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(56) <= (others => 'U');
-                else
-                    Control_Array(56) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(57) <= (others => 'U');
-                else
-                    Control_Array(57) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(58) <= (others => 'U');
-                else
-                    Control_Array(58) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(59) <= (others => 'U');
-                else
-                    Control_Array(59) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(60) <= (others => 'U');
-                else
-                    Control_Array(60) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(61) <= (others => 'U');
-                else
-                    Control_Array(61) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(62) <= (others => 'U');
-                else
-                    Control_Array(62) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(63) <= (others => 'U');
-                else
-                    Control_Array(63) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(64) <= (others => 'U');
-                else
-                    Control_Array(64) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(65) <= (others => 'U');
-                else
-                    Control_Array(65) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(66) <= (others => 'U');
-                else
-                    Control_Array(66) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(67) <= (others => 'U');
-                else
-                    Control_Array(67) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(68) <= (others => 'U');
-                else
-                    Control_Array(68) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(69) <= (others => 'U');
-                else
-                    Control_Array(69) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(70) <= (others => 'U');
-                else
-                    Control_Array(70) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(71) <= (others => 'U');
-                else
-                    Control_Array(71) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(72) <= (others => 'U');
-                else
-                    Control_Array(72) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(73) <= (others => 'U');
-                else
-                    Control_Array(73) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(74) <= (others => 'U');
-                else
-                    Control_Array(74) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(75) <= (others => 'U');
-                else
-                    Control_Array(75) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(76) <= (others => 'U');
-                else
-                    Control_Array(76) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(77) <= (others => 'U');
-                else
-                    Control_Array(77) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(78) <= (others => 'U');
-                else
-                    Control_Array(78) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(79) <= (others => 'U');
-                else
-                    Control_Array(79) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(80) <= (others => 'U');
-                else
-                    Control_Array(80) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(81) <= (others => 'U');
-                else
-                    Control_Array(81) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(82) <= (others => 'U');
-                else
-                    Control_Array(82) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(83) <= (others => 'U');
-                else
-                    Control_Array(83) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(84) <= (others => 'U');
-                else
-                    Control_Array(84) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(85) <= (others => 'U');
-                else
-                    Control_Array(85) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(86) <= (others => 'U');
-                else
-                    Control_Array(86) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(87) <= (others => 'U');
-                else
-                    Control_Array(87) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(88) <= (others => 'U');
-                else
-                    Control_Array(88) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(89) <= (others => 'U');
-                else
-                    Control_Array(89) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(90) <= (others => 'U');
-                else
-                    Control_Array(90) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(91) <= (others => 'U');
-                else
-                    Control_Array(91) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(92) <= (others => 'U');
-                else
-                    Control_Array(92) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(93) <= (others => 'U');
-                else
-                    Control_Array(93) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(94) <= (others => 'U');
-                else
-                    Control_Array(94) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(95) <= (others => 'U');
-                else
-                    Control_Array(95) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(96) <= (others => 'U');
-                else
-                    Control_Array(96) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(97) <= (others => 'U');
-                else
-                    Control_Array(97) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(98) <= (others => 'U');
-                else
-                    Control_Array(98) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(99) <= (others => 'U');
-                else
-                    Control_Array(99) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(100) <= (others => 'U');
-                else
-                    Control_Array(100) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(101) <= (others => 'U');
-                else
-                    Control_Array(101) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(102) <= (others => 'U');
-                else
-                    Control_Array(102) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(103) <= (others => 'U');
-                else
-                    Control_Array(103) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(104) <= (others => 'U');
-                else
-                    Control_Array(104) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(105) <= (others => 'U');
-                else
-                    Control_Array(105) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(106) <= (others => 'U');
-                else
-                    Control_Array(106) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(107) <= (others => 'U');
-                else
-                    Control_Array(107) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(108) <= (others => 'U');
-                else
-                    Control_Array(108) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(109) <= (others => 'U');
-                else
-                    Control_Array(109) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(110) <= (others => 'U');
-                else
-                    Control_Array(110) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(111) <= (others => 'U');
-                else
-                    Control_Array(111) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(112) <= (others => 'U');
-                else
-                    Control_Array(112) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(113) <= (others => 'U');
-                else
-                    Control_Array(113) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(114) <= (others => 'U');
-                else
-                    Control_Array(114) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(115) <= (others => 'U');
-                else
-                    Control_Array(115) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(116) <= (others => 'U');
-                else
-                    Control_Array(116) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(117) <= (others => 'U');
-                else
-                    Control_Array(117) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(118) <= (others => 'U');
-                else
-                    Control_Array(118) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(119) <= (others => 'U');
-                else
-                    Control_Array(119) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(120) <= (others => 'U');
-                else
-                    Control_Array(120) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(121) <= (others => 'U');
-                else
-                    Control_Array(121) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(122) <= (others => 'U');
-                else
-                    Control_Array(122) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(123) <= (others => 'U');
-                else
-                    Control_Array(123) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(124) <= (others => 'U');
-                else
-                    Control_Array(124) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(125) <= (others => 'U');
-                else
-                    Control_Array(125) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(126) <= (others => 'U');
-                else
-                    Control_Array(126) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(127) <= (others => 'U');
-                else
-                    Control_Array(127) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(128) <= (others => 'U');
-                else
-                    Control_Array(128) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(129) <= (others => 'U');
-                else
-                    Control_Array(129) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(130) <= (others => 'U');
-                else
-                    Control_Array(130) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(131) <= (others => 'U');
-                else
-                    Control_Array(131) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(132) <= (others => 'U');
-                else
-                    Control_Array(132) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(133) <= (others => 'U');
-                else
-                    Control_Array(133) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(134) <= (others => 'U');
-                else
-                    Control_Array(134) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(135) <= (others => 'U');
-                else
-                    Control_Array(135) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(136) <= (others => 'U');
-                else
-                    Control_Array(136) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(137) <= (others => 'U');
-                else
-                    Control_Array(137) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(138) <= (others => 'U');
-                else
-                    Control_Array(138) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(139) <= (others => 'U');
-                else
-                    Control_Array(139) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(140) <= (others => 'U');
-                else
-                    Control_Array(140) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(141) <= (others => 'U');
-                else
-                    Control_Array(141) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(142) <= (others => 'U');
-                else
-                    Control_Array(142) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(143) <= (others => 'U');
-                else
-                    Control_Array(143) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(144) <= (others => 'U');
-                else
-                    Control_Array(144) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(145) <= (others => 'U');
-                else
-                    Control_Array(145) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(146) <= (others => 'U');
-                else
-                    Control_Array(146) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(147) <= (others => 'U');
-                else
-                    Control_Array(147) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(148) <= (others => 'U');
-                else
-                    Control_Array(148) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(149) <= (others => 'U');
-                else
-                    Control_Array(149) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(150) <= (others => 'U');
-                else
-                    Control_Array(150) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(151) <= (others => 'U');
-                else
-                    Control_Array(151) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(152) <= (others => 'U');
-                else
-                    Control_Array(152) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(153) <= (others => 'U');
-                else
-                    Control_Array(153) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(154) <= (others => 'U');
-                else
-                    Control_Array(154) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(155) <= (others => 'U');
-                else
-                    Control_Array(155) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(156) <= (others => 'U');
-                else
-                    Control_Array(156) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(157) <= (others => 'U');
-                else
-                    Control_Array(157) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(158) <= (others => 'U');
-                else
-                    Control_Array(158) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(159) <= (others => 'U');
-                else
-                    Control_Array(159) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(160) <= (others => 'U');
-                else
-                    Control_Array(160) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(161) <= (others => 'U');
-                else
-                    Control_Array(161) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(162) <= (others => 'U');
-                else
-                    Control_Array(162) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(163) <= (others => 'U');
-                else
-                    Control_Array(163) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(164) <= (others => 'U');
-                else
-                    Control_Array(164) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(165) <= (others => 'U');
-                else
-                    Control_Array(165) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(166) <= (others => 'U');
-                else
-                    Control_Array(166) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(167) <= (others => 'U');
-                else
-                    Control_Array(167) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(168) <= (others => 'U');
-                else
-                    Control_Array(168) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(169) <= (others => 'U');
-                else
-                    Control_Array(169) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(170) <= (others => 'U');
-                else
-                    Control_Array(170) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(171) <= (others => 'U');
-                else
-                    Control_Array(171) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(172) <= (others => 'U');
-                else
-                    Control_Array(172) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(173) <= (others => 'U');
-                else
-                    Control_Array(173) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(174) <= (others => 'U');
-                else
-                    Control_Array(174) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(175) <= (others => 'U');
-                else
-                    Control_Array(175) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(176) <= (others => 'U');
-                else
-                    Control_Array(176) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(177) <= (others => 'U');
-                else
-                    Control_Array(177) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(178) <= (others => 'U');
-                else
-                    Control_Array(178) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(179) <= (others => 'U');
-                else
-                    Control_Array(179) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(180) <= (others => 'U');
-                else
-                    Control_Array(180) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(181) <= (others => 'U');
-                else
-                    Control_Array(181) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(182) <= (others => 'U');
-                else
-                    Control_Array(182) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(183) <= (others => 'U');
-                else
-                    Control_Array(183) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(184) <= (others => 'U');
-                else
-                    Control_Array(184) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(185) <= (others => 'U');
-                else
-                    Control_Array(185) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(186) <= (others => 'U');
-                else
-                    Control_Array(186) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(187) <= (others => 'U');
-                else
-                    Control_Array(187) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(188) <= (others => 'U');
-                else
-                    Control_Array(188) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(189) <= (others => 'U');
-                else
-                    Control_Array(189) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(190) <= (others => 'U');
-                else
-                    Control_Array(190) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(191) <= (others => 'U');
-                else
-                    Control_Array(191) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(192) <= (others => 'U');
-                else
-                    Control_Array(192) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(193) <= (others => 'U');
-                else
-                    Control_Array(193) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(194) <= (others => 'U');
-                else
-                    Control_Array(194) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(195) <= (others => 'U');
-                else
-                    Control_Array(195) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(196) <= (others => 'U');
-                else
-                    Control_Array(196) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(197) <= (others => 'U');
-                else
-                    Control_Array(197) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(198) <= (others => 'U');
-                else
-                    Control_Array(198) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(199) <= (others => 'U');
-                else
-                    Control_Array(199) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(200) <= (others => 'U');
-                else
-                    Control_Array(200) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(201) <= (others => 'U');
-                else
-                    Control_Array(201) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(202) <= (others => 'U');
-                else
-                    Control_Array(202) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(203) <= (others => 'U');
-                else
-                    Control_Array(203) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(204) <= (others => 'U');
-                else
-                    Control_Array(204) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(205) <= (others => 'U');
-                else
-                    Control_Array(205) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(206) <= (others => 'U');
-                else
-                    Control_Array(206) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(207) <= (others => 'U');
-                else
-                    Control_Array(207) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(208) <= (others => 'U');
-                else
-                    Control_Array(208) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(209) <= (others => 'U');
-                else
-                    Control_Array(209) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(210) <= (others => 'U');
-                else
-                    Control_Array(210) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(211) <= (others => 'U');
-                else
-                    Control_Array(211) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(212) <= (others => 'U');
-                else
-                    Control_Array(212) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(213) <= (others => 'U');
-                else
-                    Control_Array(213) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(214) <= (others => 'U');
-                else
-                    Control_Array(214) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(215) <= (others => 'U');
-                else
-                    Control_Array(215) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(216) <= (others => 'U');
-                else
-                    Control_Array(216) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(217) <= (others => 'U');
-                else
-                    Control_Array(217) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(218) <= (others => 'U');
-                else
-                    Control_Array(218) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(219) <= (others => 'U');
-                else
-                    Control_Array(219) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(220) <= (others => 'U');
-                else
-                    Control_Array(220) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(221) <= (others => 'U');
-                else
-                    Control_Array(221) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(222) <= (others => 'U');
-                else
-                    Control_Array(222) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(223) <= (others => 'U');
-                else
-                    Control_Array(223) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(224) <= (others => 'U');
-                else
-                    Control_Array(224) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(225) <= (others => 'U');
-                else
-                    Control_Array(225) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(226) <= (others => 'U');
-                else
-                    Control_Array(226) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(227) <= (others => 'U');
-                else
-                    Control_Array(227) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(228) <= (others => 'U');
-                else
-                    Control_Array(228) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(229) <= (others => 'U');
-                else
-                    Control_Array(229) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(230) <= (others => 'U');
-                else
-                    Control_Array(230) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(231) <= (others => 'U');
-                else
-                    Control_Array(231) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(232) <= (others => 'U');
-                else
-                    Control_Array(232) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(233) <= (others => 'U');
-                else
-                    Control_Array(233) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(234) <= (others => 'U');
-                else
-                    Control_Array(234) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(235) <= (others => 'U');
-                else
-                    Control_Array(235) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(236) <= (others => 'U');
-                else
-                    Control_Array(236) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(237) <= (others => 'U');
-                else
-                    Control_Array(237) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(238) <= (others => 'U');
-                else
-                    Control_Array(238) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(239) <= (others => 'U');
-                else
-                    Control_Array(239) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(240) <= (others => 'U');
-                else
-                    Control_Array(240) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(241) <= (others => 'U');
-                else
-                    Control_Array(241) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(242) <= (others => 'U');
-                else
-                    Control_Array(242) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(243) <= (others => 'U');
-                else
-                    Control_Array(243) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(244) <= (others => 'U');
-                else
-                    Control_Array(244) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(245) <= (others => 'U');
-                else
-                    Control_Array(245) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(246) <= (others => 'U');
-                else
-                    Control_Array(246) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(247) <= (others => 'U');
-                else
-                    Control_Array(247) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(248) <= (others => 'U');
-                else
-                    Control_Array(248) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(249) <= (others => 'U');
-                else
-                    Control_Array(249) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(250) <= (others => 'U');
-                else
-                    Control_Array(250) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(251) <= (others => 'U');
-                else
-                    Control_Array(251) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(252) <= (others => 'U');
-                else
-                    Control_Array(252) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(253) <= (others => 'U');
-                else
-                    Control_Array(253) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(254) <= (others => 'U');
-                else
-                    Control_Array(254) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(255) <= (others => 'U');
-                else
-                    Control_Array(255) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(256) <= (others => 'U');
-                else
-                    Control_Array(256) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(257) <= (others => 'U');
-                else
-                    Control_Array(257) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(258) <= (others => 'U');
-                else
-                    Control_Array(258) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(259) <= (others => 'U');
-                else
-                    Control_Array(259) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(260) <= (others => 'U');
-                else
-                    Control_Array(260) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(261) <= (others => 'U');
-                else
-                    Control_Array(261) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(262) <= (others => 'U');
-                else
-                    Control_Array(262) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(263) <= (others => 'U');
-                else
-                    Control_Array(263) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(264) <= (others => 'U');
-                else
-                    Control_Array(264) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(265) <= (others => 'U');
-                else
-                    Control_Array(265) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(266) <= (others => 'U');
-                else
-                    Control_Array(266) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(267) <= (others => 'U');
-                else
-                    Control_Array(267) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(268) <= (others => 'U');
-                else
-                    Control_Array(268) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(269) <= (others => 'U');
-                else
-                    Control_Array(269) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(270) <= (others => 'U');
-                else
-                    Control_Array(270) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(271) <= (others => 'U');
-                else
-                    Control_Array(271) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(272) <= (others => 'U');
-                else
-                    Control_Array(272) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(273) <= (others => 'U');
-                else
-                    Control_Array(273) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(274) <= (others => 'U');
-                else
-                    Control_Array(274) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(275) <= (others => 'U');
-                else
-                    Control_Array(275) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(276) <= (others => 'U');
-                else
-                    Control_Array(276) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(277) <= (others => 'U');
-                else
-                    Control_Array(277) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(278) <= (others => 'U');
-                else
-                    Control_Array(278) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(279) <= (others => 'U');
-                else
-                    Control_Array(279) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(280) <= (others => 'U');
-                else
-                    Control_Array(280) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(281) <= (others => 'U');
-                else
-                    Control_Array(281) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(282) <= (others => 'U');
-                else
-                    Control_Array(282) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(283) <= (others => 'U');
-                else
-                    Control_Array(283) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(284) <= (others => 'U');
-                else
-                    Control_Array(284) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(285) <= (others => 'U');
-                else
-                    Control_Array(285) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(286) <= (others => 'U');
-                else
-                    Control_Array(286) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(287) <= (others => 'U');
-                else
-                    Control_Array(287) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(288) <= (others => 'U');
-                else
-                    Control_Array(288) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(289) <= (others => 'U');
-                else
-                    Control_Array(289) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(290) <= (others => 'U');
-                else
-                    Control_Array(290) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(291) <= (others => 'U');
-                else
-                    Control_Array(291) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(292) <= (others => 'U');
-                else
-                    Control_Array(292) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(293) <= (others => 'U');
-                else
-                    Control_Array(293) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(294) <= (others => 'U');
-                else
-                    Control_Array(294) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(295) <= (others => 'U');
-                else
-                    Control_Array(295) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(296) <= (others => 'U');
-                else
-                    Control_Array(296) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(297) <= (others => 'U');
-                else
-                    Control_Array(297) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(298) <= (others => 'U');
-                else
-                    Control_Array(298) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(299) <= (others => 'U');
-                else
-                    Control_Array(299) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(300) <= (others => 'U');
-                else
-                    Control_Array(300) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(301) <= (others => 'U');
-                else
-                    Control_Array(301) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(302) <= (others => 'U');
-                else
-                    Control_Array(302) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(303) <= (others => 'U');
-                else
-                    Control_Array(303) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(304) <= (others => 'U');
-                else
-                    Control_Array(304) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(305) <= (others => 'U');
-                else
-                    Control_Array(305) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(306) <= (others => 'U');
-                else
-                    Control_Array(306) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(307) <= (others => 'U');
-                else
-                    Control_Array(307) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(308) <= (others => 'U');
-                else
-                    Control_Array(308) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(309) <= (others => 'U');
-                else
-                    Control_Array(309) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(310) <= (others => 'U');
-                else
-                    Control_Array(310) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(311) <= (others => 'U');
-                else
-                    Control_Array(311) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(312) <= (others => 'U');
-                else
-                    Control_Array(312) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(313) <= (others => 'U');
-                else
-                    Control_Array(313) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(314) <= (others => 'U');
-                else
-                    Control_Array(314) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(315) <= (others => 'U');
-                else
-                    Control_Array(315) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(316) <= (others => 'U');
-                else
-                    Control_Array(316) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(317) <= (others => 'U');
-                else
-                    Control_Array(317) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(318) <= (others => 'U');
-                else
-                    Control_Array(318) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(319) <= (others => 'U');
-                else
-                    Control_Array(319) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(320) <= (others => 'U');
-                else
-                    Control_Array(320) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(321) <= (others => 'U');
-                else
-                    Control_Array(321) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(322) <= (others => 'U');
-                else
-                    Control_Array(322) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(323) <= (others => 'U');
-                else
-                    Control_Array(323) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(324) <= (others => 'U');
-                else
-                    Control_Array(324) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(325) <= (others => 'U');
-                else
-                    Control_Array(325) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(326) <= (others => 'U');
-                else
-                    Control_Array(326) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(327) <= (others => 'U');
-                else
-                    Control_Array(327) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(328) <= (others => 'U');
-                else
-                    Control_Array(328) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(329) <= (others => 'U');
-                else
-                    Control_Array(329) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(330) <= (others => 'U');
-                else
-                    Control_Array(330) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(331) <= (others => 'U');
-                else
-                    Control_Array(331) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(332) <= (others => 'U');
-                else
-                    Control_Array(332) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(333) <= (others => 'U');
-                else
-                    Control_Array(333) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(334) <= (others => 'U');
-                else
-                    Control_Array(334) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(335) <= (others => 'U');
-                else
-                    Control_Array(335) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(336) <= (others => 'U');
-                else
-                    Control_Array(336) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(337) <= (others => 'U');
-                else
-                    Control_Array(337) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(338) <= (others => 'U');
-                else
-                    Control_Array(338) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(339) <= (others => 'U');
-                else
-                    Control_Array(339) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(340) <= (others => 'U');
-                else
-                    Control_Array(340) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(341) <= (others => 'U');
-                else
-                    Control_Array(341) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(342) <= (others => 'U');
-                else
-                    Control_Array(342) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(343) <= (others => 'U');
-                else
-                    Control_Array(343) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(344) <= (others => 'U');
-                else
-                    Control_Array(344) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(345) <= (others => 'U');
-                else
-                    Control_Array(345) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(346) <= (others => 'U');
-                else
-                    Control_Array(346) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(347) <= (others => 'U');
-                else
-                    Control_Array(347) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(348) <= (others => 'U');
-                else
-                    Control_Array(348) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(349) <= (others => 'U');
-                else
-                    Control_Array(349) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(350) <= (others => 'U');
-                else
-                    Control_Array(350) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(351) <= (others => 'U');
-                else
-                    Control_Array(351) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(352) <= (others => 'U');
-                else
-                    Control_Array(352) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(353) <= (others => 'U');
-                else
-                    Control_Array(353) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(354) <= (others => 'U');
-                else
-                    Control_Array(354) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(355) <= (others => 'U');
-                else
-                    Control_Array(355) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(356) <= (others => 'U');
-                else
-                    Control_Array(356) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(357) <= (others => 'U');
-                else
-                    Control_Array(357) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(358) <= (others => 'U');
-                else
-                    Control_Array(358) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(359) <= (others => 'U');
-                else
-                    Control_Array(359) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(360) <= (others => 'U');
-                else
-                    Control_Array(360) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(361) <= (others => 'U');
-                else
-                    Control_Array(361) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(362) <= (others => 'U');
-                else
-                    Control_Array(362) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(363) <= (others => 'U');
-                else
-                    Control_Array(363) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(364) <= (others => 'U');
-                else
-                    Control_Array(364) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(365) <= (others => 'U');
-                else
-                    Control_Array(365) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(366) <= (others => 'U');
-                else
-                    Control_Array(366) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(367) <= (others => 'U');
-                else
-                    Control_Array(367) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(368) <= (others => 'U');
-                else
-                    Control_Array(368) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(369) <= (others => 'U');
-                else
-                    Control_Array(369) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(370) <= (others => 'U');
-                else
-                    Control_Array(370) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(371) <= (others => 'U');
-                else
-                    Control_Array(371) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(372) <= (others => 'U');
-                else
-                    Control_Array(372) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(373) <= (others => 'U');
-                else
-                    Control_Array(373) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(374) <= (others => 'U');
-                else
-                    Control_Array(374) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(375) <= (others => 'U');
-                else
-                    Control_Array(375) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(376) <= (others => 'U');
-                else
-                    Control_Array(376) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(377) <= (others => 'U');
-                else
-                    Control_Array(377) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(378) <= (others => 'U');
-                else
-                    Control_Array(378) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(379) <= (others => 'U');
-                else
-                    Control_Array(379) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(380) <= (others => 'U');
-                else
-                    Control_Array(380) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(381) <= (others => 'U');
-                else
-                    Control_Array(381) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(382) <= (others => 'U');
-                else
-                    Control_Array(382) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(383) <= (others => 'U');
-                else
-                    Control_Array(383) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(384) <= (others => 'U');
-                else
-                    Control_Array(384) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(385) <= (others => 'U');
-                else
-                    Control_Array(385) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(386) <= (others => 'U');
-                else
-                    Control_Array(386) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(387) <= (others => 'U');
-                else
-                    Control_Array(387) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(388) <= (others => 'U');
-                else
-                    Control_Array(388) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(389) <= (others => 'U');
-                else
-                    Control_Array(389) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(390) <= (others => 'U');
-                else
-                    Control_Array(390) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(391) <= (others => 'U');
-                else
-                    Control_Array(391) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(392) <= (others => 'U');
-                else
-                    Control_Array(392) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(393) <= (others => 'U');
-                else
-                    Control_Array(393) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(394) <= (others => 'U');
-                else
-                    Control_Array(394) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(395) <= (others => 'U');
-                else
-                    Control_Array(395) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(396) <= (others => 'U');
-                else
-                    Control_Array(396) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(397) <= (others => 'U');
-                else
-                    Control_Array(397) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(398) <= (others => 'U');
-                else
-                    Control_Array(398) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(399) <= (others => 'U');
-                else
-                    Control_Array(399) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(400) <= (others => 'U');
-                else
-                    Control_Array(400) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(401) <= (others => 'U');
-                else
-                    Control_Array(401) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(402) <= (others => 'U');
-                else
-                    Control_Array(402) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(403) <= (others => 'U');
-                else
-                    Control_Array(403) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(404) <= (others => 'U');
-                else
-                    Control_Array(404) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(405) <= (others => 'U');
-                else
-                    Control_Array(405) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(406) <= (others => 'U');
-                else
-                    Control_Array(406) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(407) <= (others => 'U');
-                else
-                    Control_Array(407) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(408) <= (others => 'U');
-                else
-                    Control_Array(408) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(409) <= (others => 'U');
-                else
-                    Control_Array(409) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(410) <= (others => 'U');
-                else
-                    Control_Array(410) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(411) <= (others => 'U');
-                else
-                    Control_Array(411) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(412) <= (others => 'U');
-                else
-                    Control_Array(412) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(413) <= (others => 'U');
-                else
-                    Control_Array(413) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(414) <= (others => 'U');
-                else
-                    Control_Array(414) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(415) <= (others => 'U');
-                else
-                    Control_Array(415) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(416) <= (others => 'U');
-                else
-                    Control_Array(416) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(417) <= (others => 'U');
-                else
-                    Control_Array(417) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(418) <= (others => 'U');
-                else
-                    Control_Array(418) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(419) <= (others => 'U');
-                else
-                    Control_Array(419) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(420) <= (others => 'U');
-                else
-                    Control_Array(420) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(421) <= (others => 'U');
-                else
-                    Control_Array(421) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(422) <= (others => 'U');
-                else
-                    Control_Array(422) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(423) <= (others => 'U');
-                else
-                    Control_Array(423) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(424) <= (others => 'U');
-                else
-                    Control_Array(424) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(425) <= (others => 'U');
-                else
-                    Control_Array(425) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(426) <= (others => 'U');
-                else
-                    Control_Array(426) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(427) <= (others => 'U');
-                else
-                    Control_Array(427) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(428) <= (others => 'U');
-                else
-                    Control_Array(428) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(429) <= (others => 'U');
-                else
-                    Control_Array(429) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(430) <= (others => 'U');
-                else
-                    Control_Array(430) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(431) <= (others => 'U');
-                else
-                    Control_Array(431) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(432) <= (others => 'U');
-                else
-                    Control_Array(432) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(433) <= (others => 'U');
-                else
-                    Control_Array(433) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(434) <= (others => 'U');
-                else
-                    Control_Array(434) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(435) <= (others => 'U');
-                else
-                    Control_Array(435) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(436) <= (others => 'U');
-                else
-                    Control_Array(436) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(437) <= (others => 'U');
-                else
-                    Control_Array(437) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(438) <= (others => 'U');
-                else
-                    Control_Array(438) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(439) <= (others => 'U');
-                else
-                    Control_Array(439) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(440) <= (others => 'U');
-                else
-                    Control_Array(440) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(441) <= (others => 'U');
-                else
-                    Control_Array(441) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(442) <= (others => 'U');
-                else
-                    Control_Array(442) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(443) <= (others => 'U');
-                else
-                    Control_Array(443) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(444) <= (others => 'U');
-                else
-                    Control_Array(444) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(445) <= (others => 'U');
-                else
-                    Control_Array(445) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(446) <= (others => 'U');
-                else
-                    Control_Array(446) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(447) <= (others => 'U');
-                else
-                    Control_Array(447) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(448) <= (others => 'U');
-                else
-                    Control_Array(448) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(449) <= (others => 'U');
-                else
-                    Control_Array(449) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(450) <= (others => 'U');
-                else
-                    Control_Array(450) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(451) <= (others => 'U');
-                else
-                    Control_Array(451) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(452) <= (others => 'U');
-                else
-                    Control_Array(452) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(453) <= (others => 'U');
-                else
-                    Control_Array(453) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(454) <= (others => 'U');
-                else
-                    Control_Array(454) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(455) <= (others => 'U');
-                else
-                    Control_Array(455) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(456) <= (others => 'U');
-                else
-                    Control_Array(456) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(457) <= (others => 'U');
-                else
-                    Control_Array(457) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(458) <= (others => 'U');
-                else
-                    Control_Array(458) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(459) <= (others => 'U');
-                else
-                    Control_Array(459) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(460) <= (others => 'U');
-                else
-                    Control_Array(460) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(461) <= (others => 'U');
-                else
-                    Control_Array(461) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(462) <= (others => 'U');
-                else
-                    Control_Array(462) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(463) <= (others => 'U');
-                else
-                    Control_Array(463) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(464) <= (others => 'U');
-                else
-                    Control_Array(464) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(465) <= (others => 'U');
-                else
-                    Control_Array(465) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(466) <= (others => 'U');
-                else
-                    Control_Array(466) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(467) <= (others => 'U');
-                else
-                    Control_Array(467) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(468) <= (others => 'U');
-                else
-                    Control_Array(468) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(469) <= (others => 'U');
-                else
-                    Control_Array(469) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(470) <= (others => 'U');
-                else
-                    Control_Array(470) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(471) <= (others => 'U');
-                else
-                    Control_Array(471) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(472) <= (others => 'U');
-                else
-                    Control_Array(472) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(473) <= (others => 'U');
-                else
-                    Control_Array(473) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(474) <= (others => 'U');
-                else
-                    Control_Array(474) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(475) <= (others => 'U');
-                else
-                    Control_Array(475) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(476) <= (others => 'U');
-                else
-                    Control_Array(476) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(477) <= (others => 'U');
-                else
-                    Control_Array(477) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(478) <= (others => 'U');
-                else
-                    Control_Array(478) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(479) <= (others => 'U');
-                else
-                    Control_Array(479) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(480) <= (others => 'U');
-                else
-                    Control_Array(480) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(481) <= (others => 'U');
-                else
-                    Control_Array(481) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(482) <= (others => 'U');
-                else
-                    Control_Array(482) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(483) <= (others => 'U');
-                else
-                    Control_Array(483) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(484) <= (others => 'U');
-                else
-                    Control_Array(484) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(485) <= (others => 'U');
-                else
-                    Control_Array(485) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(486) <= (others => 'U');
-                else
-                    Control_Array(486) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(487) <= (others => 'U');
-                else
-                    Control_Array(487) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(488) <= (others => 'U');
-                else
-                    Control_Array(488) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(489) <= (others => 'U');
-                else
-                    Control_Array(489) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(490) <= (others => 'U');
-                else
-                    Control_Array(490) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(491) <= (others => 'U');
-                else
-                    Control_Array(491) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(492) <= (others => 'U');
-                else
-                    Control_Array(492) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(493) <= (others => 'U');
-                else
-                    Control_Array(493) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(494) <= (others => 'U');
-                else
-                    Control_Array(494) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(495) <= (others => 'U');
-                else
-                    Control_Array(495) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(496) <= (others => 'U');
-                else
-                    Control_Array(496) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(497) <= (others => 'U');
-                else
-                    Control_Array(497) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(498) <= (others => 'U');
-                else
-                    Control_Array(498) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(499) <= (others => 'U');
-                else
-                    Control_Array(499) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(500) <= (others => 'U');
-                else
-                    Control_Array(500) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(501) <= (others => 'U');
-                else
-                    Control_Array(501) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(502) <= (others => 'U');
-                else
-                    Control_Array(502) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(503) <= (others => 'U');
-                else
-                    Control_Array(503) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(504) <= (others => 'U');
-                else
-                    Control_Array(504) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(505) <= (others => 'U');
-                else
-                    Control_Array(505) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(506) <= (others => 'U');
-                else
-                    Control_Array(506) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(507) <= (others => 'U');
-                else
-                    Control_Array(507) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(508) <= (others => 'U');
-                else
-                    Control_Array(508) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(509) <= (others => 'U');
-                else
-                    Control_Array(509) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(510) <= (others => 'U');
-                else
-                    Control_Array(510) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(511) <= (others => 'U');
-                else
-                    Control_Array(511) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(512) <= (others => 'U');
-                else
-                    Control_Array(512) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(513) <= (others => 'U');
-                else
-                    Control_Array(513) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(514) <= (others => 'U');
-                else
-                    Control_Array(514) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(515) <= (others => 'U');
-                else
-                    Control_Array(515) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(516) <= (others => 'U');
-                else
-                    Control_Array(516) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(517) <= (others => 'U');
-                else
-                    Control_Array(517) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(518) <= (others => 'U');
-                else
-                    Control_Array(518) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(519) <= (others => 'U');
-                else
-                    Control_Array(519) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(520) <= (others => 'U');
-                else
-                    Control_Array(520) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(521) <= (others => 'U');
-                else
-                    Control_Array(521) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(522) <= (others => 'U');
-                else
-                    Control_Array(522) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(523) <= (others => 'U');
-                else
-                    Control_Array(523) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(524) <= (others => 'U');
-                else
-                    Control_Array(524) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(525) <= (others => 'U');
-                else
-                    Control_Array(525) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(526) <= (others => 'U');
-                else
-                    Control_Array(526) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(527) <= (others => 'U');
-                else
-                    Control_Array(527) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(528) <= (others => 'U');
-                else
-                    Control_Array(528) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(529) <= (others => 'U');
-                else
-                    Control_Array(529) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(530) <= (others => 'U');
-                else
-                    Control_Array(530) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(531) <= (others => 'U');
-                else
-                    Control_Array(531) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(532) <= (others => 'U');
-                else
-                    Control_Array(532) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(533) <= (others => 'U');
-                else
-                    Control_Array(533) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(534) <= (others => 'U');
-                else
-                    Control_Array(534) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(535) <= (others => 'U');
-                else
-                    Control_Array(535) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(536) <= (others => 'U');
-                else
-                    Control_Array(536) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(537) <= (others => 'U');
-                else
-                    Control_Array(537) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(538) <= (others => 'U');
-                else
-                    Control_Array(538) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(539) <= (others => 'U');
-                else
-                    Control_Array(539) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(540) <= (others => 'U');
-                else
-                    Control_Array(540) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(541) <= (others => 'U');
-                else
-                    Control_Array(541) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(542) <= (others => 'U');
-                else
-                    Control_Array(542) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(543) <= (others => 'U');
-                else
-                    Control_Array(543) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(544) <= (others => 'U');
-                else
-                    Control_Array(544) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(545) <= (others => 'U');
-                else
-                    Control_Array(545) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(546) <= (others => 'U');
-                else
-                    Control_Array(546) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(547) <= (others => 'U');
-                else
-                    Control_Array(547) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(548) <= (others => 'U');
-                else
-                    Control_Array(548) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(549) <= (others => 'U');
-                else
-                    Control_Array(549) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(550) <= (others => 'U');
-                else
-                    Control_Array(550) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(551) <= (others => 'U');
-                else
-                    Control_Array(551) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(552) <= (others => 'U');
-                else
-                    Control_Array(552) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(553) <= (others => 'U');
-                else
-                    Control_Array(553) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(554) <= (others => 'U');
-                else
-                    Control_Array(554) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(555) <= (others => 'U');
-                else
-                    Control_Array(555) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(556) <= (others => 'U');
-                else
-                    Control_Array(556) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(557) <= (others => 'U');
-                else
-                    Control_Array(557) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(558) <= (others => 'U');
-                else
-                    Control_Array(558) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(559) <= (others => 'U');
-                else
-                    Control_Array(559) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(560) <= (others => 'U');
-                else
-                    Control_Array(560) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(561) <= (others => 'U');
-                else
-                    Control_Array(561) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(562) <= (others => 'U');
-                else
-                    Control_Array(562) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(563) <= (others => 'U');
-                else
-                    Control_Array(563) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(564) <= (others => 'U');
-                else
-                    Control_Array(564) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(565) <= (others => 'U');
-                else
-                    Control_Array(565) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(566) <= (others => 'U');
-                else
-                    Control_Array(566) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(567) <= (others => 'U');
-                else
-                    Control_Array(567) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(568) <= (others => 'U');
-                else
-                    Control_Array(568) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(569) <= (others => 'U');
-                else
-                    Control_Array(569) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(570) <= (others => 'U');
-                else
-                    Control_Array(570) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(571) <= (others => 'U');
-                else
-                    Control_Array(571) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(572) <= (others => 'U');
-                else
-                    Control_Array(572) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(573) <= (others => 'U');
-                else
-                    Control_Array(573) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(574) <= (others => 'U');
-                else
-                    Control_Array(574) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(575) <= (others => 'U');
-                else
-                    Control_Array(575) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(576) <= (others => 'U');
-                else
-                    Control_Array(576) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(577) <= (others => 'U');
-                else
-                    Control_Array(577) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(578) <= (others => 'U');
-                else
-                    Control_Array(578) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(579) <= (others => 'U');
-                else
-                    Control_Array(579) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(580) <= (others => 'U');
-                else
-                    Control_Array(580) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(581) <= (others => 'U');
-                else
-                    Control_Array(581) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(582) <= (others => 'U');
-                else
-                    Control_Array(582) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(583) <= (others => 'U');
-                else
-                    Control_Array(583) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(584) <= (others => 'U');
-                else
-                    Control_Array(584) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(585) <= (others => 'U');
-                else
-                    Control_Array(585) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(586) <= (others => 'U');
-                else
-                    Control_Array(586) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(587) <= (others => 'U');
-                else
-                    Control_Array(587) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(588) <= (others => 'U');
-                else
-                    Control_Array(588) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(589) <= (others => 'U');
-                else
-                    Control_Array(589) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(590) <= (others => 'U');
-                else
-                    Control_Array(590) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(591) <= (others => 'U');
-                else
-                    Control_Array(591) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(592) <= (others => 'U');
-                else
-                    Control_Array(592) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(593) <= (others => 'U');
-                else
-                    Control_Array(593) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(594) <= (others => 'U');
-                else
-                    Control_Array(594) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(595) <= (others => 'U');
-                else
-                    Control_Array(595) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(596) <= (others => 'U');
-                else
-                    Control_Array(596) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(597) <= (others => 'U');
-                else
-                    Control_Array(597) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(598) <= (others => 'U');
-                else
-                    Control_Array(598) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(599) <= (others => 'U');
-                else
-                    Control_Array(599) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(600) <= (others => 'U');
-                else
-                    Control_Array(600) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(601) <= (others => 'U');
-                else
-                    Control_Array(601) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(602) <= (others => 'U');
-                else
-                    Control_Array(602) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(603) <= (others => 'U');
-                else
-                    Control_Array(603) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(604) <= (others => 'U');
-                else
-                    Control_Array(604) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(605) <= (others => 'U');
-                else
-                    Control_Array(605) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(606) <= (others => 'U');
-                else
-                    Control_Array(606) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(607) <= (others => 'U');
-                else
-                    Control_Array(607) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(608) <= (others => 'U');
-                else
-                    Control_Array(608) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(609) <= (others => 'U');
-                else
-                    Control_Array(609) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(610) <= (others => 'U');
-                else
-                    Control_Array(610) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(611) <= (others => 'U');
-                else
-                    Control_Array(611) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(612) <= (others => 'U');
-                else
-                    Control_Array(612) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(613) <= (others => 'U');
-                else
-                    Control_Array(613) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(614) <= (others => 'U');
-                else
-                    Control_Array(614) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(615) <= (others => 'U');
-                else
-                    Control_Array(615) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(616) <= (others => 'U');
-                else
-                    Control_Array(616) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(617) <= (others => 'U');
-                else
-                    Control_Array(617) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(618) <= (others => 'U');
-                else
-                    Control_Array(618) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(619) <= (others => 'U');
-                else
-                    Control_Array(619) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(620) <= (others => 'U');
-                else
-                    Control_Array(620) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(621) <= (others => 'U');
-                else
-                    Control_Array(621) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(622) <= (others => 'U');
-                else
-                    Control_Array(622) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(623) <= (others => 'U');
-                else
-                    Control_Array(623) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(624) <= (others => 'U');
-                else
-                    Control_Array(624) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(625) <= (others => 'U');
-                else
-                    Control_Array(625) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(626) <= (others => 'U');
-                else
-                    Control_Array(626) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(627) <= (others => 'U');
-                else
-                    Control_Array(627) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(628) <= (others => 'U');
-                else
-                    Control_Array(628) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(629) <= (others => 'U');
-                else
-                    Control_Array(629) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(630) <= (others => 'U');
-                else
-                    Control_Array(630) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(631) <= (others => 'U');
-                else
-                    Control_Array(631) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(632) <= (others => 'U');
-                else
-                    Control_Array(632) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(633) <= (others => 'U');
-                else
-                    Control_Array(633) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(634) <= (others => 'U');
-                else
-                    Control_Array(634) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(635) <= (others => 'U');
-                else
-                    Control_Array(635) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(636) <= (others => 'U');
-                else
-                    Control_Array(636) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(637) <= (others => 'U');
-                else
-                    Control_Array(637) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(638) <= (others => 'U');
-                else
-                    Control_Array(638) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(639) <= (others => 'U');
-                else
-                    Control_Array(639) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(640) <= (others => 'U');
-                else
-                    Control_Array(640) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(641) <= (others => 'U');
-                else
-                    Control_Array(641) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(642) <= (others => 'U');
-                else
-                    Control_Array(642) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(643) <= (others => 'U');
-                else
-                    Control_Array(643) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(644) <= (others => 'U');
-                else
-                    Control_Array(644) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(645) <= (others => 'U');
-                else
-                    Control_Array(645) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(646) <= (others => 'U');
-                else
-                    Control_Array(646) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(647) <= (others => 'U');
-                else
-                    Control_Array(647) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(648) <= (others => 'U');
-                else
-                    Control_Array(648) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(649) <= (others => 'U');
-                else
-                    Control_Array(649) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(650) <= (others => 'U');
-                else
-                    Control_Array(650) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(651) <= (others => 'U');
-                else
-                    Control_Array(651) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(652) <= (others => 'U');
-                else
-                    Control_Array(652) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(653) <= (others => 'U');
-                else
-                    Control_Array(653) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(654) <= (others => 'U');
-                else
-                    Control_Array(654) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(655) <= (others => 'U');
-                else
-                    Control_Array(655) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(656) <= (others => 'U');
-                else
-                    Control_Array(656) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(657) <= (others => 'U');
-                else
-                    Control_Array(657) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(658) <= (others => 'U');
-                else
-                    Control_Array(658) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(659) <= (others => 'U');
-                else
-                    Control_Array(659) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(660) <= (others => 'U');
-                else
-                    Control_Array(660) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(661) <= (others => 'U');
-                else
-                    Control_Array(661) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(662) <= (others => 'U');
-                else
-                    Control_Array(662) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(663) <= (others => 'U');
-                else
-                    Control_Array(663) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(664) <= (others => 'U');
-                else
-                    Control_Array(664) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(665) <= (others => 'U');
-                else
-                    Control_Array(665) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(666) <= (others => 'U');
-                else
-                    Control_Array(666) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(667) <= (others => 'U');
-                else
-                    Control_Array(667) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(668) <= (others => 'U');
-                else
-                    Control_Array(668) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(669) <= (others => 'U');
-                else
-                    Control_Array(669) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(670) <= (others => 'U');
-                else
-                    Control_Array(670) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(671) <= (others => 'U');
-                else
-                    Control_Array(671) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(672) <= (others => 'U');
-                else
-                    Control_Array(672) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(673) <= (others => 'U');
-                else
-                    Control_Array(673) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(674) <= (others => 'U');
-                else
-                    Control_Array(674) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(675) <= (others => 'U');
-                else
-                    Control_Array(675) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(676) <= (others => 'U');
-                else
-                    Control_Array(676) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(677) <= (others => 'U');
-                else
-                    Control_Array(677) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(678) <= (others => 'U');
-                else
-                    Control_Array(678) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(679) <= (others => 'U');
-                else
-                    Control_Array(679) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(680) <= (others => 'U');
-                else
-                    Control_Array(680) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(681) <= (others => 'U');
-                else
-                    Control_Array(681) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(682) <= (others => 'U');
-                else
-                    Control_Array(682) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(683) <= (others => 'U');
-                else
-                    Control_Array(683) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(684) <= (others => 'U');
-                else
-                    Control_Array(684) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(685) <= (others => 'U');
-                else
-                    Control_Array(685) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(686) <= (others => 'U');
-                else
-                    Control_Array(686) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(687) <= (others => 'U');
-                else
-                    Control_Array(687) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(688) <= (others => 'U');
-                else
-                    Control_Array(688) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(689) <= (others => 'U');
-                else
-                    Control_Array(689) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(690) <= (others => 'U');
-                else
-                    Control_Array(690) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(691) <= (others => 'U');
-                else
-                    Control_Array(691) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(692) <= (others => 'U');
-                else
-                    Control_Array(692) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(693) <= (others => 'U');
-                else
-                    Control_Array(693) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(694) <= (others => 'U');
-                else
-                    Control_Array(694) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(695) <= (others => 'U');
-                else
-                    Control_Array(695) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(696) <= (others => 'U');
-                else
-                    Control_Array(696) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(697) <= (others => 'U');
-                else
-                    Control_Array(697) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(698) <= (others => 'U');
-                else
-                    Control_Array(698) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(699) <= (others => 'U');
-                else
-                    Control_Array(699) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(700) <= (others => 'U');
-                else
-                    Control_Array(700) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(701) <= (others => 'U');
-                else
-                    Control_Array(701) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(702) <= (others => 'U');
-                else
-                    Control_Array(702) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(703) <= (others => 'U');
-                else
-                    Control_Array(703) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(704) <= (others => 'U');
-                else
-                    Control_Array(704) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(705) <= (others => 'U');
-                else
-                    Control_Array(705) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(706) <= (others => 'U');
-                else
-                    Control_Array(706) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(707) <= (others => 'U');
-                else
-                    Control_Array(707) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(708) <= (others => 'U');
-                else
-                    Control_Array(708) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(709) <= (others => 'U');
-                else
-                    Control_Array(709) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(710) <= (others => 'U');
-                else
-                    Control_Array(710) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(711) <= (others => 'U');
-                else
-                    Control_Array(711) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(712) <= (others => 'U');
-                else
-                    Control_Array(712) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(713) <= (others => 'U');
-                else
-                    Control_Array(713) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(714) <= (others => 'U');
-                else
-                    Control_Array(714) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(715) <= (others => 'U');
-                else
-                    Control_Array(715) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(716) <= (others => 'U');
-                else
-                    Control_Array(716) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(717) <= (others => 'U');
-                else
-                    Control_Array(717) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(718) <= (others => 'U');
-                else
-                    Control_Array(718) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(719) <= (others => 'U');
-                else
-                    Control_Array(719) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(720) <= (others => 'U');
-                else
-                    Control_Array(720) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(721) <= (others => 'U');
-                else
-                    Control_Array(721) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(722) <= (others => 'U');
-                else
-                    Control_Array(722) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(723) <= (others => 'U');
-                else
-                    Control_Array(723) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(724) <= (others => 'U');
-                else
-                    Control_Array(724) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(725) <= (others => 'U');
-                else
-                    Control_Array(725) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(726) <= (others => 'U');
-                else
-                    Control_Array(726) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(727) <= (others => 'U');
-                else
-                    Control_Array(727) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(728) <= (others => 'U');
-                else
-                    Control_Array(728) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(729) <= (others => 'U');
-                else
-                    Control_Array(729) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(730) <= (others => 'U');
-                else
-                    Control_Array(730) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(731) <= (others => 'U');
-                else
-                    Control_Array(731) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(732) <= (others => 'U');
-                else
-                    Control_Array(732) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(733) <= (others => 'U');
-                else
-                    Control_Array(733) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(734) <= (others => 'U');
-                else
-                    Control_Array(734) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(735) <= (others => 'U');
-                else
-                    Control_Array(735) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(736) <= (others => 'U');
-                else
-                    Control_Array(736) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(737) <= (others => 'U');
-                else
-                    Control_Array(737) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(738) <= (others => 'U');
-                else
-                    Control_Array(738) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(739) <= (others => 'U');
-                else
-                    Control_Array(739) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(740) <= (others => 'U');
-                else
-                    Control_Array(740) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(741) <= (others => 'U');
-                else
-                    Control_Array(741) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(742) <= (others => 'U');
-                else
-                    Control_Array(742) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(743) <= (others => 'U');
-                else
-                    Control_Array(743) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(744) <= (others => 'U');
-                else
-                    Control_Array(744) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(745) <= (others => 'U');
-                else
-                    Control_Array(745) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(746) <= (others => 'U');
-                else
-                    Control_Array(746) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(747) <= (others => 'U');
-                else
-                    Control_Array(747) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(748) <= (others => 'U');
-                else
-                    Control_Array(748) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(749) <= (others => 'U');
-                else
-                    Control_Array(749) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(750) <= (others => 'U');
-                else
-                    Control_Array(750) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(751) <= (others => 'U');
-                else
-                    Control_Array(751) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(752) <= (others => 'U');
-                else
-                    Control_Array(752) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(753) <= (others => 'U');
-                else
-                    Control_Array(753) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(754) <= (others => 'U');
-                else
-                    Control_Array(754) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(755) <= (others => 'U');
-                else
-                    Control_Array(755) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(756) <= (others => 'U');
-                else
-                    Control_Array(756) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(757) <= (others => 'U');
-                else
-                    Control_Array(757) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(758) <= (others => 'U');
-                else
-                    Control_Array(758) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(759) <= (others => 'U');
-                else
-                    Control_Array(759) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(760) <= (others => 'U');
-                else
-                    Control_Array(760) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(761) <= (others => 'U');
-                else
-                    Control_Array(761) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(762) <= (others => 'U');
-                else
-                    Control_Array(762) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(763) <= (others => 'U');
-                else
-                    Control_Array(763) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(764) <= (others => 'U');
-                else
-                    Control_Array(764) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(765) <= (others => 'U');
-                else
-                    Control_Array(765) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(766) <= (others => 'U');
-                else
-                    Control_Array(766) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(767) <= (others => 'U');
-                else
-                    Control_Array(767) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(768) <= (others => 'U');
-                else
-                    Control_Array(768) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(769) <= (others => 'U');
-                else
-                    Control_Array(769) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(770) <= (others => 'U');
-                else
-                    Control_Array(770) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(771) <= (others => 'U');
-                else
-                    Control_Array(771) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(772) <= (others => 'U');
-                else
-                    Control_Array(772) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(773) <= (others => 'U');
-                else
-                    Control_Array(773) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(774) <= (others => 'U');
-                else
-                    Control_Array(774) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(775) <= (others => 'U');
-                else
-                    Control_Array(775) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(776) <= (others => 'U');
-                else
-                    Control_Array(776) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(777) <= (others => 'U');
-                else
-                    Control_Array(777) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(778) <= (others => 'U');
-                else
-                    Control_Array(778) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(779) <= (others => 'U');
-                else
-                    Control_Array(779) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(780) <= (others => 'U');
-                else
-                    Control_Array(780) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(781) <= (others => 'U');
-                else
-                    Control_Array(781) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(782) <= (others => 'U');
-                else
-                    Control_Array(782) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(783) <= (others => 'U');
-                else
-                    Control_Array(783) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(784) <= (others => 'U');
-                else
-                    Control_Array(784) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(785) <= (others => 'U');
-                else
-                    Control_Array(785) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(786) <= (others => 'U');
-                else
-                    Control_Array(786) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(787) <= (others => 'U');
-                else
-                    Control_Array(787) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(788) <= (others => 'U');
-                else
-                    Control_Array(788) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(789) <= (others => 'U');
-                else
-                    Control_Array(789) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(790) <= (others => 'U');
-                else
-                    Control_Array(790) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(791) <= (others => 'U');
-                else
-                    Control_Array(791) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(792) <= (others => 'U');
-                else
-                    Control_Array(792) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(793) <= (others => 'U');
-                else
-                    Control_Array(793) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(794) <= (others => 'U');
-                else
-                    Control_Array(794) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(795) <= (others => 'U');
-                else
-                    Control_Array(795) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(796) <= (others => 'U');
-                else
-                    Control_Array(796) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(797) <= (others => 'U');
-                else
-                    Control_Array(797) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(798) <= (others => 'U');
-                else
-                    Control_Array(798) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(799) <= (others => 'U');
-                else
-                    Control_Array(799) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(800) <= (others => 'U');
-                else
-                    Control_Array(800) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(801) <= (others => 'U');
-                else
-                    Control_Array(801) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(802) <= (others => 'U');
-                else
-                    Control_Array(802) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(803) <= (others => 'U');
-                else
-                    Control_Array(803) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(804) <= (others => 'U');
-                else
-                    Control_Array(804) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(805) <= (others => 'U');
-                else
-                    Control_Array(805) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(806) <= (others => 'U');
-                else
-                    Control_Array(806) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(807) <= (others => 'U');
-                else
-                    Control_Array(807) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(808) <= (others => 'U');
-                else
-                    Control_Array(808) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(809) <= (others => 'U');
-                else
-                    Control_Array(809) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(810) <= (others => 'U');
-                else
-                    Control_Array(810) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(811) <= (others => 'U');
-                else
-                    Control_Array(811) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(812) <= (others => 'U');
-                else
-                    Control_Array(812) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(813) <= (others => 'U');
-                else
-                    Control_Array(813) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(814) <= (others => 'U');
-                else
-                    Control_Array(814) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(815) <= (others => 'U');
-                else
-                    Control_Array(815) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(816) <= (others => 'U');
-                else
-                    Control_Array(816) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(817) <= (others => 'U');
-                else
-                    Control_Array(817) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(818) <= (others => 'U');
-                else
-                    Control_Array(818) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(819) <= (others => 'U');
-                else
-                    Control_Array(819) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(820) <= (others => 'U');
-                else
-                    Control_Array(820) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(821) <= (others => 'U');
-                else
-                    Control_Array(821) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(822) <= (others => 'U');
-                else
-                    Control_Array(822) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(823) <= (others => 'U');
-                else
-                    Control_Array(823) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(824) <= (others => 'U');
-                else
-                    Control_Array(824) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(825) <= (others => 'U');
-                else
-                    Control_Array(825) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(826) <= (others => 'U');
-                else
-                    Control_Array(826) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(827) <= (others => 'U');
-                else
-                    Control_Array(827) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(828) <= (others => 'U');
-                else
-                    Control_Array(828) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(829) <= (others => 'U');
-                else
-                    Control_Array(829) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(830) <= (others => 'U');
-                else
-                    Control_Array(830) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(831) <= (others => 'U');
-                else
-                    Control_Array(831) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(832) <= (others => 'U');
-                else
-                    Control_Array(832) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(833) <= (others => 'U');
-                else
-                    Control_Array(833) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(834) <= (others => 'U');
-                else
-                    Control_Array(834) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(835) <= (others => 'U');
-                else
-                    Control_Array(835) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(836) <= (others => 'U');
-                else
-                    Control_Array(836) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(837) <= (others => 'U');
-                else
-                    Control_Array(837) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(838) <= (others => 'U');
-                else
-                    Control_Array(838) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(839) <= (others => 'U');
-                else
-                    Control_Array(839) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(840) <= (others => 'U');
-                else
-                    Control_Array(840) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(841) <= (others => 'U');
-                else
-                    Control_Array(841) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(842) <= (others => 'U');
-                else
-                    Control_Array(842) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(843) <= (others => 'U');
-                else
-                    Control_Array(843) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(844) <= (others => 'U');
-                else
-                    Control_Array(844) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(845) <= (others => 'U');
-                else
-                    Control_Array(845) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(846) <= (others => 'U');
-                else
-                    Control_Array(846) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(847) <= (others => 'U');
-                else
-                    Control_Array(847) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(848) <= (others => 'U');
-                else
-                    Control_Array(848) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(849) <= (others => 'U');
-                else
-                    Control_Array(849) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(850) <= (others => 'U');
-                else
-                    Control_Array(850) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(851) <= (others => 'U');
-                else
-                    Control_Array(851) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(852) <= (others => 'U');
-                else
-                    Control_Array(852) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(853) <= (others => 'U');
-                else
-                    Control_Array(853) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(854) <= (others => 'U');
-                else
-                    Control_Array(854) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(855) <= (others => 'U');
-                else
-                    Control_Array(855) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(856) <= (others => 'U');
-                else
-                    Control_Array(856) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(857) <= (others => 'U');
-                else
-                    Control_Array(857) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(858) <= (others => 'U');
-                else
-                    Control_Array(858) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(859) <= (others => 'U');
-                else
-                    Control_Array(859) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(860) <= (others => 'U');
-                else
-                    Control_Array(860) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(861) <= (others => 'U');
-                else
-                    Control_Array(861) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(862) <= (others => 'U');
-                else
-                    Control_Array(862) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(863) <= (others => 'U');
-                else
-                    Control_Array(863) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(864) <= (others => 'U');
-                else
-                    Control_Array(864) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(865) <= (others => 'U');
-                else
-                    Control_Array(865) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(866) <= (others => 'U');
-                else
-                    Control_Array(866) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(867) <= (others => 'U');
-                else
-                    Control_Array(867) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(868) <= (others => 'U');
-                else
-                    Control_Array(868) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(869) <= (others => 'U');
-                else
-                    Control_Array(869) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(870) <= (others => 'U');
-                else
-                    Control_Array(870) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(871) <= (others => 'U');
-                else
-                    Control_Array(871) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(872) <= (others => 'U');
-                else
-                    Control_Array(872) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(873) <= (others => 'U');
-                else
-                    Control_Array(873) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(874) <= (others => 'U');
-                else
-                    Control_Array(874) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(875) <= (others => 'U');
-                else
-                    Control_Array(875) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(876) <= (others => 'U');
-                else
-                    Control_Array(876) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(877) <= (others => 'U');
-                else
-                    Control_Array(877) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(878) <= (others => 'U');
-                else
-                    Control_Array(878) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(879) <= (others => 'U');
-                else
-                    Control_Array(879) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(880) <= (others => 'U');
-                else
-                    Control_Array(880) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(881) <= (others => 'U');
-                else
-                    Control_Array(881) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(882) <= (others => 'U');
-                else
-                    Control_Array(882) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(883) <= (others => 'U');
-                else
-                    Control_Array(883) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(884) <= (others => 'U');
-                else
-                    Control_Array(884) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(885) <= (others => 'U');
-                else
-                    Control_Array(885) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(886) <= (others => 'U');
-                else
-                    Control_Array(886) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(887) <= (others => 'U');
-                else
-                    Control_Array(887) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(888) <= (others => 'U');
-                else
-                    Control_Array(888) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(889) <= (others => 'U');
-                else
-                    Control_Array(889) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(890) <= (others => 'U');
-                else
-                    Control_Array(890) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(891) <= (others => 'U');
-                else
-                    Control_Array(891) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(892) <= (others => 'U');
-                else
-                    Control_Array(892) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(893) <= (others => 'U');
-                else
-                    Control_Array(893) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(894) <= (others => 'U');
-                else
-                    Control_Array(894) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(895) <= (others => 'U');
-                else
-                    Control_Array(895) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(896) <= (others => 'U');
-                else
-                    Control_Array(896) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(897) <= (others => 'U');
-                else
-                    Control_Array(897) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(898) <= (others => 'U');
-                else
-                    Control_Array(898) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(899) <= (others => 'U');
-                else
-                    Control_Array(899) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(900) <= (others => 'U');
-                else
-                    Control_Array(900) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(901) <= (others => 'U');
-                else
-                    Control_Array(901) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(902) <= (others => 'U');
-                else
-                    Control_Array(902) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(903) <= (others => 'U');
-                else
-                    Control_Array(903) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(904) <= (others => 'U');
-                else
-                    Control_Array(904) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(905) <= (others => 'U');
-                else
-                    Control_Array(905) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(906) <= (others => 'U');
-                else
-                    Control_Array(906) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(907) <= (others => 'U');
-                else
-                    Control_Array(907) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(908) <= (others => 'U');
-                else
-                    Control_Array(908) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(909) <= (others => 'U');
-                else
-                    Control_Array(909) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(910) <= (others => 'U');
-                else
-                    Control_Array(910) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(911) <= (others => 'U');
-                else
-                    Control_Array(911) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(912) <= (others => 'U');
-                else
-                    Control_Array(912) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(913) <= (others => 'U');
-                else
-                    Control_Array(913) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(914) <= (others => 'U');
-                else
-                    Control_Array(914) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(915) <= (others => 'U');
-                else
-                    Control_Array(915) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(916) <= (others => 'U');
-                else
-                    Control_Array(916) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(917) <= (others => 'U');
-                else
-                    Control_Array(917) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(918) <= (others => 'U');
-                else
-                    Control_Array(918) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(919) <= (others => 'U');
-                else
-                    Control_Array(919) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(920) <= (others => 'U');
-                else
-                    Control_Array(920) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(921) <= (others => 'U');
-                else
-                    Control_Array(921) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(922) <= (others => 'U');
-                else
-                    Control_Array(922) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(923) <= (others => 'U');
-                else
-                    Control_Array(923) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(924) <= (others => 'U');
-                else
-                    Control_Array(924) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(925) <= (others => 'U');
-                else
-                    Control_Array(925) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(926) <= (others => 'U');
-                else
-                    Control_Array(926) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(927) <= (others => 'U');
-                else
-                    Control_Array(927) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(928) <= (others => 'U');
-                else
-                    Control_Array(928) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(929) <= (others => 'U');
-                else
-                    Control_Array(929) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(930) <= (others => 'U');
-                else
-                    Control_Array(930) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(931) <= (others => 'U');
-                else
-                    Control_Array(931) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(932) <= (others => 'U');
-                else
-                    Control_Array(932) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(933) <= (others => 'U');
-                else
-                    Control_Array(933) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(934) <= (others => 'U');
-                else
-                    Control_Array(934) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(935) <= (others => 'U');
-                else
-                    Control_Array(935) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(936) <= (others => 'U');
-                else
-                    Control_Array(936) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(937) <= (others => 'U');
-                else
-                    Control_Array(937) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(938) <= (others => 'U');
-                else
-                    Control_Array(938) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(939) <= (others => 'U');
-                else
-                    Control_Array(939) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(940) <= (others => 'U');
-                else
-                    Control_Array(940) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(941) <= (others => 'U');
-                else
-                    Control_Array(941) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(942) <= (others => 'U');
-                else
-                    Control_Array(942) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(943) <= (others => 'U');
-                else
-                    Control_Array(943) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(944) <= (others => 'U');
-                else
-                    Control_Array(944) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(945) <= (others => 'U');
-                else
-                    Control_Array(945) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(946) <= (others => 'U');
-                else
-                    Control_Array(946) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(947) <= (others => 'U');
-                else
-                    Control_Array(947) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(948) <= (others => 'U');
-                else
-                    Control_Array(948) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(949) <= (others => 'U');
-                else
-                    Control_Array(949) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(950) <= (others => 'U');
-                else
-                    Control_Array(950) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(951) <= (others => 'U');
-                else
-                    Control_Array(951) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(952) <= (others => 'U');
-                else
-                    Control_Array(952) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(953) <= (others => 'U');
-                else
-                    Control_Array(953) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(954) <= (others => 'U');
-                else
-                    Control_Array(954) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(955) <= (others => 'U');
-                else
-                    Control_Array(955) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(956) <= (others => 'U');
-                else
-                    Control_Array(956) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(957) <= (others => 'U');
-                else
-                    Control_Array(957) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(958) <= (others => 'U');
-                else
-                    Control_Array(958) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(959) <= (others => 'U');
-                else
-                    Control_Array(959) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(960) <= (others => 'U');
-                else
-                    Control_Array(960) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(961) <= (others => 'U');
-                else
-                    Control_Array(961) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(962) <= (others => 'U');
-                else
-                    Control_Array(962) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(963) <= (others => 'U');
-                else
-                    Control_Array(963) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(964) <= (others => 'U');
-                else
-                    Control_Array(964) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(965) <= (others => 'U');
-                else
-                    Control_Array(965) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(966) <= (others => 'U');
-                else
-                    Control_Array(966) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(967) <= (others => 'U');
-                else
-                    Control_Array(967) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(968) <= (others => 'U');
-                else
-                    Control_Array(968) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(969) <= (others => 'U');
-                else
-                    Control_Array(969) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(970) <= (others => 'U');
-                else
-                    Control_Array(970) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(971) <= (others => 'U');
-                else
-                    Control_Array(971) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(972) <= (others => 'U');
-                else
-                    Control_Array(972) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(973) <= (others => 'U');
-                else
-                    Control_Array(973) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(974) <= (others => 'U');
-                else
-                    Control_Array(974) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(975) <= (others => 'U');
-                else
-                    Control_Array(975) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(976) <= (others => 'U');
-                else
-                    Control_Array(976) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(977) <= (others => 'U');
-                else
-                    Control_Array(977) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(978) <= (others => 'U');
-                else
-                    Control_Array(978) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(979) <= (others => 'U');
-                else
-                    Control_Array(979) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(980) <= (others => 'U');
-                else
-                    Control_Array(980) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(981) <= (others => 'U');
-                else
-                    Control_Array(981) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(982) <= (others => 'U');
-                else
-                    Control_Array(982) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(983) <= (others => 'U');
-                else
-                    Control_Array(983) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(984) <= (others => 'U');
-                else
-                    Control_Array(984) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(985) <= (others => 'U');
-                else
-                    Control_Array(985) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(986) <= (others => 'U');
-                else
-                    Control_Array(986) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(987) <= (others => 'U');
-                else
-                    Control_Array(987) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(988) <= (others => 'U');
-                else
-                    Control_Array(988) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(989) <= (others => 'U');
-                else
-                    Control_Array(989) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(990) <= (others => 'U');
-                else
-                    Control_Array(990) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(991) <= (others => 'U');
-                else
-                    Control_Array(991) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(992) <= (others => 'U');
-                else
-                    Control_Array(992) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(993) <= (others => 'U');
-                else
-                    Control_Array(993) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(994) <= (others => 'U');
-                else
-                    Control_Array(994) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(995) <= (others => 'U');
-                else
-                    Control_Array(995) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(996) <= (others => 'U');
-                else
-                    Control_Array(996) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(997) <= (others => 'U');
-                else
-                    Control_Array(997) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(998) <= (others => 'U');
-                else
-                    Control_Array(998) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Array(999) <= (others => 'U');
-                else
-                    Control_Array(999) <= unsigned(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Length <= (others => 'U');
-                else
-                    Control_Length <= signed(to_std_logic_vector(truncate(tmp)));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Reset <= 'U';
-                else
-                    Control_Reset <= to_std_logic(truncate(tmp));
-                end if;
-                fieldno := fieldno + 1;
-                read_csv_field(L, tmp);
-                if are_strings_equal(tmp, "U") then
-                    Control_Valid <= 'U';
-                else
-                    Control_Valid <= to_std_logic(truncate(tmp));
+                    Traversal_Valid <= to_std_logic(truncate(tmp));
                 end if;
                 fieldno := fieldno + 1;
 
@@ -10150,9 +3136,8025 @@ begin
                 -- Compare each signal with the value in the CSV file
                 read_csv_field(L, tmp);
                 if not are_strings_equal(tmp, "U") then
-                    if not are_strings_equal(str(Traversal_Valid), tmp) then
+                    if not are_strings_equal(str(Control_Array(0)), tmp) then
                         newfailures := newfailures + 1;
-                        report "Value for Traversal_Valid in cycle " & integer'image(clockcycle) & " was: " & str(Traversal_Valid) & " but should have been: " & truncate(tmp) severity Error;
+                        report "Value for Control_Array(0) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(0)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(1)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(1) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(1)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(2)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(2) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(2)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(3)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(3) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(3)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(4)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(4) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(4)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(5)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(5) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(5)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(6)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(6) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(6)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(7)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(7) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(7)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(8)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(8) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(8)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(9)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(9) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(9)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(10)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(10) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(10)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(11)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(11) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(11)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(12)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(12) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(12)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(13)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(13) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(13)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(14)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(14) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(14)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(15)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(15) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(15)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(16)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(16) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(16)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(17)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(17) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(17)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(18)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(18) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(18)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(19)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(19) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(19)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(20)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(20) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(20)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(21)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(21) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(21)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(22)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(22) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(22)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(23)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(23) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(23)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(24)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(24) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(24)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(25)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(25) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(25)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(26)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(26) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(26)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(27)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(27) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(27)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(28)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(28) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(28)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(29)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(29) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(29)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(30)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(30) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(30)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(31)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(31) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(31)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(32)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(32) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(32)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(33)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(33) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(33)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(34)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(34) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(34)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(35)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(35) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(35)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(36)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(36) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(36)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(37)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(37) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(37)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(38)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(38) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(38)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(39)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(39) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(39)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(40)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(40) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(40)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(41)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(41) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(41)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(42)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(42) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(42)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(43)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(43) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(43)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(44)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(44) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(44)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(45)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(45) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(45)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(46)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(46) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(46)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(47)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(47) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(47)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(48)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(48) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(48)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(49)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(49) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(49)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(50)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(50) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(50)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(51)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(51) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(51)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(52)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(52) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(52)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(53)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(53) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(53)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(54)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(54) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(54)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(55)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(55) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(55)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(56)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(56) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(56)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(57)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(57) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(57)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(58)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(58) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(58)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(59)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(59) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(59)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(60)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(60) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(60)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(61)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(61) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(61)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(62)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(62) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(62)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(63)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(63) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(63)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(64)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(64) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(64)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(65)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(65) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(65)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(66)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(66) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(66)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(67)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(67) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(67)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(68)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(68) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(68)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(69)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(69) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(69)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(70)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(70) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(70)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(71)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(71) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(71)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(72)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(72) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(72)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(73)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(73) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(73)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(74)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(74) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(74)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(75)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(75) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(75)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(76)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(76) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(76)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(77)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(77) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(77)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(78)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(78) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(78)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(79)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(79) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(79)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(80)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(80) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(80)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(81)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(81) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(81)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(82)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(82) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(82)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(83)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(83) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(83)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(84)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(84) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(84)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(85)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(85) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(85)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(86)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(86) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(86)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(87)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(87) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(87)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(88)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(88) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(88)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(89)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(89) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(89)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(90)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(90) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(90)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(91)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(91) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(91)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(92)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(92) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(92)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(93)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(93) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(93)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(94)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(94) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(94)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(95)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(95) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(95)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(96)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(96) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(96)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(97)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(97) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(97)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(98)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(98) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(98)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(99)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(99) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(99)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(100)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(100) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(100)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(101)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(101) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(101)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(102)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(102) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(102)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(103)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(103) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(103)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(104)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(104) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(104)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(105)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(105) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(105)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(106)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(106) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(106)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(107)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(107) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(107)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(108)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(108) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(108)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(109)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(109) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(109)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(110)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(110) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(110)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(111)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(111) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(111)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(112)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(112) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(112)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(113)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(113) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(113)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(114)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(114) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(114)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(115)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(115) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(115)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(116)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(116) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(116)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(117)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(117) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(117)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(118)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(118) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(118)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(119)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(119) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(119)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(120)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(120) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(120)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(121)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(121) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(121)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(122)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(122) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(122)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(123)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(123) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(123)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(124)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(124) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(124)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(125)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(125) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(125)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(126)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(126) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(126)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(127)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(127) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(127)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(128)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(128) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(128)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(129)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(129) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(129)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(130)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(130) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(130)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(131)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(131) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(131)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(132)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(132) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(132)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(133)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(133) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(133)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(134)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(134) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(134)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(135)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(135) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(135)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(136)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(136) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(136)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(137)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(137) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(137)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(138)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(138) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(138)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(139)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(139) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(139)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(140)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(140) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(140)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(141)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(141) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(141)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(142)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(142) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(142)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(143)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(143) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(143)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(144)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(144) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(144)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(145)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(145) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(145)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(146)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(146) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(146)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(147)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(147) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(147)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(148)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(148) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(148)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(149)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(149) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(149)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(150)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(150) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(150)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(151)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(151) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(151)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(152)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(152) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(152)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(153)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(153) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(153)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(154)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(154) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(154)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(155)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(155) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(155)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(156)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(156) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(156)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(157)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(157) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(157)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(158)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(158) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(158)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(159)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(159) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(159)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(160)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(160) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(160)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(161)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(161) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(161)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(162)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(162) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(162)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(163)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(163) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(163)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(164)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(164) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(164)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(165)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(165) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(165)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(166)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(166) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(166)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(167)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(167) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(167)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(168)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(168) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(168)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(169)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(169) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(169)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(170)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(170) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(170)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(171)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(171) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(171)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(172)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(172) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(172)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(173)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(173) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(173)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(174)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(174) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(174)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(175)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(175) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(175)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(176)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(176) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(176)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(177)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(177) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(177)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(178)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(178) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(178)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(179)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(179) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(179)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(180)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(180) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(180)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(181)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(181) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(181)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(182)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(182) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(182)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(183)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(183) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(183)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(184)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(184) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(184)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(185)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(185) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(185)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(186)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(186) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(186)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(187)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(187) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(187)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(188)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(188) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(188)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(189)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(189) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(189)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(190)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(190) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(190)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(191)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(191) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(191)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(192)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(192) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(192)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(193)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(193) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(193)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(194)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(194) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(194)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(195)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(195) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(195)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(196)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(196) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(196)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(197)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(197) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(197)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(198)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(198) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(198)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(199)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(199) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(199)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(200)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(200) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(200)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(201)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(201) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(201)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(202)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(202) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(202)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(203)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(203) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(203)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(204)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(204) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(204)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(205)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(205) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(205)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(206)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(206) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(206)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(207)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(207) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(207)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(208)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(208) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(208)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(209)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(209) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(209)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(210)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(210) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(210)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(211)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(211) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(211)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(212)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(212) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(212)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(213)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(213) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(213)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(214)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(214) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(214)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(215)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(215) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(215)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(216)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(216) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(216)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(217)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(217) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(217)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(218)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(218) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(218)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(219)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(219) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(219)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(220)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(220) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(220)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(221)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(221) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(221)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(222)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(222) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(222)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(223)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(223) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(223)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(224)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(224) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(224)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(225)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(225) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(225)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(226)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(226) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(226)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(227)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(227) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(227)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(228)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(228) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(228)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(229)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(229) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(229)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(230)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(230) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(230)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(231)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(231) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(231)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(232)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(232) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(232)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(233)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(233) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(233)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(234)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(234) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(234)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(235)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(235) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(235)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(236)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(236) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(236)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(237)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(237) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(237)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(238)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(238) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(238)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(239)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(239) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(239)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(240)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(240) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(240)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(241)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(241) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(241)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(242)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(242) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(242)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(243)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(243) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(243)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(244)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(244) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(244)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(245)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(245) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(245)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(246)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(246) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(246)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(247)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(247) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(247)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(248)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(248) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(248)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(249)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(249) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(249)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(250)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(250) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(250)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(251)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(251) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(251)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(252)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(252) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(252)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(253)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(253) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(253)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(254)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(254) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(254)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(255)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(255) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(255)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(256)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(256) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(256)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(257)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(257) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(257)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(258)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(258) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(258)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(259)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(259) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(259)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(260)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(260) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(260)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(261)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(261) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(261)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(262)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(262) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(262)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(263)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(263) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(263)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(264)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(264) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(264)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(265)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(265) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(265)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(266)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(266) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(266)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(267)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(267) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(267)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(268)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(268) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(268)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(269)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(269) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(269)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(270)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(270) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(270)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(271)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(271) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(271)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(272)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(272) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(272)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(273)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(273) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(273)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(274)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(274) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(274)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(275)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(275) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(275)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(276)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(276) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(276)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(277)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(277) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(277)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(278)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(278) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(278)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(279)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(279) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(279)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(280)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(280) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(280)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(281)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(281) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(281)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(282)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(282) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(282)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(283)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(283) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(283)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(284)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(284) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(284)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(285)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(285) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(285)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(286)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(286) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(286)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(287)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(287) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(287)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(288)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(288) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(288)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(289)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(289) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(289)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(290)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(290) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(290)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(291)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(291) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(291)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(292)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(292) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(292)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(293)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(293) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(293)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(294)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(294) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(294)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(295)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(295) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(295)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(296)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(296) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(296)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(297)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(297) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(297)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(298)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(298) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(298)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(299)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(299) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(299)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(300)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(300) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(300)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(301)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(301) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(301)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(302)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(302) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(302)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(303)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(303) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(303)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(304)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(304) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(304)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(305)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(305) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(305)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(306)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(306) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(306)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(307)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(307) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(307)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(308)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(308) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(308)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(309)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(309) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(309)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(310)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(310) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(310)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(311)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(311) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(311)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(312)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(312) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(312)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(313)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(313) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(313)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(314)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(314) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(314)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(315)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(315) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(315)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(316)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(316) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(316)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(317)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(317) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(317)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(318)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(318) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(318)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(319)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(319) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(319)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(320)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(320) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(320)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(321)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(321) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(321)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(322)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(322) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(322)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(323)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(323) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(323)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(324)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(324) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(324)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(325)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(325) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(325)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(326)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(326) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(326)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(327)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(327) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(327)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(328)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(328) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(328)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(329)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(329) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(329)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(330)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(330) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(330)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(331)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(331) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(331)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(332)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(332) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(332)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(333)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(333) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(333)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(334)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(334) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(334)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(335)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(335) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(335)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(336)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(336) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(336)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(337)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(337) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(337)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(338)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(338) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(338)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(339)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(339) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(339)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(340)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(340) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(340)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(341)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(341) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(341)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(342)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(342) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(342)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(343)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(343) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(343)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(344)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(344) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(344)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(345)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(345) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(345)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(346)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(346) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(346)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(347)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(347) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(347)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(348)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(348) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(348)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(349)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(349) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(349)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(350)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(350) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(350)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(351)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(351) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(351)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(352)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(352) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(352)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(353)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(353) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(353)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(354)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(354) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(354)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(355)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(355) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(355)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(356)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(356) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(356)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(357)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(357) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(357)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(358)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(358) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(358)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(359)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(359) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(359)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(360)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(360) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(360)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(361)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(361) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(361)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(362)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(362) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(362)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(363)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(363) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(363)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(364)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(364) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(364)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(365)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(365) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(365)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(366)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(366) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(366)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(367)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(367) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(367)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(368)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(368) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(368)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(369)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(369) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(369)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(370)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(370) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(370)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(371)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(371) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(371)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(372)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(372) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(372)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(373)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(373) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(373)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(374)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(374) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(374)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(375)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(375) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(375)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(376)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(376) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(376)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(377)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(377) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(377)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(378)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(378) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(378)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(379)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(379) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(379)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(380)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(380) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(380)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(381)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(381) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(381)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(382)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(382) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(382)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(383)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(383) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(383)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(384)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(384) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(384)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(385)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(385) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(385)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(386)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(386) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(386)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(387)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(387) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(387)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(388)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(388) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(388)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(389)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(389) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(389)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(390)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(390) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(390)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(391)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(391) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(391)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(392)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(392) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(392)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(393)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(393) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(393)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(394)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(394) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(394)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(395)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(395) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(395)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(396)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(396) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(396)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(397)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(397) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(397)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(398)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(398) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(398)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(399)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(399) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(399)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(400)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(400) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(400)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(401)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(401) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(401)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(402)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(402) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(402)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(403)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(403) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(403)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(404)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(404) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(404)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(405)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(405) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(405)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(406)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(406) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(406)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(407)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(407) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(407)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(408)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(408) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(408)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(409)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(409) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(409)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(410)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(410) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(410)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(411)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(411) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(411)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(412)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(412) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(412)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(413)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(413) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(413)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(414)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(414) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(414)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(415)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(415) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(415)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(416)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(416) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(416)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(417)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(417) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(417)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(418)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(418) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(418)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(419)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(419) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(419)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(420)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(420) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(420)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(421)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(421) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(421)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(422)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(422) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(422)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(423)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(423) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(423)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(424)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(424) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(424)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(425)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(425) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(425)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(426)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(426) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(426)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(427)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(427) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(427)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(428)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(428) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(428)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(429)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(429) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(429)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(430)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(430) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(430)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(431)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(431) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(431)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(432)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(432) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(432)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(433)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(433) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(433)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(434)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(434) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(434)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(435)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(435) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(435)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(436)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(436) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(436)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(437)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(437) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(437)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(438)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(438) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(438)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(439)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(439) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(439)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(440)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(440) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(440)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(441)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(441) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(441)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(442)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(442) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(442)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(443)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(443) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(443)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(444)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(444) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(444)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(445)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(445) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(445)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(446)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(446) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(446)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(447)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(447) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(447)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(448)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(448) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(448)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(449)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(449) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(449)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(450)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(450) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(450)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(451)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(451) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(451)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(452)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(452) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(452)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(453)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(453) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(453)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(454)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(454) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(454)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(455)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(455) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(455)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(456)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(456) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(456)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(457)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(457) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(457)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(458)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(458) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(458)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(459)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(459) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(459)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(460)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(460) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(460)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(461)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(461) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(461)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(462)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(462) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(462)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(463)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(463) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(463)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(464)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(464) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(464)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(465)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(465) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(465)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(466)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(466) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(466)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(467)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(467) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(467)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(468)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(468) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(468)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(469)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(469) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(469)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(470)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(470) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(470)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(471)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(471) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(471)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(472)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(472) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(472)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(473)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(473) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(473)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(474)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(474) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(474)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(475)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(475) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(475)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(476)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(476) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(476)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(477)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(477) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(477)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(478)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(478) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(478)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(479)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(479) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(479)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(480)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(480) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(480)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(481)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(481) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(481)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(482)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(482) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(482)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(483)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(483) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(483)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(484)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(484) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(484)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(485)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(485) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(485)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(486)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(486) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(486)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(487)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(487) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(487)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(488)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(488) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(488)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(489)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(489) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(489)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(490)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(490) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(490)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(491)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(491) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(491)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(492)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(492) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(492)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(493)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(493) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(493)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(494)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(494) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(494)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(495)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(495) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(495)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(496)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(496) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(496)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(497)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(497) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(497)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(498)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(498) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(498)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(499)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(499) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(499)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(500)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(500) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(500)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(501)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(501) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(501)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(502)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(502) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(502)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(503)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(503) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(503)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(504)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(504) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(504)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(505)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(505) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(505)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(506)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(506) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(506)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(507)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(507) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(507)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(508)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(508) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(508)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(509)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(509) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(509)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(510)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(510) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(510)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(511)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(511) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(511)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(512)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(512) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(512)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(513)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(513) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(513)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(514)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(514) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(514)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(515)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(515) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(515)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(516)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(516) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(516)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(517)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(517) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(517)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(518)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(518) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(518)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(519)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(519) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(519)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(520)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(520) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(520)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(521)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(521) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(521)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(522)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(522) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(522)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(523)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(523) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(523)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(524)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(524) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(524)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(525)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(525) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(525)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(526)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(526) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(526)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(527)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(527) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(527)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(528)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(528) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(528)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(529)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(529) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(529)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(530)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(530) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(530)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(531)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(531) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(531)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(532)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(532) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(532)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(533)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(533) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(533)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(534)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(534) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(534)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(535)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(535) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(535)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(536)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(536) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(536)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(537)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(537) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(537)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(538)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(538) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(538)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(539)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(539) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(539)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(540)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(540) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(540)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(541)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(541) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(541)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(542)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(542) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(542)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(543)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(543) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(543)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(544)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(544) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(544)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(545)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(545) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(545)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(546)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(546) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(546)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(547)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(547) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(547)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(548)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(548) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(548)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(549)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(549) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(549)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(550)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(550) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(550)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(551)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(551) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(551)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(552)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(552) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(552)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(553)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(553) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(553)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(554)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(554) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(554)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(555)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(555) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(555)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(556)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(556) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(556)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(557)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(557) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(557)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(558)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(558) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(558)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(559)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(559) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(559)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(560)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(560) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(560)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(561)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(561) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(561)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(562)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(562) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(562)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(563)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(563) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(563)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(564)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(564) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(564)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(565)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(565) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(565)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(566)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(566) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(566)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(567)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(567) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(567)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(568)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(568) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(568)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(569)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(569) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(569)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(570)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(570) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(570)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(571)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(571) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(571)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(572)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(572) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(572)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(573)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(573) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(573)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(574)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(574) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(574)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(575)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(575) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(575)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(576)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(576) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(576)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(577)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(577) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(577)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(578)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(578) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(578)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(579)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(579) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(579)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(580)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(580) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(580)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(581)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(581) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(581)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(582)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(582) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(582)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(583)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(583) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(583)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(584)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(584) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(584)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(585)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(585) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(585)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(586)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(586) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(586)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(587)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(587) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(587)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(588)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(588) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(588)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(589)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(589) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(589)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(590)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(590) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(590)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(591)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(591) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(591)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(592)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(592) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(592)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(593)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(593) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(593)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(594)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(594) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(594)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(595)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(595) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(595)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(596)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(596) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(596)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(597)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(597) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(597)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(598)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(598) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(598)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(599)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(599) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(599)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(600)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(600) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(600)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(601)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(601) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(601)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(602)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(602) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(602)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(603)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(603) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(603)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(604)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(604) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(604)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(605)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(605) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(605)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(606)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(606) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(606)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(607)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(607) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(607)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(608)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(608) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(608)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(609)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(609) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(609)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(610)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(610) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(610)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(611)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(611) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(611)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(612)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(612) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(612)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(613)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(613) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(613)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(614)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(614) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(614)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(615)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(615) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(615)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(616)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(616) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(616)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(617)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(617) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(617)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(618)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(618) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(618)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(619)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(619) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(619)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(620)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(620) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(620)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(621)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(621) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(621)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(622)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(622) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(622)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(623)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(623) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(623)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(624)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(624) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(624)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(625)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(625) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(625)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(626)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(626) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(626)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(627)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(627) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(627)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(628)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(628) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(628)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(629)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(629) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(629)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(630)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(630) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(630)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(631)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(631) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(631)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(632)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(632) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(632)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(633)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(633) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(633)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(634)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(634) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(634)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(635)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(635) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(635)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(636)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(636) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(636)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(637)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(637) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(637)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(638)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(638) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(638)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(639)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(639) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(639)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(640)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(640) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(640)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(641)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(641) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(641)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(642)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(642) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(642)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(643)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(643) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(643)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(644)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(644) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(644)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(645)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(645) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(645)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(646)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(646) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(646)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(647)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(647) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(647)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(648)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(648) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(648)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(649)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(649) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(649)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(650)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(650) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(650)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(651)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(651) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(651)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(652)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(652) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(652)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(653)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(653) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(653)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(654)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(654) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(654)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(655)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(655) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(655)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(656)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(656) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(656)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(657)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(657) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(657)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(658)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(658) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(658)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(659)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(659) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(659)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(660)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(660) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(660)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(661)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(661) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(661)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(662)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(662) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(662)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(663)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(663) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(663)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(664)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(664) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(664)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(665)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(665) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(665)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(666)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(666) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(666)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(667)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(667) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(667)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(668)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(668) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(668)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(669)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(669) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(669)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(670)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(670) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(670)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(671)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(671) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(671)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(672)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(672) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(672)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(673)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(673) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(673)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(674)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(674) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(674)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(675)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(675) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(675)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(676)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(676) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(676)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(677)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(677) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(677)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(678)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(678) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(678)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(679)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(679) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(679)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(680)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(680) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(680)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(681)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(681) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(681)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(682)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(682) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(682)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(683)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(683) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(683)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(684)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(684) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(684)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(685)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(685) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(685)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(686)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(686) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(686)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(687)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(687) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(687)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(688)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(688) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(688)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(689)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(689) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(689)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(690)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(690) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(690)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(691)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(691) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(691)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(692)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(692) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(692)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(693)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(693) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(693)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(694)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(694) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(694)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(695)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(695) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(695)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(696)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(696) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(696)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(697)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(697) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(697)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(698)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(698) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(698)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(699)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(699) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(699)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(700)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(700) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(700)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(701)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(701) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(701)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(702)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(702) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(702)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(703)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(703) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(703)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(704)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(704) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(704)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(705)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(705) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(705)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(706)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(706) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(706)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(707)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(707) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(707)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(708)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(708) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(708)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(709)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(709) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(709)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(710)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(710) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(710)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(711)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(711) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(711)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(712)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(712) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(712)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(713)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(713) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(713)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(714)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(714) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(714)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(715)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(715) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(715)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(716)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(716) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(716)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(717)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(717) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(717)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(718)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(718) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(718)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(719)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(719) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(719)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(720)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(720) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(720)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(721)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(721) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(721)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(722)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(722) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(722)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(723)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(723) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(723)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(724)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(724) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(724)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(725)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(725) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(725)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(726)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(726) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(726)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(727)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(727) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(727)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(728)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(728) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(728)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(729)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(729) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(729)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(730)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(730) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(730)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(731)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(731) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(731)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(732)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(732) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(732)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(733)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(733) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(733)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(734)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(734) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(734)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(735)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(735) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(735)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(736)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(736) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(736)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(737)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(737) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(737)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(738)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(738) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(738)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(739)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(739) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(739)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(740)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(740) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(740)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(741)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(741) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(741)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(742)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(742) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(742)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(743)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(743) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(743)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(744)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(744) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(744)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(745)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(745) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(745)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(746)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(746) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(746)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(747)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(747) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(747)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(748)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(748) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(748)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(749)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(749) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(749)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(750)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(750) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(750)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(751)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(751) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(751)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(752)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(752) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(752)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(753)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(753) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(753)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(754)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(754) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(754)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(755)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(755) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(755)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(756)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(756) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(756)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(757)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(757) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(757)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(758)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(758) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(758)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(759)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(759) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(759)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(760)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(760) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(760)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(761)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(761) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(761)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(762)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(762) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(762)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(763)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(763) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(763)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(764)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(764) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(764)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(765)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(765) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(765)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(766)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(766) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(766)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(767)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(767) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(767)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(768)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(768) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(768)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(769)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(769) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(769)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(770)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(770) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(770)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(771)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(771) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(771)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(772)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(772) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(772)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(773)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(773) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(773)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(774)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(774) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(774)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(775)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(775) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(775)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(776)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(776) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(776)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(777)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(777) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(777)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(778)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(778) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(778)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(779)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(779) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(779)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(780)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(780) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(780)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(781)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(781) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(781)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(782)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(782) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(782)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(783)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(783) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(783)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(784)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(784) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(784)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(785)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(785) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(785)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(786)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(786) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(786)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(787)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(787) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(787)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(788)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(788) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(788)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(789)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(789) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(789)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(790)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(790) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(790)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(791)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(791) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(791)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(792)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(792) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(792)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(793)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(793) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(793)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(794)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(794) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(794)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(795)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(795) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(795)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(796)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(796) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(796)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(797)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(797) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(797)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(798)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(798) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(798)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(799)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(799) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(799)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(800)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(800) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(800)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(801)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(801) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(801)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(802)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(802) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(802)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(803)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(803) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(803)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(804)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(804) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(804)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(805)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(805) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(805)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(806)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(806) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(806)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(807)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(807) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(807)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(808)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(808) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(808)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(809)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(809) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(809)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(810)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(810) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(810)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(811)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(811) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(811)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(812)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(812) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(812)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(813)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(813) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(813)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(814)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(814) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(814)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(815)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(815) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(815)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(816)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(816) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(816)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(817)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(817) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(817)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(818)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(818) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(818)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(819)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(819) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(819)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(820)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(820) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(820)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(821)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(821) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(821)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(822)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(822) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(822)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(823)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(823) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(823)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(824)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(824) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(824)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(825)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(825) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(825)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(826)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(826) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(826)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(827)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(827) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(827)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(828)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(828) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(828)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(829)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(829) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(829)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(830)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(830) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(830)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(831)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(831) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(831)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(832)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(832) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(832)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(833)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(833) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(833)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(834)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(834) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(834)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(835)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(835) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(835)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(836)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(836) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(836)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(837)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(837) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(837)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(838)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(838) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(838)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(839)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(839) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(839)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(840)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(840) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(840)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(841)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(841) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(841)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(842)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(842) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(842)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(843)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(843) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(843)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(844)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(844) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(844)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(845)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(845) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(845)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(846)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(846) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(846)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(847)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(847) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(847)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(848)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(848) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(848)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(849)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(849) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(849)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(850)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(850) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(850)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(851)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(851) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(851)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(852)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(852) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(852)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(853)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(853) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(853)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(854)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(854) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(854)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(855)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(855) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(855)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(856)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(856) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(856)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(857)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(857) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(857)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(858)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(858) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(858)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(859)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(859) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(859)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(860)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(860) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(860)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(861)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(861) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(861)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(862)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(862) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(862)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(863)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(863) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(863)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(864)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(864) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(864)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(865)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(865) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(865)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(866)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(866) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(866)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(867)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(867) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(867)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(868)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(868) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(868)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(869)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(869) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(869)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(870)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(870) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(870)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(871)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(871) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(871)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(872)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(872) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(872)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(873)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(873) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(873)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(874)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(874) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(874)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(875)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(875) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(875)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(876)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(876) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(876)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(877)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(877) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(877)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(878)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(878) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(878)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(879)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(879) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(879)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(880)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(880) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(880)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(881)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(881) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(881)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(882)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(882) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(882)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(883)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(883) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(883)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(884)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(884) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(884)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(885)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(885) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(885)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(886)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(886) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(886)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(887)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(887) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(887)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(888)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(888) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(888)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(889)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(889) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(889)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(890)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(890) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(890)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(891)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(891) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(891)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(892)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(892) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(892)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(893)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(893) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(893)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(894)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(894) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(894)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(895)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(895) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(895)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(896)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(896) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(896)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(897)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(897) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(897)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(898)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(898) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(898)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(899)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(899) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(899)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(900)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(900) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(900)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(901)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(901) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(901)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(902)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(902) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(902)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(903)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(903) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(903)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(904)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(904) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(904)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(905)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(905) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(905)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(906)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(906) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(906)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(907)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(907) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(907)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(908)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(908) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(908)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(909)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(909) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(909)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(910)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(910) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(910)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(911)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(911) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(911)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(912)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(912) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(912)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(913)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(913) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(913)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(914)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(914) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(914)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(915)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(915) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(915)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(916)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(916) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(916)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(917)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(917) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(917)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(918)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(918) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(918)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(919)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(919) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(919)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(920)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(920) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(920)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(921)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(921) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(921)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(922)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(922) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(922)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(923)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(923) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(923)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(924)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(924) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(924)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(925)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(925) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(925)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(926)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(926) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(926)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(927)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(927) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(927)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(928)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(928) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(928)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(929)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(929) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(929)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(930)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(930) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(930)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(931)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(931) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(931)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(932)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(932) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(932)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(933)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(933) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(933)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(934)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(934) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(934)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(935)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(935) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(935)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(936)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(936) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(936)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(937)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(937) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(937)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(938)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(938) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(938)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(939)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(939) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(939)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(940)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(940) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(940)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(941)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(941) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(941)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(942)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(942) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(942)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(943)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(943) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(943)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(944)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(944) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(944)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(945)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(945) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(945)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(946)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(946) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(946)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(947)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(947) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(947)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(948)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(948) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(948)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(949)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(949) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(949)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(950)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(950) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(950)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(951)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(951) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(951)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(952)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(952) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(952)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(953)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(953) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(953)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(954)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(954) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(954)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(955)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(955) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(955)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(956)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(956) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(956)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(957)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(957) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(957)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(958)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(958) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(958)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(959)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(959) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(959)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(960)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(960) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(960)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(961)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(961) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(961)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(962)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(962) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(962)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(963)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(963) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(963)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(964)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(964) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(964)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(965)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(965) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(965)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(966)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(966) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(966)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(967)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(967) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(967)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(968)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(968) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(968)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(969)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(969) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(969)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(970)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(970) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(970)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(971)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(971) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(971)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(972)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(972) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(972)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(973)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(973) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(973)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(974)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(974) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(974)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(975)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(975) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(975)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(976)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(976) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(976)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(977)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(977) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(977)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(978)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(978) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(978)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(979)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(979) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(979)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(980)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(980) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(980)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(981)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(981) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(981)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(982)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(982) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(982)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(983)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(983) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(983)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(984)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(984) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(984)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(985)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(985) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(985)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(986)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(986) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(986)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(987)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(987) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(987)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(988)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(988) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(988)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(989)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(989) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(989)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(990)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(990) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(990)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(991)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(991) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(991)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(992)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(992) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(992)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(993)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(993) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(993)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(994)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(994) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(994)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(995)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(995) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(995)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(996)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(996) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(996)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(997)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(997) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(997)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(998)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(998) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(998)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Array(999)), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Array(999) in cycle " & integer'image(clockcycle) & " was: " & str(Control_Array(999)) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Length), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Length in cycle " & integer'image(clockcycle) & " was: " & str(Control_Length) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Reset), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Reset in cycle " & integer'image(clockcycle) & " was: " & str(Control_Reset) & " but should have been: " & truncate(tmp) severity Error;
+                    end if;
+                end if;
+                fieldno := fieldno + 1;
+                read_csv_field(L, tmp);
+                if not are_strings_equal(tmp, "U") then
+                    if not are_strings_equal(str(Control_Valid), tmp) then
+                        newfailures := newfailures + 1;
+                        report "Value for Control_Valid in cycle " & integer'image(clockcycle) & " was: " & str(Control_Valid) & " but should have been: " & truncate(tmp) severity Error;
                     end if;
                 end if;
                 fieldno := fieldno + 1;
