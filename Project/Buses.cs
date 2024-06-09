@@ -2,7 +2,6 @@ using SME;
 
 namespace sme_intro
 {
-    //[InitializedBus]
     public interface Control : IBus
     {
         [InitialValue(false)]
@@ -14,13 +13,6 @@ namespace sme_intro
        
         [FixedArrayLength(1000)] //[FixedArrayLength(COLOR_WIDTH)]
         IFixedArray<byte> Array         { get; set; }
-    }
-
-    [InitializedBus]
-    public interface Count : IBus
-    {
-        public uint Count               { get; set; }
-        public uint CompareCharacter    { get; set; }
     }
     [InitializedBus]
     public interface Traversal : IBus
