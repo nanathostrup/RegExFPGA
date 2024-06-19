@@ -22,7 +22,7 @@ namespace sme_intro{
 
             for (int i = 0; i < regexp.Length; i++){
                 //extend if operators are added
-                if ((regexp[i] != '(') && (regexp[i] != ')') && (regexp[i] != ' ')){ //no spaces or () in alphabet
+                if ((regexp[i] != '(') && (regexp[i] != ')') && (regexp[i] != ' ') && (regexp[i] != '+')){ //no spaces or () in alphabet
                     if (!this.alphabet.Contains(regexp[i].ToString())){ //avoid adding the same characters twice
                         this.alphabet.Add(regexp[i].ToString());
                     }
@@ -41,18 +41,18 @@ namespace sme_intro{
             for (int i = 0; i < groups.Count; i++)
             // foreach (List<string> group in groups) 
             {
-                for (int j = 0; j < groups[i].Count; j ++ ){
-                    Console.WriteLine("group[j]:" + groups[i][j]);
-                }
+                // for (int j = 0; j < groups[i].Count; j ++ ){
+                //     Console.WriteLine("group[j]:" + groups[i][j]);
+                // }
                 // if (!(i == groups.Count)){
                 //     Console.WriteLine("i:" + i);
                 //     Console.WriteLine("groups.Count" + groups.Count);
                 //     // Console.WriteLine("groups[i+1]" + groups[i]);
                 //     Console.WriteLine("groups i,0 :" + (groups[i][0]));
                 // }
-                if (i == groups.Count){
-                    Console.WriteLine(":)");
-                }
+                // if (i == groups.Count){
+                //     Console.WriteLine(":)");
+                // }
                     // if (IsOperator((char)groups[i+1][0])){
                     //     Console.WriteLine(".");
                     // }
@@ -66,42 +66,118 @@ namespace sme_intro{
             string new_state = current_state; // Initialize the new state with the current state
             // int length = group.Count;
             // for(int i = 0; i < group.Length; i++){
+            Console.WriteLine("enter ProcessGroup");
+            Console.WriteLine("group.Count: " + group.Count);
             foreach (string strr in group){
-                // for(int i = 0; i < strr.Length; i++){
-                // foreach char chr in strr
-                Console.WriteLine("strr[0]" + strr);
-                if (IsOperator(strr[0])){
-                    //pass group to operator logic here
-                }
-                else{
-                    NonOperatorLogic(strr, current_state, state_counter);
-                    //pass group to non operator logic
+                //Groups er list list string. Should just be a list string instead to avoid this loop
+                for (int i = 0; i < strr.Length; i++){
+                    Console.WriteLine( "char: " + strr[i]);
+                    Console.WriteLine("state_counter" + state_counter);
+                    if (IsOperator(strr[i])){
+                        Console.WriteLine("operator");
+                        switch (strr[i]){
+                            case '+':
+                                Console.WriteLine("switch on +");
+                                Console.WriteLine("STATE COUNTER: "+ state_counter);
+                                (current_state, state_counter) = PlusOperatorLogic(group[i-1], current_state, state_counter); //SKAL VÆRE PREVIOUS CHAR
+                                // pass along to operator method here
+                                break;
+                            default:
+                                break;
+                            }
+                        //pass group to operator logic here
+                    }
+                // foreach (char chr in strr){
+                //     Console.WriteLine( "char: " + chr);
+                //     Console.WriteLine("state_counter" + state_counter);
+                //     if (IsOperator(chr)){
+                //         Console.WriteLine("operator");
+                //         switch (chr){
+                //             case '+':
+                //                 Console.WriteLine("switch on +");
+                //                 Console.WriteLine("STATE COUNTER: "+ state_counter);
+                //                 (current_state, state_counter) = PlusOperatorLogic(chr, current_state, state_counter); //SKAL VÆRE PREVIOUS CHAR
+                //                 // pass along to operator method here
+                //                 break;
+                //             default:
+                //                 break;
+                //             }
+                //         //pass group to operator logic here
+                //     }
+                    else{
+                        (current_state, state_counter) = NonOperatorLogic(strr[i], current_state, state_counter);
+                        //pass group to non operator logic
+                    }
                 }
             }
             return (new_state, state_counter);  // State counter is also returned so it is not overwritten in construct_nfa
         }
-
-        private (string, int) NonOperatorLogic(string group, string current_state, int state_counter){
+        private (string, int) NonOperatorLogic(char chr, string current_state, int state_counter){
             string new_state = current_state;
-            foreach (char chr in group){
-                Console.WriteLine("chr:" + chr);
-                // Operator logic here - also before. Should make a clean slate when 
-                Console.WriteLine(IsOperator(chr));
-                if (IsOperator(chr)){
-                    Console.WriteLine(":)");
-                    //pass to operator logic here
-                }
-                else if (this.alphabet.Contains(chr.ToString())){ 
-                    new_state = "q" + state_counter;  // Naming new state
-                    string str = chr.ToString();
-                    List<string> to_insert = new List<string> { current_state, str, new_state };
-                    this.transitions.Add(to_insert);  // Add transition in list of list of strings
-                    this.states.Add(new_state);  // Add new state to states
-                    current_state = new_state;  // Update current state
-                    state_counter++;  // Increment state counter
-                }
+            if (this.alphabet.Contains(chr.ToString())){ 
+                new_state = "q" + state_counter;  // Naming new state
+                string str = chr.ToString();
+                List<string> to_insert = new List<string> { current_state, str, new_state };
+                this.transitions.Add(to_insert);  // Add transition in list of list of strings
+                this.states.Add(new_state);  // Add new state to states
+                current_state = new_state;  // Update current state
+                state_counter++;  // Increment state counter
             }
+            return (current_state, state_counter);
+        }
+        private (string, int) PlusOperatorLogic(char chr, string current_state, int state_counter){
+            Console.WriteLine("plus operator method");
+            if (!this.alphabet.Contains("eps")){ //to avoid adding it several times
+                this.alphabet.Add("eps");        //alphabet now contains epsilon
+            }
+            
+            //"init" kinda
+            string new_state = current_state;
+            string plus_start_state = new_state; //For the last branching part
+            string str = chr.ToString();
+
+            //first epsilon transition
+            new_state = "q" + state_counter;  // Naming new state
+            List<string> to_insert = new List<string> { current_state, "eps", new_state };
+            this.transitions.Add(to_insert);  // Add transition in list of list of strings
+            this.states.Add(new_state);  // Add new state to states
+            current_state = new_state;  // Update current state
+            state_counter++;
+            
+            //char transition
+            new_state = "q" + state_counter;  // Naming new state
+            List<string> to_insert1 = new List<string> { current_state, str, new_state };
+            this.transitions.Add(to_insert1);  // Add transition in list of list of strings
+            this.states.Add(new_state);  // Add new state to states
+            //There is a loop so the new_state and current_state are not updated here
+
+            //second epsilon transition - making a loop
+            new_state = "q" + state_counter;  // Naming new state
+            List<string> to_insert2 = new List<string> { new_state, "eps", current_state };
+            this.transitions.Add(to_insert2);  // Add transition in list of list of strings
+            this.states.Add(new_state);  // Add new state to states
+            current_state = new_state;  // Update current state
+            state_counter++;
+
+            //third epsilon closure
+            new_state = "q" + state_counter;  // Naming new state
+            List<string> to_insert3 = new List<string> { current_state, "eps", new_state };
+            this.transitions.Add(to_insert3);  // Add transition in list of list of strings
+            this.states.Add(new_state);  // Add new state to states
+            current_state = new_state;  // Update current state
+            //not updated state counter, since the branching should meet now
+
+            //Final
+            // new_state = "q" + state_counter;  // Naming new state
+            List<string> to_insert4 = new List<string> { plus_start_state, "eps", new_state };
+            this.transitions.Add(to_insert4);  // Add transition in list of list of strings
+            this.states.Add(new_state);  // Add new state to states
+            state_counter++; //update counter
+
+            
+
             return (new_state, state_counter);
+
         }
 
 
@@ -146,12 +222,7 @@ namespace sme_intro{
 
         private bool IsOperator(char chr){
             switch(chr) {
-                // case '|' :
-                //     // pass along to operator method here
-                //     break;
-                // case '?':
-                //     // pass along to operator method here
-                //     break;
+                // expand further when implementing more operators
                 case '+':
                     return true;
                     // pass along to operator method here
@@ -163,7 +234,6 @@ namespace sme_intro{
                 }
         }
         private void OrOperator(List<char> charList){;}
-        private void PlusOperator(List<char> charList){;}
         private void QuestionOperator(List<char> charList){;}
         private void DotOperator(List<char> charList){;}
     }
