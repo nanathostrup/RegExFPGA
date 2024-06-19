@@ -107,6 +107,54 @@ namespace sme_intro{
                 transition2 = "";
             }
             Console.WriteLine("Transitions:" + transitions2);
+
+             Console.WriteLine("------------------------");
+            Console.WriteLine("NFA1");
+            //Lav en test med noget der ikke er i alphabet.
+                //initialize en nfa, opdater nfa og lav igen. Dur nok egentlig ikke for bliver det initialiseret med from_regexp?
+            
+            string regexp3 = "(a+b)(bc)";
+
+            NFA nfa3 = new NFA();
+            nfa3.FromRegExp(regexp3);
+
+            //Test for states
+            string states3 = "";
+            foreach(string state in nfa3.states){
+                states3 = states3 + state + " ";
+            }
+            Console.WriteLine("States: " + states2);
+
+            //Test for alphabet
+            string alphabet3 = "";
+            foreach(string chr in nfa3.alphabet){
+                string str = chr;
+                alphabet3 = alphabet3 + str + " ";
+            }
+            Console.WriteLine("Alphabet: " + alphabet3);
+
+            //Test for start state
+            Console.WriteLine("Starting state: " + nfa3.start_state);
+
+            //Test for accepting states
+            string accepting3 = "";
+            foreach (string accept in nfa3.accept_states){
+                accepting3 = accepting3 + accept + " ";
+            }
+            Console.WriteLine("Accepting States: " + accepting3);
+
+            //Test for transitions
+            string transition3 = "";
+            string transitions3 = "";
+            foreach(List<string> transition in nfa3.transitions ){
+                transitions3 = transitions3 + "[";
+                foreach(string str in transition){
+                    transition3 = transition3 + str + " ";
+                }
+                transitions3 = transitions3 + " " + transition3 + "]";
+                transition3 = "";
+            }
+            Console.WriteLine("Transitions:" + transitions3);
         }
     }
 }

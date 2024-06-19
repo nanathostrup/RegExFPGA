@@ -2,19 +2,7 @@ using SME;
 
 namespace sme_intro{
     public class DFA {
-        // public List<List<string>> states;
-        // public List<string> alphabet;
-        // public List<List<string>> transitions;
-        // public List<string> start_state;
-        // public List<string> accept_states;
-
         public (byte,  byte[], byte[], byte[],  byte[]) FromNFA(NFA nfa){
-            // this.states = new List<List<string>>(); //Start state not added yet
-            // this.accept_states = new List<string>();
-            // this.alphabet = new List<string>();
-            // this.transitions = new List<List<string>>();
-            // this.start_state = new List<string>();
-        
             List<List<string>> states = new List<List<string>>();
             List<string> alphabet = new List<string>();
             List<List<string>> transitions = new List<List<string>>();
@@ -28,7 +16,7 @@ namespace sme_intro{
             //Making the alphabet
             int i = 0;
             while(i < nfa.alphabet.Count) {
-                if(nfa.alphabet[i] != "eps"){ // the same alphabet, but excluding 
+                if(nfa.alphabet[i] != "eps"){ // the same alphabet, but excluding epsilon
                     alphabet.Add(nfa.alphabet[i]);
                 }
                 i ++;
@@ -48,7 +36,7 @@ namespace sme_intro{
             start_state.Add(new_state); //start state added
             //checking if there are any accepting nfa states
             if (in_accepting){
-                accept_states.Add(new_state);
+                accept_states.Add(new_state); //if so, dfa state should be accepting
             }
 
             // Making a stack with the states to go through
@@ -106,6 +94,7 @@ namespace sme_intro{
                 }
             }
             
+            //transform the elements to char and then bytes before returning
             char[] transformedStart = transformStartState(start_state);
             byte byteStart = byteTransformStartState(transformedStart);
        
@@ -121,6 +110,7 @@ namespace sme_intro{
             char[][] transformedTrans = transformTransitions(transitions);
             byte[][] byteTransitions = byteTransformTransitions(transformedTrans);
             byte[] flat = flatten(byteTransitions);
+            
             return (byteStart, byteAccept, byteStates, byteAlphabet, flat);
         }    
 
