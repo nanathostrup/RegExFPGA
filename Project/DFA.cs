@@ -180,7 +180,6 @@ namespace sme_intro{
         }
         static byte[] byteTransformAccepStates(char[] accept_states){
             byte[] array = new byte[accept_states.Length];
-            char save = ' ';
             for (int i = 0; i < accept_states.Length; i++){
                 array[i] = (byte)accept_states[i];
             }

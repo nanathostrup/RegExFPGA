@@ -108,8 +108,8 @@ namespace sme_intro{
             }
             Console.WriteLine("Transitions:" + transitions2);
 
-             Console.WriteLine("------------------------");
-            Console.WriteLine("NFA1");
+            Console.WriteLine("------------------------");
+            Console.WriteLine("NFA2");
             //Lav en test med noget der ikke er i alphabet.
                 //initialize en nfa, opdater nfa og lav igen. Dur nok egentlig ikke for bliver det initialiseret med from_regexp?
             
@@ -118,12 +118,14 @@ namespace sme_intro{
             NFA nfa3 = new NFA();
             nfa3.FromRegExp(regexp3);
 
+            Console.WriteLine("regexp: " + regexp3);
+
             //Test for states
             string states3 = "";
             foreach(string state in nfa3.states){
                 states3 = states3 + state + " ";
             }
-            Console.WriteLine("States: " + states2);
+            Console.WriteLine("States: " + states3);
 
             //Test for alphabet
             string alphabet3 = "";
@@ -155,6 +157,202 @@ namespace sme_intro{
                 transition3 = "";
             }
             Console.WriteLine("Transitions:" + transitions3);
+
+
+            Console.WriteLine("------------------------");
+            Console.WriteLine("NFA3");
+            //Lav en test med noget der ikke er i alphabet.
+                //initialize en nfa, opdater nfa og lav igen. Dur nok egentlig ikke for bliver det initialiseret med from_regexp?
+            
+            string regexp4 = "((ab))+"; //((a+b)(cd))+ --- LAV DENNE
+
+            NFA nfa4 = new NFA();
+            nfa4.FromRegExp(regexp4);
+
+            //Test for states
+            string states4 = "";
+            foreach(string state in nfa4.states){
+                states4 = states4 + state + " ";
+            }
+            Console.WriteLine("States: " + states4);
+
+            //Test for alphabet
+            string alphabet4 = "";
+            foreach(string chr in nfa4.alphabet){
+                string str = chr;
+                alphabet4 = alphabet4 + str + " ";
+            }
+            Console.WriteLine("Alphabet: " + alphabet4);
+
+            //Test for start state
+            Console.WriteLine("Starting state: " + nfa4.start_state);
+
+            //Test for accepting states
+            string accepting4 = "";
+            foreach (string accept in nfa4.accept_states){
+                accepting4 = accepting4 + accept + " ";
+            }
+            Console.WriteLine("Accepting States: " + accepting4);
+
+            //Test for transitions
+            string transition4 = "";
+            string transitions4 = "";
+            foreach(List<string> transition in nfa4.transitions ){
+                transitions4 = transitions4 + "[";
+                foreach(string str in transition){
+                    transition4 = transition4 + str + " ";
+                }
+                transitions4 = transitions4 + " " + transition4 + "]";
+                transition4 = "";
+            }
+            Console.WriteLine("Transitions:" + transitions4);
+
+
+            Console.WriteLine("------------------------");
+            Console.WriteLine("NFA4");
+            //Lav en test med noget der ikke er i alphabet.
+                //initialize en nfa, opdater nfa og lav igen. Dur nok egentlig ikke for bliver det initialiseret med from_regexp?
+            
+            string regexp5 = "((a+b)(cd)+)"; //((a+b)(cd))+ --- LAV DENNE
+
+            NFA nfa5 = new NFA();
+            nfa5.FromRegExp(regexp5);
+
+            //Test for states
+            string states5 = "";
+            foreach(string state in nfa5.states){
+                states5 = states5 + state + " ";
+            }
+            Console.WriteLine("States: " + states5);
+
+            //Test for alphabet
+            string alphabet5 = "";
+            foreach(string chr in nfa5.alphabet){
+                string str = chr;
+                alphabet5 = alphabet5 + str + " ";
+            }
+            Console.WriteLine("Alphabet: " + alphabet5);
+
+            //Test for start state
+            Console.WriteLine("Starting state: " + nfa5.start_state);
+
+            //Test for accepting states
+            string accepting5 = "";
+            foreach (string accept in nfa5.accept_states){
+                accepting5 = accepting5 + accept + " ";
+            }
+            Console.WriteLine("Accepting States: " + accepting5);
+
+            //Test for transitions
+            string transition5 = "";
+            string transitions5 = "";
+            foreach(List<string> transition in nfa5.transitions ){
+                transitions5 = transitions5 + "[";
+                foreach(string str in transition){
+                    transition5 = transition5 + str + " ";
+                }
+                transitions5 = transitions5 + " " + transition5 + "]";
+                transition5 = "";
+            }
+            Console.WriteLine("Transitions:" + transitions5);
+            
+
+            Console.WriteLine("------------------------");
+            Console.WriteLine("NFA5");
+            //Lav en test med noget der ikke er i alphabet.
+                //initialize en nfa, opdater nfa og lav igen. Dur nok egentlig ikke for bliver det initialiseret med from_regexp?
+            
+            string regexp6 = "((a+b)(cd))+"; //((a+b)(cd))+ --- LAV DENNE
+
+            NFA nfa6 = new NFA();
+            nfa6.FromRegExp(regexp6);
+
+            //Test for states
+            string states6 = "";
+            foreach(string state in nfa6.states){
+                states6 = states6 + state + " ";
+            }
+            Console.WriteLine("States: " + states6);
+
+            //Test for alphabet
+            string alphabet6 = "";
+            foreach(string chr in nfa6.alphabet){
+                string str = chr;
+                alphabet6 = alphabet6 + str + " ";
+            }
+            Console.WriteLine("Alphabet: " + alphabet6);
+
+            //Test for start state
+            Console.WriteLine("Starting state: " + nfa6.start_state);
+
+            //Test for accepting states
+            string accepting6 = "";
+            foreach (string accept in nfa6.accept_states){
+                accepting6 = accepting6 + accept + " ";
+            }
+            Console.WriteLine("Accepting States: " + accepting6);
+
+            //Test for transitions
+            string transition6 = "";
+            string transitions6 = "";
+            foreach(List<string> transition in nfa6.transitions ){
+                transitions6 = transitions6 + "[";
+                foreach(string str in transition){
+                    transition6 = transition6 + str + " ";
+                }
+                transitions6 = transitions6 + " " + transition6 + "]";
+                transition6 = "";
+            }
+            Console.WriteLine("Transitions:" + transitions6);
+            
+            Console.WriteLine("------------------------");
+            Console.WriteLine("NFA6");
+            //Lav en test med noget der ikke er i alphabet.
+                //initialize en nfa, opdater nfa og lav igen. Dur nok egentlig ikke for bliver det initialiseret med from_regexp?
+            
+            string regexp7 = "((ab)(cd))"; //((a+b)(cd))+ --- LAV DENNE
+
+            NFA nfa7 = new NFA();
+            nfa7.FromRegExp(regexp7);
+
+            //Test for states
+            string states7 = "";
+            foreach(string state in nfa7.states){
+                states7 = states7 + state + " ";
+            }
+            Console.WriteLine("States: " + states7);
+
+            //Test for alphabet
+            string alphabet7 = "";
+            foreach(string chr in nfa7.alphabet){
+                string str = chr;
+                alphabet7 = alphabet7 + str + " ";
+            }
+            Console.WriteLine("Alphabet: " + alphabet7);
+
+            //Test for start state
+            Console.WriteLine("Starting state: " + nfa7.start_state);
+
+            //Test for accepting states
+            string accepting7 = "";
+            foreach (string accept in nfa7.accept_states){
+                accepting7 = accepting7 + accept + " ";
+            }
+            Console.WriteLine("Accepting States: " + accepting7);
+
+            //Test for transitions
+            string transition7 = "";
+            string transitions7 = "";
+            foreach(List<string> transition in nfa7.transitions ){
+                transitions7 = transitions7 + "[";
+                foreach(string str in transition){
+                    transition7 = transition7 + str + " ";
+                }
+                transitions7 = transitions7 + " " + transition7 + "]";
+                transition7 = "";
+            }
+            Console.WriteLine("Transitions:" + transitions7);
+            
         }
     }
 }
