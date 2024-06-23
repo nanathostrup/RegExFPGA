@@ -306,11 +306,8 @@ namespace sme_intro{
             Console.WriteLine("Transitions:" + transitions6);
             
             Console.WriteLine("------------------------");
-            Console.WriteLine("NFA6");
-            //Lav en test med noget der ikke er i alphabet.
-                //initialize en nfa, opdater nfa og lav igen. Dur nok egentlig ikke for bliver det initialiseret med from_regexp?
-            
-            string regexp7 = "((ab)(cd))"; //((a+b)(cd))+ --- LAV DENNE
+            Console.WriteLine("NFA6");            
+            string regexp7 = "((ab)(cd))";
 
             NFA nfa7 = new NFA();
             nfa7.FromRegExp(regexp7);
