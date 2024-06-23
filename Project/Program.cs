@@ -23,7 +23,6 @@ namespace sme_intro
                 traversal.control = tester.control;
                 tester.traverseProcess = traversal;
 
-
                 // var watch = new System.Diagnostics.Stopwatch(); //Used for timing the construction of nfa to dfa
                 // watch.Start();
                 NFA nfa = new NFA();
