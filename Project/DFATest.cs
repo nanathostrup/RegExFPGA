@@ -31,6 +31,7 @@ namespace nfa_dfa{
             string regexp = "((a+b)(cd))+";
 
 
+
             nfa.FromRegExp(regexp);
             (byte start_state, byte[] accept_states, byte[] states, byte[] alphabet, byte[] transitions)= dfa.FromNFA(nfa);
 
