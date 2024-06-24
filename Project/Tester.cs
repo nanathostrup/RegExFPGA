@@ -1,6 +1,6 @@
 using SME;
 
-namespace sme_intro
+namespace nfa_dfa
 {
     public class Tester : SimulationProcess
     {

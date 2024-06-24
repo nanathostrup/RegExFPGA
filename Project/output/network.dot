@@ -1,4 +1,4 @@
 digraph sme_intro {
-"Traverse" [shape=box];
-"Traverse" -> "Tester";
+"nfa_dfa.Traverse" [shape=box];
+"nfa_dfa.Traverse" -> "nfa_dfa.Tester";
 }

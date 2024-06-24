@@ -16,12 +16,12 @@ package CUSTOM_TYPES is
     -- #### USER-DATA-CORETYPES-END
 
     -- Type definitions
-    subtype Traverse_transitions_type is T_SYSTEM_UINT8_ARRAY;
-    subtype Traverse_acceptStates_type is T_SYSTEM_UINT8_ARRAY;
-    subtype Traverse_states_type is T_SYSTEM_UINT8_ARRAY;
+    subtype nfa_dfa_Traverse_transitions_type is T_SYSTEM_UINT8_ARRAY;
+    subtype nfa_dfa_Traverse_acceptStates_type is T_SYSTEM_UINT8_ARRAY;
+    subtype nfa_dfa_Traverse_states_type is T_SYSTEM_UINT8_ARRAY;
 
     -- Bus array definitions
-    subtype Control_Array_type is T_SYSTEM_UINT8_ARRAY(0 to 1000 - 1);
+    subtype nfa_dfa_Control_Array_type is T_SYSTEM_UINT8_ARRAY(0 to 1000 - 1);
 
     -- User defined types here
     -- #### USER-DATA-TRAILTYPES-START

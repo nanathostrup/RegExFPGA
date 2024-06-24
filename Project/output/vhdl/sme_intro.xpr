@@ -70,7 +70,7 @@
                     <Attr Name="UsedIn" Val="simulation"/>
                 </FileInfo>
             </File>
-            <File Path="$PPRDIR/Traverse.vhdl">
+            <File Path="$PPRDIR/nfa_dfa_Traverse.vhdl">
                 <FileInfo>
                     <Attr Name="Library" Val="xil_defaultlib"/>
                     <Attr Name="UsedIn" Val="synthesis"/>

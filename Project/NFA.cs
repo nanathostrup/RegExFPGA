@@ -1,6 +1,6 @@
 using SME;
 
-namespace sme_intro{
+namespace nfa_dfa{
 
     public class NFA
     {
@@ -9,9 +9,7 @@ namespace sme_intro{
         public List<List<string>> transitions;
         public string start_state;
         public List<string> accept_states;
-        public void init(){
-            ;
-        }
+  
         public void FromRegExp(string regexp){
             this.states = new List<string>();
             this.transitions = new  List<List<string>>();
@@ -64,7 +62,13 @@ namespace sme_intro{
                     current_state = new_state;
                 }
             }
-            this.accept_states.Add(current_state);
+
+            //With current implementation, the last state should be accepting
+            string accepting = "";
+            foreach (var accept in states){
+                accepting = accept;
+            }
+            this.accept_states.Add(accepting);
         }
 
         private (string, int) ProcessGroup(string group , string current_state, int state_counter){

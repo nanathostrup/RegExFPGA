@@ -14,14 +14,14 @@ use work.CUSTOM_TYPES.ALL;
 
 entity sme_intro is
     port(
-        -- Top-level bus Control signals
-        Control_Valid: out T_SYSTEM_BOOL;
-        Control_Reset: out T_SYSTEM_BOOL;
-        Control_Length: out T_SYSTEM_INT32;
-        Control_Array: out Control_Array_type;
+        -- Top-level bus nfa_dfa_Control signals
+        nfa_dfa_Control_Valid: out T_SYSTEM_BOOL;
+        nfa_dfa_Control_Reset: out T_SYSTEM_BOOL;
+        nfa_dfa_Control_Length: out T_SYSTEM_INT32;
+        nfa_dfa_Control_Array: out nfa_dfa_Control_Array_type;
 
-        -- Top-level bus Traversal signals
-        Traversal_Valid: in T_SYSTEM_BOOL;
+        -- Top-level bus nfa_dfa_Traversal signals
+        nfa_dfa_Traversal_Valid: in T_SYSTEM_BOOL;
 
         -- User defined signals here
         -- #### USER-DATA-ENTITYSIGNALS-START
@@ -48,20 +48,20 @@ architecture RTL of sme_intro is
     -- #### USER-DATA-SIGNALS-END
 
     -- Process ready triggers
-    signal FIN_Traverse : std_logic;
+    signal FIN_nfa_dfa_Traverse : std_logic;
 
-    signal tmp_Control_Valid: T_SYSTEM_BOOL;
-    signal tmp_Control_Reset: T_SYSTEM_BOOL;
-    signal tmp_Control_Length: T_SYSTEM_INT32;
-    signal tmp_Control_Array: Control_Array_type;
+    signal tmp_nfa_dfa_Control_Valid: T_SYSTEM_BOOL;
+    signal tmp_nfa_dfa_Control_Reset: T_SYSTEM_BOOL;
+    signal tmp_nfa_dfa_Control_Length: T_SYSTEM_INT32;
+    signal tmp_nfa_dfa_Control_Array: nfa_dfa_Control_Array_type;
 
     -- The primary ready driver signal
     signal RDY : std_logic;
 
 begin
 
-    -- Entity Traverse signals
-    Traverse: entity work.Traverse
+    -- Entity nfa_dfa.Traverse signals
+    nfa_dfa_Traverse: entity work.nfa_dfa_Traverse
     generic map(
         reset_transitions (0 to 35) => (TO_UNSIGNED(48, 8), TO_UNSIGNED(99, 8), TO_UNSIGNED(51, 8), TO_UNSIGNED(48, 8), TO_UNSIGNED(97, 8), TO_UNSIGNED(49, 8), TO_UNSIGNED(49, 8), TO_UNSIGNED(98, 8), TO_UNSIGNED(50, 8), TO_UNSIGNED(51, 8), TO_UNSIGNED(99, 8), TO_UNSIGNED(54, 8), TO_UNSIGNED(51, 8), TO_UNSIGNED(97, 8), TO_UNSIGNED(52, 8), TO_UNSIGNED(50, 8), TO_UNSIGNED(97, 8), TO_UNSIGNED(52, 8), TO_UNSIGNED(52, 8), TO_UNSIGNED(98, 8), TO_UNSIGNED(53, 8), TO_UNSIGNED(53, 8), TO_UNSIGNED(97, 8), TO_UNSIGNED(52, 8), TO_UNSIGNED(53, 8), TO_UNSIGNED(99, 8), TO_UNSIGNED(54, 8), TO_UNSIGNED(50, 8), TO_UNSIGNED(99, 8), TO_UNSIGNED(54, 8), TO_UNSIGNED(54, 8), TO_UNSIGNED(97, 8), TO_UNSIGNED(52, 8), TO_UNSIGNED(54, 8), TO_UNSIGNED(99, 8), TO_UNSIGNED(54, 8)),
         reset_acceptStates (0 to 3) => (TO_UNSIGNED(50, 8), TO_UNSIGNED(51, 8), TO_UNSIGNED(53, 8), TO_UNSIGNED(54, 8)),
@@ -69,18 +69,18 @@ begin
         reset_states (0 to 6) => (TO_UNSIGNED(48, 8), TO_UNSIGNED(49, 8), TO_UNSIGNED(50, 8), TO_UNSIGNED(51, 8), TO_UNSIGNED(52, 8), TO_UNSIGNED(53, 8), TO_UNSIGNED(54, 8))
     )
     port map (
-        -- Input bus Control
-        control_Valid => tmp_Control_Valid,
-        control_Reset => tmp_Control_Reset,
-        control_Length => tmp_Control_Length,
-        control_Array => tmp_Control_Array,
+        -- Input bus nfa_dfa_Control
+        control_Valid => tmp_nfa_dfa_Control_Valid,
+        control_Reset => tmp_nfa_dfa_Control_Reset,
+        control_Length => tmp_nfa_dfa_Control_Length,
+        control_Array => tmp_nfa_dfa_Control_Array,
 
-        -- Output bus Traversal
-        traversal_Valid => Traversal_Valid,
+        -- Output bus nfa_dfa_Traversal
+        traversal_Valid => nfa_dfa_Traversal_Valid,
 
         CLK => CLK,
         RDY => RDY,
-        FIN => FIN_Traverse,
+        FIN => FIN_nfa_dfa_Traverse,
         ENB => ENB,
         RST => RST
     );
@@ -88,7 +88,7 @@ begin
     -- Connect ready signals
 
     -- Setup the FIN feedback signals
-    FIN <= FIN_Traverse;
+    FIN <= FIN_nfa_dfa_Traverse;
 
     -- Propagate all clocked and feedback signals
     process(
@@ -109,10 +109,10 @@ begin
     end process;
 
     -- Propegate tmp signals
-    Control_Valid <= tmp_Control_Valid;
-    Control_Reset <= tmp_Control_Reset;
-    Control_Length <= tmp_Control_Length;
-    Control_Array <= tmp_Control_Array;
+    nfa_dfa_Control_Valid <= tmp_nfa_dfa_Control_Valid;
+    nfa_dfa_Control_Reset <= tmp_nfa_dfa_Control_Reset;
+    nfa_dfa_Control_Length <= tmp_nfa_dfa_Control_Length;
+    nfa_dfa_Control_Array <= tmp_nfa_dfa_Control_Array;
 
     -- User defined processes here
     -- #### USER-DATA-CODE-START
