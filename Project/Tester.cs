@@ -17,6 +17,8 @@ namespace nfa_dfa
             // load(); //moved to Program.cs to avoid setting up the system when simulating in Run()
             init(); 
             await ClockAsync();
+            int Counter = 0;
+            int expected = 8;
 
             foreach (var test in tests)
             {
@@ -32,10 +34,15 @@ namespace nfa_dfa
                 control.Reset = false;
                 await ClockAsync();
 
-                Console.WriteLine("traversal.Valid: " + traversal.Valid + " for test: " + test);
+                if (traversal.Valid == true){
+                    Counter++;
+                }
+                // Console.WriteLine("traversal.Valid: " + traversal.Valid + " for test: " + test); //manual test
             }
             await ClockAsync();
-            // System.Diagnostics.Debug.Assert(counter == 2); //manually inserted test
+
+            System.Diagnostics.Debug.Assert(Counter == expected,
+                    $"Count of matched strings is {Counter}, but expected {expected}");
             Console.WriteLine("All tests passed"); //otherwise exception thrown
         }
         public void init(){

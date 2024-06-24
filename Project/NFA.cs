@@ -35,8 +35,6 @@ namespace nfa_dfa{
             List<string> groups = Grouping(regexp); //divide into groups
             string new_state = "";
 
-            Console.WriteLine(regexp);
-
             for (int i = 0; i < groups.Count; i++)
             {
                 //if the operator lies exactly at the start of the next group, then the opperator should be applied to the current group
