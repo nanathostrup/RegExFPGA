@@ -71,8 +71,6 @@ namespace nfa_dfa{
             str = str + "]";
             Console.WriteLine(str);
           
-    
-
             // Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~");
             // Console.WriteLine("regExp: " + regExp);
             // byte[] input0 = new byte[] {(byte)'a'}; //single char fra regex dur ikke
