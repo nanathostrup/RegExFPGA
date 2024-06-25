@@ -7,9 +7,12 @@ namespace nfa_dfa{
             Console.WriteLine("------------------------");
             Console.WriteLine("Test for NFAs");
             
+            //Basics
             // string regexp = "a";
             // string regexp = "abc";
             // string regecp = "an example string";
+
+            //Groups
             // string regexp = "(ab)";
             // string regexp = "(ab)(cd)";
             // string regexp = "((ab)(cd))";
@@ -17,14 +20,18 @@ namespace nfa_dfa{
             // string regexp = "ab c (a) d ( b )";
             // string regexp = "(a(b))"
             // string regexp ="(a(a(a(a(a(a))))))"
+
+            //Errors in groups
             // string regexp = "(ab)(cd"; //Error
             // string regexp = "(ab"; //Error 
             // string regexp = "ab)"; //Error
             // string regexp = "(a(ab)"; //Error
             // string regexp = "(((aaa"; //Error
-            // string regexp = "a+";
-            // string regexp = "(a)+";
-            // string regexp = "(a+)";
+
+            // + operator
+            // string regexp = "a+"; //no group
+            // string regexp = "(a)+"; //operator outside group
+            // string regexp = "(a+)"; //operator inside group
             // string regexp = "(a+b)(bc)";
             // string regexp = "((ab))+";
             // string regexp = "((a+b)(cd)+)";

@@ -12,7 +12,6 @@ namespace nfa_dfa
                 // For testing the c# only
                 // var nfaTest = new NFATest();
                 // nfaTest.Test();
-                
                 // var dfaTest = new DFATest();
                 // dfaTest.Test();
 
@@ -30,8 +29,8 @@ namespace nfa_dfa
                 
                 nfa.FromRegExp("an example string");
                 (byte start_state1, byte[] accept_states1, byte[] states1, byte[] alphabet1, byte[] transitions1) = dfa.FromNFA(nfa);
-            //     // watch.Stop(); 
-            //     // Console.WriteLine($"Execution Time: {watch.ElapsedMilliseconds} ms");
+                // watch.Stop(); 
+                // Console.WriteLine($"Execution Time: {watch.ElapsedMilliseconds} ms");
 
                 //Overwrite
                 accept_states1 = new byte[]{(byte)'2', (byte)'3', (byte)'5', (byte)'6'};
@@ -43,8 +42,8 @@ namespace nfa_dfa
                 traversal.load(start_state1, accept_states1, states1, alphabet1, transitions1, states1);
  
                 sim
-                    .AddTopLevelInputs(tester.traversal) //travs input
-                    .AddTopLevelOutputs(tester.control) //traversal output
+                    .AddTopLevelInputs(tester.traversal) 
+                    .AddTopLevelOutputs(tester.control) 
                     .BuildGraph(render_buses: false)
                     .AddTicker(s => Console.WriteLine("Ticked {0}", Scope.Current.Clock.Ticks))
                     .BuildCSVFile()
