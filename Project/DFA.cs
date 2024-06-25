@@ -120,6 +120,7 @@ public class DFA {
     //     }
     //     return (newList, in_accepting);
     // }
+    
     private (List<string>, bool) EpsilonClosure(NFA nfa, List<string> newList, bool in_accepting) {
         Queue<string> queue = new Queue<string>(newList);
         HashSet<string> visited = new HashSet<string>(newList);
@@ -163,7 +164,7 @@ public class DFA {
         char save = 's';
         for (int i = 0; i < start_state.Count; i++){
             foreach (char chr in start_state[i]){
-                save = chr; //skal egentlig bare ha den sidste. vil ik ha 's' med i 's0'
+                save = chr; //exclude 's' in 's0'
             }
         } 
         array[0] = save;
@@ -173,7 +174,7 @@ public class DFA {
         byte[] array = new byte[1];
         char save = 's';
         for (int i = 0; i < start_state.Length; i++){
-            save = start_state[i]; //skal egentlig bare ha den sidste. vil ik ha 's' med i 's0'
+            save = start_state[i];
         } 
         return (byte)save;
         // array[0] = (byte)save;
@@ -185,7 +186,7 @@ public class DFA {
         char save = ' ';
         for (int i = 0; i < accept_states.Count; i++){
             foreach (char chr in accept_states[i]){
-                save = chr; //skal egentlig bare ha den sidste. vil ik ha 's' med i 's0'
+                save = chr; //exclude 's' in 's0'
             }
             array[i] = save;
         }

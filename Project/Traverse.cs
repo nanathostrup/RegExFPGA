@@ -41,9 +41,9 @@ namespace nfa_dfa
             }
         }
 
-        public bool TraverseDFA()//(char[] input, char[][] transitions, char[] accept_states, char[] start_state, char[] states)
+        public bool TraverseDFA()//(char[] input, char[][] transitions, char[] accept_states, char[] start_state, char[] states) //should not share resources
         {
-            int inputLength = control.Length; //input.Length; //int control.int
+            int inputLength = control.Length; //input.Length; 
             byte currentState = this.startState;
             int counter = 0;
             int transLength = transitions.Length/3;

@@ -23,8 +23,8 @@ namespace nfa_dfa
             foreach (var test in tests)
             {
                 init();
-                char[] array = test.ToCharArray(); //skal på bus
-                //for løkker der loader test ind i control.array som bytes
+                char[] array = test.ToCharArray(); //going onto bus
+                //for loop that loads the tests into. contro.array as bytes
                 for (int j = 0; j < test.Length; j++){
                     control.Array[j] = (byte)array[j];
                 }
@@ -48,7 +48,7 @@ namespace nfa_dfa
         public void init(){
             control.Valid = false;
             control.Reset = true;
-            // control.Array = Scope.CreateArray<char>(1000); // Initialize the fixed array with the correct length
+            // control.Array = Scope.CreateArray<char>(1000); // Initialize the fixed array with the correct length in Bus.cs
         }
     }
 }
