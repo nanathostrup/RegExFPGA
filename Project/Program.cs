@@ -10,10 +10,10 @@ namespace nfa_dfa
             using (var sim = new Simulation())
             {
                 // For testing the c# only
-                // var nfaTest = new NFATest();
-                // nfaTest.Test();
-                // var dfaTest = new DFATest();
-                // dfaTest.Test();
+                var nfaTest = new NFATest();
+                nfaTest.Test();
+                var dfaTest = new DFATest();
+                dfaTest.Test();
 
                 //SME simulation
                 var tester = new Tester();

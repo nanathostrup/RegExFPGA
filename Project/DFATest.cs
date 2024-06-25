@@ -10,7 +10,7 @@ namespace nfa_dfa{
             NFA nfa = new NFA();
             DFA dfa = new DFA();
             // string regexp = "a";
-            // string regexp = "abc";
+            string regexp = "abc";
             // string regexp = "an example string";
             // string regexp = "(ab)";
             // string regexp = "(ab)(cd)";
@@ -28,13 +28,30 @@ namespace nfa_dfa{
             // string regexp = "(a+b)(bc)";
             // string regexp = "((ab))+";
             // string regexp = "((a+b)(cd)+)";
-            string regexp = "((a+b)(cd))+";
+            // string regexp = "((a+b)(cd))+";
+            // string regexp = "(((a+b)(cd))+cd)";
+            // string regexp = "((a+b)(cd))+cd";
+            // string regexp = "(((a+b))+cd)";
 
 
 
             nfa.FromRegExp(regexp);
-            (byte start_state, byte[] accept_states, byte[] states, byte[] alphabet, byte[] transitions)= dfa.FromNFA(nfa);
 
+            //string regex = "(ab)|(b)"; //more tests in python folder
+            nfa.states = new List<string> { "q0", "q1", "q2", "q3", "q4", "q5", "q6" };            
+            nfa.alphabet = new List<string> { "a", "b", "eps" };
+            nfa.transitions = new List<List<string>> {
+                new List<string> { "q0", "eps", "q1" },
+                new List<string> { "q0", "eps", "q4" },
+                new List<string> { "q1", "a", "q2" },
+                new List<string> { "q2", "b", "q3" },
+                new List<string> { "q3", "eps", "q6" },
+                new List<string> { "q4", "b", "q5" },
+                new List<string> { "q5", "eps", "q6" }
+            };
+            nfa.accept_states = new List<string> { "q6" };
+            (byte start_state, byte[] accept_states, byte[] states, byte[] alphabet, byte[] transitions)= dfa.FromNFA(nfa);
+            
             //The regular expression:
             Console.WriteLine("RegExp:" + regexp);
 
@@ -71,6 +88,9 @@ namespace nfa_dfa{
             str = str + "]";
             Console.WriteLine(str);
           
+
+            //Testing traversal
+
             // Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~");
             // Console.WriteLine("regExp: " + regExp);
             // byte[] input0 = new byte[] {(byte)'a'}; //single char fra regex dur ikke

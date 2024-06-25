@@ -35,7 +35,9 @@ namespace nfa_dfa{
             // string regexp = "(a+b)(bc)";
             // string regexp = "((ab))+"; //nested groups
             // string regexp = "((a+b)(cd)+)"; //several groups applied to one
-            string regexp = "((a+b)(cd))+";  //applied to several groups 
+            // string regexp = "((a+b)(cd))+";  //applied to several groups 
+            string regexp = "(((a+b)(cd))+cd)";
+            // string regexp = "((a+b)(cd))+cd";
 
             NFA nfa1 = new NFA();
             nfa1.FromRegExp(regexp);

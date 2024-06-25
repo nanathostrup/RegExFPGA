@@ -51,9 +51,14 @@ namespace nfa_dfa{
                     current_state = new_state;
 
                     //can become relevant later
-                    // if (!(groups[i+1].Length > 1)) {;
+                    if ((groups[i+1].Length > 1)) {
+                        // groups[i+1][..1];
+                        groups[i+1] = groups[i+1].Substring(1);
                     //    remove the first char in the group;
-                    // }
+                    }
+                    // if (subGroups[i+1].Length > 1) {
+                    //         subGroups[i+1] = subGroups[i+1].Substring(1);
+                    //     }
                 }
                 else{
                     (new_state, state_counter) = ProcessGroup(groups[i], current_state, state_counter);
@@ -88,12 +93,16 @@ namespace nfa_dfa{
                                 break;
                         }
                         current_state = new_state;
-
+                        if (subGroups[i+1].Length > 1) {
+                            subGroups[i+1] = subGroups[i+1].Substring(1);
+                        }
                     }
+
                     else{
                         (new_state, state_counter) = ProcessGroup(subGroups[i], current_state, state_counter);
                         current_state = new_state;
-                    }            
+                    }
+                               
                 }
                 return (current_state, state_counter);
             }
